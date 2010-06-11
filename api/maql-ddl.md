@@ -53,17 +53,27 @@ An attribute is the unit that allows you to specify how to aggregate (or slice) 
 
 ALTER ATTRIBUTE {a} ADD LABELS {label1} AS {table.column};
 
+# Fact
+
 ### CREATE FACT
 
 <code>CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab_opp.col_sales};</code>
+
+# Folder
+
+Folders are used to visually organize facts or attributes and metrics for the user. Folders are types - ie. they can only contain objects of one kind (hence the TYPE section).
 
 ### CREATE FOLDER
 
 <code>CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE</code>
 
+### CREATE FOLDER
+
+Folders are filled during the creation and modification of attributes, metrics and facts - so the only thing that can be changed on the folder itself is it's name:
+
+<code>ALTER FOLDER {a} VISUAL(TITLE "folder123");</code>
 
 
-# ALTER syntax
 
 
 
