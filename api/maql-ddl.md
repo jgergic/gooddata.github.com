@@ -23,21 +23,21 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it's c
 
 _…work in progress…_
 
-## CREATE DATASET
+### CREATE DATASET
+test
+<code>CREATE DATASET {dataset.csv2009} VISUAL(TITLE "Dataset for csv from 2009");</code>
 
-        CREATE DATASET {dataset.csv2009} VISUAL(TITLE "Dataset for csv from 2009");
+### CREATE ATTRIBUTE
 
-## CREATE ATTRIBUTE
+<code>CREATE ATTRIBUTE {attr.opportunity.category} VISUAL(TITLE "Category of opportunity", FOLDER {folder.opportunity}) AS {tab_cat.col_id};</code>
 
-        CREATE ATTRIBUTE {attr.opportunity.category} VISUAL(TITLE "Category of opportunity", FOLDER {folder.opportunity}) AS {tab_cat.col_id};
+### CREATE FACT
 
-## CREATE FACT
+<code>CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab_opp.col_sales};</code>
 
-        CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab_opp.col_sales};
+### CREATE FOLDER
 
-## CREATE FOLDER
-
-        CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE
+<code>CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE</code>
 
 # ALTER syntax
 
