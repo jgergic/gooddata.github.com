@@ -1,6 +1,6 @@
 ---
-title: API Documentation
-layout: default
+title: MAQL DDL Documentation
+layout: documentation
 ---
 
 # Modeling Data with MAQL DDL
