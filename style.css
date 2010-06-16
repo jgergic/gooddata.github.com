@@ -23,6 +23,9 @@ h3 {
 #contain-wrap li {
     list-style: disc;
 }
+.centerText {
+    margin-left: 100px;
+}
 .buttonsWrap {
     margin-top: 50px;
     margin-left: 250px;
