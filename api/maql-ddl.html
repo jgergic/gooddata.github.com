@@ -3,102 +3,110 @@ title: MAQL DDL Documentation
 layout: documentation
 ---
 
-# Modeling Data with MAQL DDL
+<h1 id="modeling_data_with_maql_ddl">Modeling Data with MAQL DDL</h1>
 
-**MAQL** (Multidimensional Query Language) is a simple yet powerful query language that provides an underpinning of GoodData's reporting capabilities. It's extension **MAQL DDL** (MAQL Data Definition Language) is used for building and adapting a data model.
+<p><strong>MAQL</strong> (Multidimensional Query Language) is a simple yet powerful query language that provides an underpinning of GoodData&#8217;s reporting capabilities. It&#8217;s extension <strong>MAQL DDL</strong> (MAQL Data Definition Language) is used for building and adapting a data model.</p>
 
-# Getting Started
+<h1 id="getting_started">Getting Started</h1>
 
-Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it's core, there are three most important commands to choose from: **CREATE**, **ALTER** and **DROP**. These commands can be applied to objects forming the data model:
+<p>Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#8217;s core, there are three most important commands to choose from: <strong>CREATE</strong>, <strong>ALTER</strong> and <strong>DROP</strong>. These commands can be applied to objects forming the data model:</p>
 
-* datasets (dataset is one joint source of data and comprises of attributes and facts)
-* attributes (attribute is container of data that cannot be added - typically all strings and some numeric columns, like ID or SSN)
-* facts (a fact is a data column containing computational data - ie. prices, amounts etc.)
-* folders (folders are used to organize attributes and facts visually for users)
-* datatypes?
+<ul>
+    <li>datasets (dataset is one joint source of data and comprises of attributes and facts)</li>
+    <li>attributes (attribute is container of data that cannot be added - typically all strings and some numeric columns, like ID or SSN)</li>
+    <li>facts (a fact is a data column containing computational data - ie. prices, amounts etc.)</li>
+    <li>folders (folders are used to organize attributes and facts visually for users)</li>
+    <li>datatypes?</li>
+</ul>
 
-/gdc/<project>/ldm/manage - transactional behavior
+<p>/gdc/&lt;project&gt;/ldm/manage - transactional behavior</p>
 
+<h1 id="synchronize">Synchronize</h1>
 
-# Synchronize
+<p>Whatever commands you perform, they affect the &#8220;logical data model&#8221; - ie. a formal representation of your data. Underneath this abstraction layer is a &#8220;physical data model&#8221; that GoodData uses to perform computations. After you finish applying your changes through MAQL DDL, you must call the <code>SYNCHRONIZE</code> command to reflect your changes from logical to physical model. You can think of this as &#8220;preparing&#8221; your changes and then committing them.</p>
 
-Whatever commands you perform, they affect the "logical data model" - ie. a formal representation of your data. Underneath this abstraction layer is a "physical data model" that GoodData uses to perform computations. After you finish applying your changes through MAQL DDL, you must call the `SYNCHRONIZE` command to reflect your changes from logical to physical model. You can think of this as "preparing" your changes and then committing them.
+<pre><code>SYNCHRONIZE {dataset.one}, {dataset.two};
+</code></pre>
 
-        SYNCHRONIZE {dataset.one}, {dataset.two};
+<p>You need to call synchronize when you&#8217;re changing the physical data model - not always!</p>
 
-You need to call synchronize when you're changing the physical data model - not always!
+<p><strong>WARNING:</strong> Calling <code>SYNCHRONIZE</code> will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the <code>SYNCHRONIZE</code> command at the end of your changes, you will be left with a <strong>broken</strong> project that won&#8217;t function properly. It is essential that you <code>SYNCHRONIZE</code> whenever you make changes.</p>
 
-**WARNING:** Calling `SYNCHRONIZE` will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the `SYNCHRONIZE` command at the end of your changes, you will be left with a **broken** project that won't function properly. It is essential that you `SYNCHRONIZE` whenever you make changes.
+<h1 id="dataset">Dataset</h1>
 
+<p>Being a simple named container for attributes and facts, creating and modifying dataset is fairly simple:</p>
 
-# Dataset
+<h3 id="create_dataset">CREATE DATASET</h3>
 
-Being a simple named container for attributes and facts, creating and modifying dataset is fairly simple:
+<pre><code>CREATE DATASET {dataset.csv2009 - arbitrary} VISUAL(TITLE "Dataset for csv from 2009");
+</code></pre>
 
-### CREATE DATASET
+<h3 id="alter_dataset">ALTER DATASET</h3>
 
-        CREATE DATASET {dataset.csv2009 - arbitrary} VISUAL(TITLE "Dataset for csv from 2009");
+<ol>
+<li><p>add attribute/fact:</p>
 
-### ALTER DATASET
+<pre><code>ALTER DATASET {a} ADD {probability};
+</code></pre></li>
+<li><p>remove attribute/fact:</p>
 
-1. add attribute/fact:
+<pre><code>ALTER DATASET {a} DROP {Customer};
+</code></pre></li>
+<li><p>change the name of the dataset:</p>
 
-        ALTER DATASET {a} ADD {probability};
+<pre><code>ALTER DATASET {a} VISUAL(TITLE "Internal Data");
+</code></pre></li>
+</ol>
 
-2. remove attribute/fact:
+<p><strong>Note:</strong> one attribute or fact should always belong to exactly one dataset (not less, not more). Otherwise the validation of the project will fail.</p>
 
-        ALTER DATASET {a} DROP {Customer};
+<h1 id="attribute">Attribute</h1>
 
-3. change the name of the dataset:
+<p>An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional <strong>labels</strong>. There are alternate string representation of the <em>same semantic value</em>. For example a person John Doe is the same person, regardless if they are visualized as &#8220;J. Doe&#8221;, &#8220;Doe, John&#8221;, &#8220;Johnny&#8221; etc. Or &#8220;Jan 10&#8221;, &#8220;January 2010&#8221; and &#8220;01/2010&#8221;.</p>
 
-        ALTER DATASET {a} VISUAL(TITLE "Internal Data");
-        
-**Note:** one attribute or fact should always belong to exactly one dataset (not less, not more). Otherwise the validation of the project will fail.
+<h3 id="create_attribute">CREATE ATTRIBUTE</h3>
 
+<pre><code>CREATE ATTRIBUTE {attr.opportunity.category} VISUAL(TITLE "Category of opportunity", FOLDER {folder.opportunity}) AS {tab_cat.col_id};
+</code></pre>
 
-# Attribute
+<h3 id="alter_attribute">ALTER ATTRIBUTE</h3>
 
-An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional **labels**. There are alternate string representation of the *same semantic value*. For example a person John Doe is the same person, regardless if they are visualized as "J. Doe", "Doe, John", "Johnny" etc. Or "Jan 10", "January 2010" and "01/2010".
+<pre><code>ALTER ATTRIBUTE {a} ADD LABELS {label1} AS {table.column};
+</code></pre>
 
-### CREATE ATTRIBUTE
+<p><strong>more TBD</strong></p>
 
-        CREATE ATTRIBUTE {attr.opportunity.category} VISUAL(TITLE "Category of opportunity", FOLDER {folder.opportunity}) AS {tab\_cat.col\_id};
+<h1 id="fact">Fact</h1>
 
-### ALTER ATTRIBUTE
+<h3 id="create_fact">CREATE FACT</h3>
 
-        ALTER ATTRIBUTE {a} ADD LABELS {label1} AS {table.column};
-**more TBD**
+<pre><code>CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab_opp.col_sales};
+</code></pre>
 
-# Fact
+<h3 id="alter_fact">ALTER FACT</h3>
 
-### CREATE FACT
+<pre><code>ALTER FACT {a} ADD {table.column};
+</code></pre>
 
-        CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab\_opp.col\_sales};
+<h1 id="folder">Folder</h1>
 
-### ALTER FACT
+<p>Folders are used to visually organize facts or attributes and metrics for the user. Folders are types - ie. they can only contain objects of one kind (hence the TYPE section).</p>
 
-        ALTER FACT {a} ADD {table.column};
+<h3 id="create_folder">CREATE FOLDER</h3>
 
+<pre><code>CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE
+</code></pre>
 
-# Folder
+<h3 id="create_folder">CREATE FOLDER</h3>
 
-Folders are used to visually organize facts or attributes and metrics for the user. Folders are types - ie. they can only contain objects of one kind (hence the TYPE section).
+<p>Folders are filled during the creation and modification of attributes, metrics and facts - so the only thing that can be changed on the folder itself is it&#8217;s name:</p>
 
-### CREATE FOLDER
+<pre><code>ALTER FOLDER {a} VISUAL(TITLE "folder123");
+</code></pre>
 
-        CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE
+<h1 id="not_yet_documented">Not Yet Documented:</h1>
 
-### CREATE FOLDER
-
-Folders are filled during the creation and modification of attributes, metrics and facts - so the only thing that can be changed on the folder itself is it's name:
-
-        ALTER FOLDER {a} VISUAL(TITLE "folder123");
-
-
-#Not Yet Documented:
-
-1. KEYWORDS/IDENTIFIERS
-2. DATE data type vs. INCLUDE TEMPLATE GDC:TIME
-
-
-
+<ol>
+<li>KEYWORDS/IDENTIFIERS</li>
+<li>DATE data type vs. INCLUDE TEMPLATE GDC:TIME</li>
+</ol>
