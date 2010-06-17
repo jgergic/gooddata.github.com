@@ -20,9 +20,8 @@ h3 {
     margin-left: 300px;
     line-height: 1.4em;
 }
-#contain-wrap li {
-    list-style: disc;
-}
+#contain-wrap ul li { list-style-type: disc; }
+#contain-wrap ol li { list-style-type: decimal; }
 .centerText {
     margin-left: 100px;
 }
@@ -81,4 +80,13 @@ h3 {
 #documentation pre code {
     border: 0px none;
     padding: 0px;
+}
+#documentation ul li { margin-left: 15px; }
+#documentation ol li { margin-left: 20px; }
+#documentation hr {
+    width: 80%;
+    color: #DEDEDE;
+    margin: 60px auto 40px;
+    border-style: dotted;
+    border-width: 1.5px;
 }
