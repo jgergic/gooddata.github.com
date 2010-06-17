@@ -16,7 +16,7 @@ a img{border:none;}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
 .clearfix{display:inline-block;}
 *html .clearfix{zoom:1;display:block;}
-a:link,a:visited{text-decoration:underline;color:#222;outline:none;}
+a:link,a:visited{text-decoration:underline;color:#4F6A73;outline:none;}
 a:hover{text-decoration:none;}
 div#wrapper{margin:0px auto;width:985px;clear:both;border:1px solid #333;}
 div#container{width:985px;}

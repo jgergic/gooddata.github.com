@@ -17,6 +17,8 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it's c
 * folders (folders are used to organize attributes and facts visually for users)
 * datatypes?
 
+/gdc/<project>/ldm/manage - transactional behavior
+
 
 # Synchronize
 
@@ -24,7 +26,9 @@ Whatever commands you perform, they affect the "logical data model" - ie. a form
 
         SYNCHRONIZE {dataset.one}, {dataset.two};
 
-**WARNING:** Without calling the `SYNCHRONIZE` command at the end of your changes, you will be left with a **broken** project that won't function properly. It is essential that you `SYNCHRONIZE` whenever you make changes.
+You need to call synchronize when you're changing the physical data model - not always!
+
+**WARNING:** Calling `SYNCHRONIZE` will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the `SYNCHRONIZE` command at the end of your changes, you will be left with a **broken** project that won't function properly. It is essential that you `SYNCHRONIZE` whenever you make changes.
 
 
 # Dataset
@@ -33,7 +37,7 @@ Being a simple named container for attributes and facts, creating and modifying 
 
 ### CREATE DATASET
 
-<code>CREATE DATASET {dataset.csv2009} VISUAL(TITLE "Dataset for csv from 2009");</code>
+        CREATE DATASET {dataset.csv2009 - arbitrary} VISUAL(TITLE "Dataset for csv from 2009");
 
 ### ALTER DATASET
 
@@ -48,30 +52,32 @@ Being a simple named container for attributes and facts, creating and modifying 
 3. change the name of the dataset:
 
         ALTER DATASET {a} VISUAL(TITLE "Internal Data");
+        
+**Note:** one attribute or fact should always belong to exactly one dataset (not less, not more). Otherwise the validation of the project will fail.
 
 
 # Attribute
 
-An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional **labels**. There are alternate string representation of the *same logical unit*. For example a person John Doe is the same person, regardless if they are visualized as "J. Doe", "Doe, John", "Johnny" etc. Or "Jan 10", "January 2010" and "01/2010". The attribute itself must contain unique values, and while it's labels don't, it is a good practice to keep the labels unique, too. A report can be render useless if it contains entries showing two "Johnny"s - each with a different amount of income - but no way to differentiate which one is which.
+An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional **labels**. There are alternate string representation of the *same semantic value*. For example a person John Doe is the same person, regardless if they are visualized as "J. Doe", "Doe, John", "Johnny" etc. Or "Jan 10", "January 2010" and "01/2010".
 
 ### CREATE ATTRIBUTE
 
-<code>CREATE ATTRIBUTE {attr.opportunity.category} VISUAL(TITLE "Category of opportunity", FOLDER {folder.opportunity}) AS {tab\_cat.col\_id};</code>
+        CREATE ATTRIBUTE {attr.opportunity.category} VISUAL(TITLE "Category of opportunity", FOLDER {folder.opportunity}) AS {tab\_cat.col\_id};
 
 ### ALTER ATTRIBUTE
 
-ALTER ATTRIBUTE {a} ADD LABELS {label1} AS {table.column};
+        ALTER ATTRIBUTE {a} ADD LABELS {label1} AS {table.column};
 **more TBD**
 
 # Fact
 
 ### CREATE FACT
 
-<code>CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab\_opp.col\_sales};</code>
+        CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab\_opp.col\_sales};
 
 ### ALTER FACT
 
-<code>ALTER FACT {a} ADD {table.column};</code>
+        ALTER FACT {a} ADD {table.column};
 
 
 # Folder
@@ -80,13 +86,13 @@ Folders are used to visually organize facts or attributes and metrics for the us
 
 ### CREATE FOLDER
 
-<code>CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE</code>
+        CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE
 
 ### CREATE FOLDER
 
 Folders are filled during the creation and modification of attributes, metrics and facts - so the only thing that can be changed on the folder itself is it's name:
 
-<code>ALTER FOLDER {a} VISUAL(TITLE "folder123");</code>
+        ALTER FOLDER {a} VISUAL(TITLE "folder123");
 
 
 #Not Yet Documented:

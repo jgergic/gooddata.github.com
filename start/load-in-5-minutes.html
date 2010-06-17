@@ -1,0 +1,40 @@
+---
+title: Load Data in 5 minutes
+layout: documentation
+---
+            <h1>Loading Data into GoodData in 5 minutes</h1>
+
+            <h3>Preparation - find some data, create a GoodData account</h3>
+
+            <li>
+                <p>In following examples, we will use a comma-separated file for sake of simplicity. If you have other data formats, or wish to connect directly into the database, we have connectors into data integration tools that offer direct database access.</p>
+                <p>If you want to analyze data from your internal database, most vendors feature export tools
+                    (
+                    <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">MySQL</a>,
+                    <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">Oracle</a>,
+                    <a href="http://technet.microsoft.com/en-us/library/dd255223.aspx">MS SQL</a> etc.
+                    )
+                </p>
+            </li>
+            <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
+            <!-- TBD: ZD direct DB connector! -->
+            
+            
+            <h3>Step 1 - install the GoodData Java Framework</h3>
+            
+            Follow the quick <a href="http://github.com/gooddata/Java-DI-Tool/blob/master/README.md#win">installation readme</a>.
+            
+            <h3>Step 2 - describe your data</h3>
+            
+            Run the Java tool, generate a XML config file describing your data.
+
+            The example expects your comma-separated file called data.csv:
+            <pre>
+                <code>
+./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="data.csv",configFile="config.xml");'
+vi config.xml
+                </code>
+            </pre>
+            
+            Read the XML config documentation if you need a advanced data model.
+            
