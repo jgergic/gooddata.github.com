@@ -3,11 +3,6 @@ title: Data Integration FAQ
 layout: default
 ---
 
-# Data Integration FAQ
-This FAQ is aimed at both internal and external audiences, for beta invites, and will be posted on developer.gooddata.com and support.gooddata.com
-
---------
-
 # Product
 
 ### What is the GoodData Open Integration Framework?
