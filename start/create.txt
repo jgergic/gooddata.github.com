@@ -1,0 +1,14 @@
+# CREATE A NEW PROJECT
+CreateProject(name="Sample Project");
+
+# STORE THE PROJECT ID TO FILE FOR THE FOLLOWING SCRIPT
+StoreProject(fileName="sample-project.pid");
+
+# LOAD THE DATA
+LoadCsv(csvDataFile="data.csv", configFile="config.xml");
+
+# GENERATE THE DATA MODEL MAQL SCRIPT
+GenerateMaql(maqlFile="project.maql");
+
+# EXECUTE THE MAQL SCRIPT
+ExecuteMaql(maqlFile="project.maql");

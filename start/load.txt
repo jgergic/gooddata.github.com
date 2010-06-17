@@ -1,0 +1,10 @@
+# THIS EXAMPLE DEMONSTRATES HOW TO LOAD YOUR DATA TO GOODDATA
+
+# RETRIEVE THE PROJECT THAT HAS BEEN SAVED BY THE FIRST SCRIPT
+RetrieveProject(fileName="sample-project.pid");
+
+# LOAD THE DATA INTO THE FRAMEWORK
+LoadCsv(csvDataFile="data.csv", configFile="config.xml");
+
+# TRANSFER THE DATA TO THE GOODDATA SERVER
+TransferData(incremental="false");

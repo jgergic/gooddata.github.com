@@ -18,23 +18,38 @@ layout: documentation
             </li>
             <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
             <!-- TBD: ZD direct DB connector! -->
-            
-            
+
+
             <h3>Step 1 - install the GoodData Java Framework</h3>
-            
-            Follow the quick <a href="http://github.com/gooddata/Java-DI-Tool/blob/master/README.md#win">installation readme</a>.
-            
-            <h3>Step 2 - describe your data</h3>
-            
-            Run the Java tool, generate a XML config file describing your data.
+
+            Follow the quick <a href="http://github.com/gooddata/Java-DI-Tool/blob/master/README.md#readme">installation readme</a>.
+
+            <h3 id="describe">Step 2 - describe your data</h3>
+
+            Run the <code>gdi</code>, generate a XML config file describing your data.
 
             The example expects your comma-separated file called data.csv:
-            <pre>
-                <code>
-./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="data.csv",configFile="config.xml");'
-vi config.xml
-                </code>
-            </pre>
-            
-            Read the XML config documentation if you need a advanced data model.
-            
+<pre><code>./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="data.csv",configFile="config.xml");'
+vi config.xml</code></pre>
+
+            Read the <a href="http://github.com/gooddata/Java-DI-Tool/blob/master/doc/DOCUMENTATION.md#config">XML config documentation</a> if you need to modify the data model.
+
+            <h3>Step 3 - setup your project</h3>
+
+            Save <a href="create.txt">this file</a> as <code>create.cmd</code> and run with <code>gdi</code>:
+
+            <pre><code>./bin/gdi.sh -u [username] -p [password] create.cmd</code></pre>
+
+            Now you can log into your project and visually verify your created attributes, facts and data model (in the Data page).
+
+            <h3 id="upload">Step 4 - load your data</h3>
+
+            Save <a href="load.txt">another file</a> as <code>load.txt</code> and run with <code>gdi</code>:
+
+            <pre><code>./bin/gdi.sh -u [username] -p [password] create.cmd</code></pre>
+
+            <h1>Next steps</h1>
+
+            <h3 id="automate">Automatic data load</h3>
+
+            Since step 4 is fully automatic, you can easily place that command into a shell script (or Windows batch script) and run <a href="http://en.wikipedia.org/wiki/Cron">periodically</a>.
