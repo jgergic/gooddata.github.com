@@ -1,5 +1,5 @@
 # CREATE A NEW PROJECT
-CreateProject(name="Sample Project");
+CreateProject(name="My Sample Project");
 
 # STORE THE PROJECT ID TO FILE FOR THE FOLLOWING SCRIPT
 StoreProject(fileName="sample-project.pid");
