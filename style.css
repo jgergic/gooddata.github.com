@@ -1,3 +1,9 @@
+a, a:visited {
+    color: #4183C4;
+}
+a:hover {
+    color: #007CFF;
+}
 h3 {
     font-size: 1.1em;
     font-weight: bold;

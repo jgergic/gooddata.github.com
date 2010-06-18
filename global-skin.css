@@ -57,7 +57,6 @@ body.custom div#navigation a:hover{background:none;background-image:url(http://w
 body.custom div#navigation ul.navigation li a:link,ul.navigation li a:visited{padding-left:15px;padding-right:15px;}
 body.custom .headway-leaf{padding:0px 0px 0px 0px;}
 body.custom a{text-decoration:none;}
-body.custom a:hover{color:#6f94a5;}
 body.custom h1{line-height:30px;font-size:24px;}
 body.custom div#container .subfooter{float:left;width:960px;margin:0px 0px 0px -28px;padding:25px 13px 0px 18px;color:#666;background-image:url(http://www.gooddata.com/files/2009/10/footerbackground2.jpg);background-repeat:no-repeat;background-color:#ffffff;}
 body.custom div#container .subfooter a{}
