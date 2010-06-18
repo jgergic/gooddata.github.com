@@ -4,7 +4,7 @@
 RetrieveProject(fileName="sample-project.pid");
 
 # LOAD THE DATA INTO THE FRAMEWORK
-LoadCsv(csvDataFile="data.csv", configFile="config.xml");
+LoadCsv(csvDataFile="data.csv", header="true", configFile="config.xml");
 
 # TRANSFER THE DATA TO THE GOODDATA SERVER
 TransferData(incremental="false");
