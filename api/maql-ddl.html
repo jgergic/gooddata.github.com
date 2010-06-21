@@ -19,16 +19,13 @@ layout: documentation
     <li>datatypes?</li>
 </ul>
 
-<p>/gdc/&lt;project&gt;/ldm/manage - transactional behavior</p>
+<p>You can try the MAQL commands featured here directly in the REST API interface, just go to http://secure.gooddata.com/gdc/&lt;project&gt;/ldm/manage (replacing project with your own project's MD5 hash). It's good to mention as well that you can enter multiple commands into the text field. They will all execute together as part of a transaction and if any of them fails none of them will be applied.</p>
 
 <h1 id="synchronize">Synchronize</h1>
 
-<p>Whatever commands you perform, they affect the &#8220;logical data model&#8221; - ie. a formal representation of your data. Underneath this abstraction layer is a &#8220;physical data model&#8221; that GoodData uses to perform computations. After you finish applying your changes through MAQL DDL, you must call the <code>SYNCHRONIZE</code> command to reflect your changes from logical to physical model. You can think of this as &#8220;preparing&#8221; your changes and then committing them.</p>
+<p>Whatever commands you perform, they affect the &#8220;logical data model&#8221; - ie. a formal representation of your data. Underneath this abstraction layer is a &#8220;physical data model&#8221; that GoodData uses to perform computations. After you finish applying your changes through MAQL DDL, if those changes have impacted the physical data model you must call the <code>SYNCHRONIZE</code> command to reflect your changes from logical to physical model. You can think of this as &#8220;preparing&#8221; your changes and then committing them. Visual changes (names, descriptions, membership in folders etc.) don't need to be synchronized to the physical model.</p>
 
-<pre><code>SYNCHRONIZE {dataset.one}, {dataset.two};
-</code></pre>
-
-<p>You need to call synchronize when you&#8217;re changing the physical data model - not always!</p>
+<pre><code>SYNCHRONIZE {dataset.one}, {dataset.two};</code></pre>
 
 <p><strong>WARNING:</strong> Calling <code>SYNCHRONIZE</code> will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the <code>SYNCHRONIZE</code> command at the end of your changes, you will be left with a <strong>broken</strong> project that won&#8217;t function properly. It is essential that you <code>SYNCHRONIZE</code> whenever you make changes.</p>
 
