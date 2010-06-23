@@ -40,31 +40,30 @@ layout: documentation
 
 <h3 id="create_dataset">CREATE DATASET</h3>
 
-<pre><code>CREATE DATASET {dataset.csv2009 - arbitrary} VISUAL(TITLE "Dataset for csv from 2009");
-</code></pre>
+<pre><code>CREATE DATASET {dataset.quotes} VISUAL(TITLE "Stock Quotes Data");</code></pre>
 
 <h3 id="alter_dataset">ALTER DATASET</h3>
 
 <ol>
-<li><p>add attribute/fact:</p>
-
-<pre><code>ALTER DATASET {a} ADD {probability};
-</code></pre></li>
-<li><p>remove attribute/fact:</p>
-
-<pre><code>ALTER DATASET {a} DROP {Customer};
-</code></pre></li>
-<li><p>change the name of the dataset:</p>
-
-<pre><code>ALTER DATASET {a} VISUAL(TITLE "Internal Data");
-</code></pre></li>
+    <li>
+        <p>add attribute/fact:</p>
+        <pre><code>ALTER DATASET {dataset.quotes} ADD {attribute.probability};</code></pre>
+    </li>
+    <li>
+        <p>remove attribute/fact:</p>
+        <pre><code>ALTER DATASET {dataset.quotes} DROP {attribute.customer};</code></pre>
+    </li>
+    <li>
+        <p>change the name of the dataset:</p>
+        <pre><code>ALTER DATASET {dataset.quotes} VISUAL(TITLE "Internal Data");</code></pre>
+    </li>
 </ol>
 
-<p><strong>Note:</strong> one attribute or fact should always belong to exactly one dataset (not less, not more). Otherwise the validation of the project will fail.</p>
+<p><strong>Note:</strong> one attribute or fact should always belong to exactly one dataset (not more, not less). Otherwise the validation of the project will fail.</p>
 
 <h1 id="attribute">Attribute</h1>
 
-<p>An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional <strong>labels</strong>. There are alternate string representation of the <em>same semantic value</em>. For example a person John Doe is the same person, regardless if they are visualized as &#8220;J. Doe&#8221;, &#8220;Doe, John&#8221;, &#8220;Johnny&#8221; etc. Or &#8220;Jan 10&#8221;, &#8220;January 2010&#8221; and &#8220;01/2010&#8221;.</p>
+<p>An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional <strong>labels</strong>. These are alternate string representation of the <em>same semantic value</em>. For example a person John Doe is the same person, regardless if they are visualized as “J. Doe”, “Doe, John”, “Johnny” etc. Or “Jan 10”, “January 2010” and “01/2010”.</p>
 
 <h3 id="create_attribute">CREATE ATTRIBUTE</h3>
 
