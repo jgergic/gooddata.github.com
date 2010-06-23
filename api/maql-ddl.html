@@ -24,7 +24,8 @@ layout: documentation
 <h1 id="identifiers">Identifiers</h1>
 
 <p>Throughout the MAQL script samples below, words enclosed in {curly brackets} denote <em>identifiers</em>. Think of them as human-readable IDs that you can assign to objects and refer to them in other objects. Once an object is created, the identifier is persistent and cannot be changed. You can choose your own naming conventions for identifiers (in the examples below we often put identifiers into "namespace" by prefixing them with "folder.", "fact." etc.) Identifiers can contain alphanumeric characters, underscore and dot (ie. <code>[A-Za-z0-9_\.]</code>).</p>
-<p class="warning"><b>Note:</b> The only exception, where identifier name has to follow certain structure is <em>data column identifiers</em>. These identifiers reference specific data columns in data files that you upload through the upload API. These are structured in <a href="http://en.wikipedia.org/wiki/Third_normal_form">3NF</a>. The identifiers must take form of <code>file.column</code>. The <code>file</code> part corresponds to the data file, while column corresponds to a specific column. All columns that in 3NF share a common file must also share the same prefix in their identifiers. In examples below, <em>data column identifiers</em> are in <i>italics</i>.</p>
+
+<p class="note"><strong>Note:</strong> The only exception, where identifier name has to follow certain structure is <em>data column identifiers</em>. These identifiers reference specific data columns in data files that you upload through the upload API. These are structured in <a href="http://en.wikipedia.org/wiki/Third_normal_form">3NF</a>. The identifiers must take form of <code>file.column</code>. The <code>file</code> part corresponds to the data file, while column corresponds to a specific column. All columns that in 3NF share a common file must also share the same prefix in their identifiers. In examples below, <em>data column identifiers</em> are <u title="data column identifier, see Identifiers section">underlined</u>.</p>
 
 <h1 id="synchronize">Synchronize</h1>
 
@@ -32,7 +33,7 @@ layout: documentation
 
 <pre><code>SYNCHRONIZE {dataset.one}, {dataset.two};</code></pre>
 
-<p><strong>WARNING:</strong> Calling <code>SYNCHRONIZE</code> will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the <code>SYNCHRONIZE</code> command at the end of your changes, you will be left with a <strong>broken</strong> project that won&#8217;t function properly. It is essential that you <code>SYNCHRONIZE</code> whenever you make changes.</p>
+<p class="warning"><strong>WARNING:</strong> Calling <code>SYNCHRONIZE</code> will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the <code>SYNCHRONIZE</code> command at the end of your changes, you will be left with a <strong>broken</strong> project that won&#8217;t function properly. It is essential that you <code>SYNCHRONIZE</code> whenever you make changes.</p>
 
 <h1 id="dataset">Dataset</h1>
 
@@ -47,47 +48,47 @@ layout: documentation
 <ol>
     <li>
         <p>add attribute/fact:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} ADD {attribute.probability};</code></pre>
+        <pre><code>ALTER DATASET {dataset.quotes} ADD {attribute.sector};</code></pre>
     </li>
     <li>
         <p>remove attribute/fact:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} DROP {attribute.customer};</code></pre>
+        <pre><code>ALTER DATASET {dataset.quotes} DROP {attribute.symbol};</code></pre>
     </li>
     <li>
         <p>change the name of the dataset:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} VISUAL(TITLE "Internal Data");</code></pre>
+        <pre><code>ALTER DATASET {dataset.quotes} VISUAL(TITLE "Internal Quotes Data");</code></pre>
     </li>
 </ol>
 
-<p><strong>Note:</strong> one attribute or fact should always belong to exactly one dataset (not more, not less). Otherwise the validation of the project will fail.</p>
+<p class="note"><strong>Note:</strong> one attribute or fact should always belong to exactly one dataset (not more, not less). Otherwise the validation of the project will fail.</p>
 
 <h1 id="attribute">Attribute</h1>
 
-<p>An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional <strong>labels</strong>. These are alternate string representation of the <em>same semantic value</em>. For example a person John Doe is the same person, regardless if they are visualized as “J. Doe”, “Doe, John”, “Johnny” etc. Or “Jan 10”, “January 2010” and “01/2010”.</p>
+<p>An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional <strong>labels</strong>. These are alternate string representation of the <em>same semantic value</em>. For example a person John Doe is the same person, regardless if they are visualized as &quot;J. Doe&quot;, &quot;Doe, John&quot;, &quot;Johnny&quot; etc. Or &quot;Jan 10&quot;, &quot;January 2010&quot; and &quot;01/2010&quot;.</p>
 
 <h3 id="create_attribute">CREATE ATTRIBUTE</h3>
 
-<pre><code>CREATE ATTRIBUTE {attr.opportunity.category} VISUAL(TITLE "Category of opportunity", FOLDER {folder.opportunity}) AS {tab_cat.col_id};
-</code></pre>
+<pre><code>CREATE ATTRIBUTE {attr.quotes.symbol}
+    VISUAL(TITLE "Symbol", FOLDER {folder.quotes.attr})
+    AS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u>;</code></pre>
 
 <h3 id="alter_attribute">ALTER ATTRIBUTE</h3>
 
-<pre><code>ALTER ATTRIBUTE {a} ADD LABELS {label1} AS {table.column};
-</code></pre>
+<pre><code>ALTER ATTRIBUTE {attr.quotes.symbol}
+    ADD LABELS {attr.quotes.company} VISUAL(TITLE "Company")
+    AS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_company}</u>;</code></pre>
 
-<p><strong>more TBD</strong></p>
 
 <h1 id="fact">Fact</h1>
 
 <h3 id="create_fact">CREATE FACT</h3>
 
-<pre><code>CREATE FACT {fact.opportunity.sales} VISUAL( TITLE "Sales" ) AS {tab_opp.col_sales};
-</code></pre>
+<pre><code>CREATE FACT {fact.quotes.open_price}
+    VISUAL( TITLE "Open Price", FOLDER {folder.quotes.fact}) AS <u title="data column identifier, see Identifiers section">{f_quotes.f_open_price}</u>;</code></pre>
 
 <h3 id="alter_fact">ALTER FACT</h3>
 
-<pre><code>ALTER FACT {a} ADD {table.column};
-</code></pre>
+<pre><code>ALTER FACT {fact.quotes.open_price} ADD <u title="data column identifier, see Identifiers section">{f_quotes2.f_open_price}</u>;</code></pre>
 
 <h1 id="folder">Folder</h1>
 
@@ -95,19 +96,86 @@ layout: documentation
 
 <h3 id="create_folder">CREATE FOLDER</h3>
 
-<pre><code>CREATE FOLDER {folder.one} VISUAL ( TITLE "folder one", DESCRIPTION "some description" ) TYPE ATTRIBUTE
-</code></pre>
+<pre><code>CREATE FOLDER {folder.quotes.attr}
+    VISUAL ( TITLE "Stock Quotes Data",
+             DESCRIPTION "Stock quotes data obtained from John Doe etc." )
+    TYPE ATTRIBUTE;</code></pre>
 
-<h3 id="create_folder">CREATE FOLDER</h3>
+<h3 id="create_folder">ALTER FOLDER</h3>
 
-<p>Folders are filled during the creation and modification of attributes, metrics and facts - so the only thing that can be changed on the folder itself is it&#8217;s name:</p>
+<p>As seen above, folders are filled during the creation and modification of attributes, metrics and facts. Thus the only thing that can be changed on the folder itself is it's name:</p>
 
-<pre><code>ALTER FOLDER {a} VISUAL(TITLE "folder123");
-</code></pre>
+<pre><code>ALTER FOLDER {folder.quotes.attr} VISUAL(TITLE "Quotes Attributes");</code></pre>
 
-<h1 id="not_yet_documented">Not Yet Documented:</h1>
+<h1 id="performance">Performance Optimization</h1>
 
-<ol>
-<li>KEYWORDS/IDENTIFIERS</li>
-<li>DATE data type vs. INCLUDE TEMPLATE GDC:TIME</li>
-</ol>
+<p>There are several useful techniques to optimize the data model for performance. In general it is a good idea to talk to our support for data model optimizations, but here are a few techniques to get you started:</p>
+
+<h3>Specify a DATATYPE</h3>
+
+<p>By default the system automatically stores all facts as decimal(12,2) and all atributes and labels as 128-character strings. For performance reasons or to store other data types, you can redefine your column data type:</p>
+
+<pre><code>ALTER DATATYPE <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u> CHAR(4),
+    <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u> VARCHAR(80),
+    <u title="data column identifier, see Identifiers section">{f_quotes.f_open_price}</u> DECIMAL(10,2);</code></pre>
+    
+<p>Supported data types are:</p>
+<table>
+    <tbody>
+        <tr>
+            <th class="confluenceTh">data type</th>
+            <th class="confluenceTh">form</th>
+            <th class="confluenceTh">note</th>
+        </tr>
+        <tr>
+            <td class="confluenceTd">VARCHAR (N)</td>
+            <td class="confluenceTd">&nbsp;</td>
+            <td class="confluenceTd"><b>N</b> (1..255)</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd">DECIMAL (M,D)</td>
+            <td class="confluenceTd">&nbsp;</td>
+            <td class="confluenceTd"><b>M</b> min(-1e+15) max(1e+15), <b>D</b> max = 6</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd">INT</td>
+            <td class="confluenceTd">&nbsp;</td>
+            <td class="confluenceTd">min(-2147483648) max(2147483647)</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd">BIGINT</td>
+            <td class="confluenceTd">&nbsp;</td>
+            <td class="confluenceTd">min(-1e+15) max(1e+15)</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd">DATE</td>
+            <td class="confluenceTd">'YYYY-MM-DD'</td>
+            <td class="confluenceTd">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="confluenceTd">DOUBLE</td>
+            <td class="confluenceTd">&nbsp;</td>
+            <td class="confluenceTd">discouraged</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><sup>*</sup>) The DATE datatype automatically maps with the GoodData-provided date dimension, if you have previously included it into the project:</p>
+<pre><code>INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "my-date", TITLE "quote");</code></pre>
+
+<h3>Specify index keys</h3>
+
+<p>You can opt to specify indexing hints for your data:</p>
+
+<pre><code>ALTER ATTRIBUTE {attr.quotes.symbol} ADD KEYS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u> PRIMARY;</code></pre>
+
+<p>There are two types of keys supported: <code>PRIMARY</code> and <code>FULLSET</code>. Primary key must be unique in scope of the attribute.</p>
+
+<p>Correspondingly, you can drop keys from attributes as well:</p>
+
+<pre><code>ALTER ATTRIBUTE {attr.quotes.symbol} DROP KEYS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u>;</code></pre>
+
+<h3>Create Multiple Fact Columns</h3>
+
+<p>In the following example, the fact <code>fact.quotes.open_price</code> already has a fact column f_quotes.f_open_price, but for performance reasons, an identical column in f_quotes2 is being added below:</p>
+<pre><code>ALTER FACT {fact.quotes.open_price} ADD <u title="data column identifier, see Identifiers section">{f_quotes2.f_open_price}</u>;</code></pre>
