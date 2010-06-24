@@ -28,11 +28,11 @@ layout: documentation
 
             Run the <code>gdi</code>, generate a XML config file describing your data.
 
-            The example uses one of the example files in your GoodData DI Framework. You might use your own data:
+            The example uses a file in your GoodData DI Framework. You might use your own data file (make sure the first row contains headers):
 <pre><code>./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
 vi config.xml</code></pre>
 
-            Read the <a href="http://github.com/gooddata/GoodData-DI/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">XML config documentation</a> if you need to modify the data model.
+            This command generated a sample XML config file. Data types of your columns are random. Read the <a href="http://github.com/gooddata/GoodData-DI/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">XML config documentation</a> to edit this file and describe your data. See <a href="http://github.com/gooddata/GoodData-DI/tree/master/cli-distro/examples/#readme">our examples</a> for typical basic usage.
 
             <h3>Step 3 - setup your project</h3>
 
