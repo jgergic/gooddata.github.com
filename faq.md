@@ -1,6 +1,6 @@
 ---
 title: Data Integration FAQ
-layout: default
+layout: documentation
 ---
 
 # Product
@@ -22,7 +22,7 @@ GoodData's new data integration framework fully supports our fluid data model wh
 GoodData is bringing a level of flexibility in data modeling and loading to the SaaS BI that frankly does not exist today. Flexibility in terms of choice of tooling and integration methods. Flexibility in terms of adding data and changing data models.
 
 ### When is the new data integration framework available?
-our new data integration APIs are available today in beta. We will be rolling out the complete functionality in phases over the next 3 months.
+Our new data integration APIs are available today in beta. We will be rolling out the complete functionality in phases over the next 3 months.
 
 ### How can I start using it?
 GoodData is running an early access program - visit developer.gooddata.com or contact us at support@gooddata.com to apply for the program
