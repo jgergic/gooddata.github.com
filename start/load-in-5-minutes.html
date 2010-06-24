@@ -13,23 +13,23 @@ layout: documentation
                     <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">MySQL</a>,
                     <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">Oracle</a>,
                     <a href="http://technet.microsoft.com/en-us/library/dd255223.aspx">MS SQL</a> etc.
-                    )
+                    ). We also have a JDBC connector that can 
                 </p>
             </li>
             <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
             <!-- TBD: ZD direct DB connector! -->
 
 
-            <h3>Step 1 - install the GoodData Java Framework</h3>
+            <h3>Step 1 - install the GoodData DI Framework</h3>
 
-            Follow the quick <a href="http://github.com/gooddata/GoodData-DI/blob/master/README.md#readme">installation readme</a>.
+            Follow the quick <a href="http://github.com/gooddata/GoodData-DI/tree/master/cli-distro/examples/#readme">installation readme</a>.
 
             <h3 id="describe">Step 2 - describe your data</h3>
 
             Run the <code>gdi</code>, generate a XML config file describing your data.
 
-            The example expects your comma-separated file called <a href="data.csv">data.csv</a>:
-<pre><code>./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="data.csv",configFile="config.xml");'
+            The example uses one of the example files in your GoodData DI Framework. You might use your own data:
+<pre><code>./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
 vi config.xml</code></pre>
 
             Read the <a href="http://github.com/gooddata/GoodData-DI/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">XML config documentation</a> if you need to modify the data model.
@@ -58,4 +58,8 @@ vi config.xml</code></pre>
             
             <h3>Learn more</h3>
             
-            Read the full <code>gdi</code> <a href="http://github.com/gooddata/GoodData-DI/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">documentation</a> for more advanced options like data snapshotting, custom connectors etc. Or dive even deeper and read our full <a href="/api/maql-ddl.html">MAQL DDL documentation</a> for creating custom data models.
+            <ul>
+                <li>See the <a href="http://github.com/gooddata/GoodData-DI/tree/master/cli-distro/examples/#readme">other examples</a> included with GoodData DI.</li>
+                <li>Read the full <code>gdi</code> <a href="http://github.com/gooddata/GoodData-DI/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">documentation</a> for more advanced options like data snapshotting, custom connectors etc.</li>
+                <li>Or dive even deeper and read our full <a href="/api/maql-ddl.html">MAQL DDL documentation</a> for creating custom data models.</li>
+            </ul>
