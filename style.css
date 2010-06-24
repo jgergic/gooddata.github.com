@@ -4,21 +4,36 @@ a, a:visited {
 a:hover {
     color: #007CFF;
 }
+h1, h2 { color: #455360; }
 h3 {
     font-size: 1.1em;
     font-weight: bold;
 }
+table td, table th {
+    border: 1px solid black;
+    padding: 2px;
+}
+table th {
+    font-weight: bold;
+}
+ul, ol {
+    margin: 1em 0px 1em 2em;
+    line-height: 1.7em;
+}
+
 #contain-wrap {
+    line-height: 1.4em;
     font-size: 14px;
     padding-bottom: 100px;
     font-family: sans-serif;
     padding: 50px;
+    padding-top: 10px;
 }
 #contain-wrap h1 {
     font-size: 2em;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 20px;
-    text-align: center;
+/*    text-align: center;*/
 }
 #contain-wrap ul.centered {
     text-align: left;
@@ -28,12 +43,16 @@ h3 {
 }
 #contain-wrap ul li { list-style-type: disc; }
 #contain-wrap ol li { list-style-type: decimal; }
+#contain-wrap img {
+    border: 4px solid #ddd;
+}
 .centerText {
     margin-left: 100px;
 }
+
 .buttonsWrap {
     margin-top: 50px;
-    margin-left: 250px;
+/*    margin-left: 250px;*/
 }
 .buttonsWrap button {
     background-color: #6DAF37;
@@ -51,6 +70,7 @@ h3 {
     width: auto;
     overflow: visible;
 }
+
 .links {
     margin-top: 50px;
     text-align: left;
@@ -63,19 +83,22 @@ h3 {
 #documentation {
     text-align: left;
     margin: 0px;
-    line-height: 1.4em;
-    background-color: #F6F6F6;
-    border: 1px solid #E9E9E9;
+/*    background-color: #F6F6F6;*/
+/*    border: 1px solid #E9E9E9;*/
     padding: 10px;
 }
 #documentation h3 {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     margin-top: 20px;
+}
+#documentation h3 + p {
+    margin-top: 0px;
 }
 #documentation pre, #documentation code {
     background-color: #F5F6FF;
     border: 1px solid #DEDEDE;
     padding: 0px 3px;
+    color: #444;
 }
 #documentation pre {
     overflow: auto;
@@ -86,13 +109,15 @@ h3 {
 #documentation pre code {
     border: 0px none;
     padding: 0px;
+    font-size: 12px;
+    line-height: 16px;
 }
 #documentation ul li { margin-left: 15px; }
 #documentation ol li { margin-left: 20px; }
 #documentation hr {
-    width: 80%;
+    width: 90%;
     color: #DEDEDE;
-    margin: 60px auto 40px;
-    border-style: dotted;
-    border-width: 1.5px;
+    margin: 40px auto 40px;
+    border-style: solid;
+    border-width: 2px;
 }
