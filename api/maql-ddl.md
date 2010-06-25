@@ -9,15 +9,13 @@ layout: documentation
 
 <h1 id="getting_started">Getting Started</h1>
 
-<p>Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#8217;s core, there are three most important commands to choose from: <strong>CREATE</strong>, <strong>ALTER</strong> and <strong>DROP</strong>. These commands can be applied to objects forming the data model:</p>
+Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#8217;s core, there are three most important commands to choose from: <strong>CREATE</strong>, <strong>ALTER</strong> and <strong>DROP</strong>. These commands can be applied to objects forming the data model:
 
-<ul>
-    <li>datasets (dataset is one joint source of data and comprises of attributes and facts)</li>
-    <li>attributes (attribute is container of data that cannot be added - typically all strings and some numeric columns, like ID or SSN)</li>
-    <li>facts (a fact is a data column containing computational data - ie. prices, amounts etc.)</li>
-    <li>folders (folders are used to organize attributes and facts visually for users)</li>
-    <li>datatypes?</li>
-</ul>
+ * datasets (dataset is one joint source of data and comprises of attributes and facts)
+ * attributes (attribute is container of data that cannot be added - typically all strings and some numeric columns, like ID or SSN)
+ * facts (a fact is a data column containing computational data - ie. prices, amounts etc.)
+ * folders (folders are used to organize attributes and facts visually for users)
+ * datatypes?
 
 <p>You can try the MAQL commands featured here directly in the REST API interface, just go to http://secure.gooddata.com/gdc/&lt;project&gt;/ldm/manage (replacing project with your own project's MD5 hash). It's good to mention as well that you can enter multiple commands into the text field. They will all execute together as part of a transaction and if any of them fails none of them will be applied.</p>
 

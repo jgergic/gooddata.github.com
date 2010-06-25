@@ -2,65 +2,62 @@
 title: Load Data in 5 minutes
 layout: documentation
 ---
-            <h1>Loading Data into GoodData in 5 minutes</h1>
+# Loading Data into GoodData in 5 minutes
 
-            <h3>Preparation - find some data, create a GoodData account</h3>
+### Preparation - find some data, create a GoodData account
 
-            <li>
-                <p>In following examples, we will use a comma-separated file for sake of simplicity. If you have other data formats, or wish to connect directly into the database, we have connectors into data integration tools that offer direct database access.</p>
-                <p>If you want to analyze data from your internal database, most vendors feature export tools
-                    (
-                    <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">MySQL</a>,
-                    <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">Oracle</a>,
-                    <a href="http://technet.microsoft.com/en-us/library/dd255223.aspx">MS SQL</a> etc.
-                    ). We also have a JDBC connector that can attach to your database directly. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/jdbc#readme">this example
-</a> for more info.
-                </p>
-            </li>
-            <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
-            <!-- TBD: ZD direct DB connector! -->
+<li>
+    <p>In following examples, we will use a comma-separated file for sake of simplicity. If you have other data formats, or wish to connect directly into the database, we have connectors into data integration tools that offer direct database access.</p>
+    <p>If you want to analyze data from your internal database, most vendors feature export tools
+        (
+        <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">MySQL</a>,
+        <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">Oracle</a>,
+        <a href="http://technet.microsoft.com/en-us/library/dd255223.aspx">MS SQL</a> etc.
+        ). We also have a JDBC connector that can attach to your database directly. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/jdbc#readme">this example</a> for more info.
+    </p>
+</li>
+<li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
+
+<!-- TBD: ZD direct DB connector! -->
 
 
-            <h3>Step 1 - install the GoodData DI Framework</h3>
+### Step 1 - install the GoodData DI Framework
 
-            Follow the quick <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/#readme">installation readme</a>.
+Follow the quick [installation readme](http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/#readme).
 
-            <h3 id="describe">Step 2 - describe your data</h3>
+<h3 id="describe">Step 2 - describe your data</h3>
 
-            Run the <code>gdi</code>, generate a XML config file describing your data.
+Run the `gdi`, generate a XML config file describing your data. The example uses a file in your GoodData DI Framework. You might use your own data file (make sure the first row contains headers):
 
-            The example uses a file in your GoodData DI Framework. You might use your own data file (make sure the first row contains headers):
-<pre><code>./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
-vi config.xml</code></pre>
+        ./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
+        vi config.xml
 
-            This command generated a sample XML config file. Data types of your columns are random. Read the <a href="http://github.com/gooddata/GoodData-CL/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">XML config documentation</a> to edit this file and describe your data. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme">our examples</a> for typical basic usage.
+This command generated a sample XML config file. Data types of your columns are random. Read the [XML config documentation](http://github.com/gooddata/GoodData-CL/blob/master/cli-distro/doc/DOCUMENTATION.md#readme) to edit this file and describe your data. See [our examples](http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme) for typical basic usage.
 
-            <h3>Step 3 - setup your project</h3>
+### Step 3 - setup your project
 
-            Save <a href="create.txt">this file</a> as <code>create.txt</code> and run with <code>gdi</code>:
+Save [this file](create.txt) as `create.txt` and run with `gdi`:
 
-            <pre><code>./bin/gdi.sh -u [username] -p [password] create.txt</code></pre>
+        ./bin/gdi.sh -u [username] -p [password] create.txt
 
-            Now you can log into your project and visually verify your created attributes, facts and data model (in the Data page).
+Now you can log into your project and visually verify your created attributes, facts and data model (in the Data page).
 
-            <h3 id="upload">Step 4 - load your data</h3>
+### Step 4 - load your data
 
-            Save <a href="load.txt">another file</a> as <code>load.txt</code> and run with <code>gdi</code>:
+Save [another file](load.txt) as `load.txt` and run with `gdi`:
 
-            <pre><code>./bin/gdi.sh -u [username] -p [password] load.txt</code></pre>
+        ./bin/gdi.sh -u [username] -p [password] load.txt
 
-            <hr>
+<hr>
 
-            <h1>Next steps</h1>
+# Next steps
 
-            <h3 id="automate">Automatic data load</h3>
+<h3 id="automate">Automatic data load</h3>
 
-            Since step 4 is fully automatic, you can easily place that command into a shell script (or Windows batch script) and run <a href="http://en.wikipedia.org/wiki/Cron">periodically</a>.
+Since step 4 is fully automatic, you can easily place that command into a shell script (or Windows batch script) and run [periodically](http://en.wikipedia.org/wiki/Cron).
             
-            <h3>Learn more</h3>
-            
-            <ul>
-                <li>See the <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme">other examples</a> included with GoodData DI.</li>
-                <li>Read the full <code>gdi</code> <a href="http://github.com/gooddata/GoodData-CL/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">documentation</a> for more advanced options like data snapshotting, custom connectors etc.</li>
-                <li>Or dive even deeper and read our full <a href="/api/maql-ddl.html">MAQL DDL documentation</a> for creating custom data models.</li>
-            </ul>
+### Learn more
+
+ * See the [other examples](http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme) included with GoodData DI.
+ * Read the full `gdi` [documentation](http://github.com/gooddata/GoodData-CL/blob/master/cli-distro/doc/DOCUMENTATION.md#readme) for more advanced options like data snapshotting, custom connectors etc.
+ * Or dive even deeper and read our full [MAQL DDL documentation](/api/maql-ddl.html) for creating custom data models.

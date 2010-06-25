@@ -8,8 +8,7 @@ layout: default
     Follow the video with the <a href="load-in-5-minutes.html">Quick Start Guide</a>.
 </div>
 
-            <h1>Coming in July 2010:</h1>
-            <ul>
-                <li>Loading data from Google Analytics inside GoodData</li>
-                <li>Using GoodData in Snaplogic<br><i>quick introduction to using a 3rd-party data-integration tool</i></li>
-            </ul>
+# Coming in July 2010:
+
+ * Loading data from Google Analytics inside GoodData
+ * Using GoodData in Snaplogic<br>*quick introduction to using a 3rd-party data-integration tool*
