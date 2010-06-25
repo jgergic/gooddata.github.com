@@ -39,22 +39,30 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <h3 id="create_dataset">CREATE DATASET</h3>
 
-<pre><code>CREATE DATASET {dataset.quotes} VISUAL(TITLE "Stock Quotes Data");</code></pre>
+{% highlight maql %}
+CREATE DATASET {dataset.quotes} VISUAL(TITLE "Stock Quotes Data");
+{% endhighlight %}
 
 <h3 id="alter_dataset">ALTER DATASET</h3>
 
 <ol>
     <li>
         <p>add attribute/fact:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} ADD {attribute.sector};</code></pre>
+{% highlight maql %}
+ALTER DATASET {dataset.quotes} ADD {attribute.sector};
+{% endhighlight %}
     </li>
     <li>
         <p>remove attribute/fact:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} DROP {attribute.symbol};</code></pre>
+{% highlight maql %}
+ALTER DATASET {dataset.quotes} DROP {attribute.symbol};
+{% endhighlight %}
     </li>
     <li>
         <p>change the name of the dataset:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} VISUAL(TITLE "Internal Quotes Data");</code></pre>
+{% highlight maql %}
+ALTER DATASET {dataset.quotes} VISUAL(TITLE "Internal Quotes Data");
+{% endhighlight %}
     </li>
 </ol>
 
