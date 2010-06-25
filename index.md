@@ -12,8 +12,8 @@ layout: default
     <p style="width: 800px">The GoodData CL utility helps you get started quickly and automate things later.</p>
     
     <div class="buttonsWrap">
-        <button onclick="window.open('/start/','_self');" style="line-height: 2em; margin-top: 20px;"><b>Watch</b> a quick-start screencast on using GoodData CL</button>
-        <button onclick="window.open('http://www.gooddata.com/technology/gooddata-2-0-launching-soon/','_blank');" style="line-height: 2em; margin-top: 20px;"><b>Join</b> early-access program</button>
+        <button onclick='window.open("/start/","_self");' style="line-height: 2em; margin-top: 20px;"><b>Watch</b> a quick-start screencast on using GoodData CL</button>
+        <button onclick='window.open("http://www.gooddata.com/technology/gooddata-2-0-launching-soon/","_blank");' style="line-height: 2em; margin-top: 20px;"><b>Join</b> early-access program</button>
     </div>
 </div>
 
