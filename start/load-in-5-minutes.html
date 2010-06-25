@@ -13,7 +13,7 @@ layout: documentation
                     <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">MySQL</a>,
                     <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">Oracle</a>,
                     <a href="http://technet.microsoft.com/en-us/library/dd255223.aspx">MS SQL</a> etc.
-                    ). We also have a JDBC connector that can attach to your database directly. See <a href="http://github.com/gooddata/GoodData-DI/tree/master/cli-distro/examples/jdbc#readme">this example
+                    ). We also have a JDBC connector that can attach to your database directly. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/jdbc#readme">this example
 </a> for more info.
                 </p>
             </li>
@@ -23,7 +23,7 @@ layout: documentation
 
             <h3>Step 1 - install the GoodData DI Framework</h3>
 
-            Follow the quick <a href="http://github.com/gooddata/GoodData-DI/tree/master/cli-distro/#readme">installation readme</a>.
+            Follow the quick <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/#readme">installation readme</a>.
 
             <h3 id="describe">Step 2 - describe your data</h3>
 
@@ -33,7 +33,7 @@ layout: documentation
 <pre><code>./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
 vi config.xml</code></pre>
 
-            This command generated a sample XML config file. Data types of your columns are random. Read the <a href="http://github.com/gooddata/GoodData-DI/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">XML config documentation</a> to edit this file and describe your data. See <a href="http://github.com/gooddata/GoodData-DI/tree/master/cli-distro/examples/#readme">our examples</a> for typical basic usage.
+            This command generated a sample XML config file. Data types of your columns are random. Read the <a href="http://github.com/gooddata/GoodData-CL/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">XML config documentation</a> to edit this file and describe your data. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme">our examples</a> for typical basic usage.
 
             <h3>Step 3 - setup your project</h3>
 
@@ -60,7 +60,7 @@ vi config.xml</code></pre>
             <h3>Learn more</h3>
             
             <ul>
-                <li>See the <a href="http://github.com/gooddata/GoodData-DI/tree/master/cli-distro/examples/#readme">other examples</a> included with GoodData DI.</li>
-                <li>Read the full <code>gdi</code> <a href="http://github.com/gooddata/GoodData-DI/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">documentation</a> for more advanced options like data snapshotting, custom connectors etc.</li>
+                <li>See the <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme">other examples</a> included with GoodData DI.</li>
+                <li>Read the full <code>gdi</code> <a href="http://github.com/gooddata/GoodData-CL/blob/master/cli-distro/doc/DOCUMENTATION.md#readme">documentation</a> for more advanced options like data snapshotting, custom connectors etc.</li>
                 <li>Or dive even deeper and read our full <a href="/api/maql-ddl.html">MAQL DDL documentation</a> for creating custom data models.</li>
             </ul>
