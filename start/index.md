@@ -18,13 +18,10 @@ layout: documentation
         <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">MySQL</a>,
         <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">Oracle</a>,
         <a href="http://technet.microsoft.com/en-us/library/dd255223.aspx">MS SQL</a> etc.
-        ). We also have a JDBC connector that can attach to your database directly. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/jdbc#readme">this example</a> for more info.
+        ). We also have a JDBC connector that can attach to your database directly. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/jdbc#readme">this example</a> to learn more.
     </p>
 </li>
 <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
-
-<!-- TBD: ZD direct DB connector! -->
-
 
 ### Step 1 - install the GoodData DI Framework
 
