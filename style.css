@@ -28,6 +28,7 @@ ul, ol {
     font-family: sans-serif;
     padding: 50px;
     padding-top: 10px;
+    position: relative;
 }
 #contain-wrap h1 {
     font-size: 2em;
@@ -128,6 +129,10 @@ ul, ol {
 pre .dataColumn {
     color: #F5F6FF !important;
     background-color: #4C9E9E;
+}
+
+#contain-wrap #introducing_gooddata_platform_as_a_service {
+    font-size: 24px;
 }
 
 /* pygments coloring, taken from http://github.com/mojombo/tpw/blob/master/css/syntax.css */
