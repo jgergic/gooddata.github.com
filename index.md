@@ -3,20 +3,19 @@ title: Welcome
 layout: default
 ---
 
-<h1>Available today</h1>
-<ul>
-    <li>read our data integration <a href="faq.html">FAQ</a></li>
-    <li>watch a <a href="/start/">5-minute screencast</a> on how to use our data loading tools</li>
-    <li>read about our <a href="api/maql-ddl.html">data modeling language/API</a></li>
-</ul>
+# Available today
 
-<h1>Coming in July 2010:</h1>
-<ul>
-    <li>new data integration and modeling APIs</li>
-    <li>sample code for connecting GoodData with your data</li>
-    <li>pre-built connectors with leading Data Integration platforms</li>
-    <li>early-access program</li>
-</ul>
+ * read our data integration [FAQ](faq.html)
+ * watch a [5-minute screencast](/start/) on how to use our data loading tools
+ * read about our [data modeling language/API](api/maql-ddl.html)
+
+# Coming in July 2010:
+
+ * new data integration and modeling APIs
+ * sample code for connecting GoodData with your data
+ * pre-built connectors with leading Data Integration platforms
+ * early-access program
+
 <div class="buttonsWrap">
     <button onclick="window.open('http://www.gooddata.com/technology/gooddata-2-0-launching-soon/','_self');"><b>Join</b> the early access program</button>
     <button onclick="window.open('http://secure.gooddata.com/registration.html','_self');"><b>Try</b> GoodData for free</button>
