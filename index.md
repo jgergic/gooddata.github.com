@@ -13,12 +13,12 @@ layout: default
     
     <div class="buttonsWrap">
         <button onclick="window.open('/start/','_self');" style="line-height: 2em; margin-top: 20px;"><b>Watch</b> a quick-start screencast on using GoodData CL</button>
-        <button onclick="window.open('/start/','_self');" style="line-height: 2em; margin-top: 20px;"><b>Join</b> early-access program</button>
+        <button onclick="window.open('http://www.gooddata.com/technology/gooddata-2-0-launching-soon/','_blank');" style="line-height: 2em; margin-top: 20px;"><b>Join</b> early-access program</button>
     </div>
 </div>
 
 <br clear="all">
-<div style="margin: 50px 0px;"></div>
+<div style="margin: 20px 0px;">&nbsp;</div>
 
 <div style="width: 400px; position: absolute; left: 50px;">
     <h3>Getting Started</h3>
@@ -39,5 +39,5 @@ layout: default
     </ul>
 </div>
 
-<br style="clear: all;">
-<div style="margin: 300px 0px;"></div>
+<br clear="all">
+<div style="margin: 40px 0px;">&nbsp;</div>
