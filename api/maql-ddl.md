@@ -23,13 +23,14 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <p>Throughout the MAQL script samples below, words enclosed in {curly brackets} denote <em>identifiers</em>. Think of them as human-readable IDs that you can assign to objects and refer to them in other objects. Once an object is created, the identifier is persistent and cannot be changed. You can choose your own naming conventions for identifiers (in the examples below we often put identifiers into "namespace" by prefixing them with "folder.", "fact." etc.) Identifiers can contain alphanumeric characters, underscore and dot (ie. <code>[A-Za-z0-9_\.]</code>).</p>
 
-<p class="note"><strong>Note:</strong> The only exception, where identifier name has to follow certain structure is <em>data column identifiers</em>. These identifiers reference specific data columns in data files that you upload through the upload API. These are structured in <a href="http://en.wikipedia.org/wiki/Third_normal_form">3NF</a>. The identifiers must take form of <code>file.column</code>. The <code>file</code> part corresponds to the data file, while column corresponds to a specific column. All columns that in 3NF share a common file must also share the same prefix in their identifiers. In examples below, <em>data column identifiers</em> are <u title="data column identifier, see Identifiers section">underlined</u>.</p>
+<p class="note"><strong>Note:</strong> The only exception, where identifier name has to follow certain structure is <em>data column identifiers</em>. These identifiers reference specific data columns in data files that you upload through the upload API. These are structured in <a href="http://en.wikipedia.org/wiki/Third_normal_form">3NF</a>. The identifiers must take form of <code>file.column</code>. The <code>file</code> part corresponds to the data file, while column corresponds to a specific column. All columns that in 3NF share a common file must also share the same prefix in their identifiers. In examples below, <em>data column identifiers</em> are <span class="dataColumn">highlighted</span>.</p>
 
 <h1 id="synchronize">Synchronize</h1>
 
 <p>Whatever commands you perform, they affect the &#8220;logical data model&#8221; - ie. a formal representation of your data. Underneath this abstraction layer is a &#8220;physical data model&#8221; that GoodData uses to perform computations. After you finish applying your changes through MAQL DDL, if those changes have impacted the physical data model you must call the <code>SYNCHRONIZE</code> command to reflect your changes from logical to physical model. You can think of this as &#8220;preparing&#8221; your changes and then committing them. Visual changes (names, descriptions, membership in folders etc.) don't need to be synchronized to the physical model.</p>
 
-<pre><code>SYNCHRONIZE {dataset.one}, {dataset.two};</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">SYNCHRONIZE</span> <span class="nv">{dataset.one}</span><span class="p">,</span> <span class="nv">{dataset.two}</span><span class="p">;</span></code></pre>
+
 
 <p class="warning"><strong>WARNING:</strong> Calling <code>SYNCHRONIZE</code> will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the <code>SYNCHRONIZE</code> command at the end of your changes, you will be left with a <strong>broken</strong> project that won&#8217;t function properly. It is essential that you <code>SYNCHRONIZE</code> whenever you make changes.</p>
 
@@ -39,22 +40,23 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <h3 id="create_dataset">CREATE DATASET</h3>
 
-<pre><code>CREATE DATASET {dataset.quotes} VISUAL(TITLE "Stock Quotes Data");</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">CREATE</span> <span class="k">DATASET</span> <span class="nv">{dataset.quotes}</span> <span class="k">VISUAL</span><span class="p">(</span><span class="k">TITLE</span> <span class="s">&quot;Stock Quotes Data&quot;</span><span class="p">);</span></code></pre>
+
 
 <h3 id="alter_dataset">ALTER DATASET</h3>
 
 <ol>
     <li>
         <p>add attribute/fact:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} ADD {attribute.sector};</code></pre>
+        <pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">DATASET</span> <span class="nv">{dataset.quotes}</span> <span class="k">ADD</span> <span class="nv">{attribute.sector}</span><span class="p">;</span></code></pre>
     </li>
     <li>
         <p>remove attribute/fact:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} DROP {attribute.symbol};</code></pre>
+        <pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">DATASET</span> <span class="nv">{dataset.quotes}</span> <span class="k">DROP</span> <span class="nv">{attribute.symbol}</span><span class="p">;</span></code></pre>
     </li>
     <li>
         <p>change the name of the dataset:</p>
-        <pre><code>ALTER DATASET {dataset.quotes} VISUAL(TITLE "Internal Quotes Data");</code></pre>
+        <pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">DATASET</span> <span class="nv">{dataset.quotes}</span> <span class="k">VISUAL</span><span class="p">(</span><span class="k">TITLE</span> <span class="s">&quot;Internal Quotes Data&quot;</span><span class="p">);</span></code></pre>
     </li>
 </ol>
 
@@ -66,27 +68,28 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <h3 id="create_attribute">CREATE ATTRIBUTE</h3>
 
-<pre><code>CREATE ATTRIBUTE {attr.quotes.symbol}
-    VISUAL(TITLE "Symbol", FOLDER {folder.quotes.attr})
-    AS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u>;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">CREATE</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.quotes.symbol}</span> <span class="k">VISUAL</span><span class="p">(</span><span class="k">TITLE</span> <span class="s">&quot;Symbol&quot;</span><span class="p">,</span> <span class="k">FOLDER</span> <span class="nv">{folder.quotes.attr}</span><span class="p">)</span>
+    <span class="k">AS</span> <span class="nv dataColumn">{d_quotes_symbol.nm_symbol}</span><span class="p">;</span></code></pre>
+
 
 <h3 id="alter_attribute">ALTER ATTRIBUTE</h3>
 
-<pre><code>ALTER ATTRIBUTE {attr.quotes.symbol}
-    ADD LABELS {attr.quotes.company} VISUAL(TITLE "Company")
-    AS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_company}</u>;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.quotes.symbol}</span> <span class="k">ADD</span> <span class="k">LABELS</span> <span class="nv">{attr.quotes.company}</span> <span class="k">VISUAL</span><span class="p">(</span><span class="k">TITLE</span> <span class="s">&quot;Company&quot;</span><span class="p">)</span>
+    <span class="k">AS</span> <span class="nv dataColumn">{d_quotes_symbol.nm_company}</span><span class="p">;</span></code></pre>
+
 
 
 <h1 id="fact">Fact</h1>
 
 <h3 id="create_fact">CREATE FACT</h3>
 
-<pre><code>CREATE FACT {fact.quotes.open_price}
-    VISUAL( TITLE "Open Price", FOLDER {folder.quotes.fact}) AS <u title="data column identifier, see Identifiers section">{f_quotes.f_open_price}</u>;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">CREATE</span> <span class="k">FACT</span> <span class="nv">{fact.quotes.open_price}</span> <span class="k">VISUAL</span><span class="p">(</span> <span class="k">TITLE</span> <span class="s">&quot;Open Price&quot;</span><span class="p">,</span> <span class="k">FOLDER</span> <span class="nv">{folder.quotes.fact}</span><span class="p">)</span>
+    <span class="k">AS</span> <span class="nv dataColumn">{f_quotes.f_open_price}</span><span class="p">;</span></code></pre>
 
 <h3 id="alter_fact">ALTER FACT</h3>
 
-<pre><code>ALTER FACT {fact.quotes.open_price} ADD <u title="data column identifier, see Identifiers section">{f_quotes2.f_open_price}</u>;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">FACT</span> <span class="nv">{fact.quotes.open_price}</span> <span class="k">ADD</span> <span class="nv dataColumn">{f_quotes2.f_open_price}</span><span class="p">;</span></code></pre>
+
 
 <h1 id="folder">Folder</h1>
 
@@ -94,16 +97,17 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <h3 id="create_folder">CREATE FOLDER</h3>
 
-<pre><code>CREATE FOLDER {folder.quotes.attr}
-    VISUAL ( TITLE "Stock Quotes Data",
-             DESCRIPTION "Stock quotes data obtained from John Doe etc." )
-    TYPE ATTRIBUTE;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">CREATE</span> <span class="k">FOLDER</span> <span class="nv">{folder.quotes.attr}</span>
+    <span class="k">VISUAL</span> <span class="p">(</span> <span class="k">TITLE</span> <span class="s">&quot;Stock Quotes Data&quot;</span><span class="p">,</span> <span class="k">DESCRIPTION</span> <span class="s">&quot;Stock quotes data obtained from John Doe etc.&quot;</span> <span class="p">)</span>
+    <span class="k">TYPE</span> <span class="k">ATTRIBUTE</span><span class="p">;</span></code></pre>
+
 
 <h3 id="create_folder">ALTER FOLDER</h3>
 
 <p>As seen above, folders are filled during the creation and modification of attributes, metrics and facts. Thus the only thing that can be changed on the folder itself is it's name:</p>
 
-<pre><code>ALTER FOLDER {folder.quotes.attr} VISUAL(TITLE "Quotes Attributes");</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">FOLDER</span> <span class="nv">{folder.quotes.attr}</span> <span class="k">VISUAL</span><span class="p">(</span><span class="k">TITLE</span> <span class="s">&quot;Quotes Attributes&quot;</span><span class="p">);</span></code></pre>
+
 
 <h1 id="performance">Performance Optimization</h1>
 
@@ -113,9 +117,9 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <p>By default the system automatically stores all facts as decimal(12,2) and all atributes and labels as 128-character strings. For performance reasons or to store other data types, you can redefine your column data type:</p>
 
-<pre><code>ALTER DATATYPE <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u> CHAR(4),
-    <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u> VARCHAR(80),
-    <u title="data column identifier, see Identifiers section">{f_quotes.f_open_price}</u> DECIMAL(10,2);</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">DATATYPE</span> <span class="nv dataColumn">{d_quotes_symbol.nm_symbol}</span> <span class="k">VARCHAR</span><span class="p">(</span><span class="m">4</span><span class="p">),</span>
+    <span class="nv dataColumn">{d_quotes_symbol.nm_symbol}</span> <span class="k">VARCHAR</span><span class="p">(</span><span class="m">80</span><span class="p">),</span> <span class="nv dataColumn">{f_quotes.f_open_price}</span> <span class="k">DECIMAL</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">2</span><span class="p">);</span></code></pre>
+
     
 <p>Supported data types are:</p>
 <table>
@@ -159,21 +163,24 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 </table>
 
 <p><sup>*</sup>) The DATE datatype automatically maps with the GoodData-provided date dimension, if you have previously included it into the project:</p>
-<pre><code>INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "my-date", TITLE "quote");</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">INCLUDE</span> <span class="k">TEMPLATE</span> <span class="s">&quot;URN:GOODDATA:DATE&quot;</span> <span class="k">MODIFY</span> <span class="p">(</span><span class="nb">IDENTIFIER</span> <span class="s">&quot;my-date&quot;</span><span class="p">,</span> <span class="k">TITLE</span> <span class="s">&quot;quote&quot;</span><span class="p">);</span></code></pre>
+
 
 <h3>Specify index keys</h3>
 
 <p>You can opt to specify indexing hints for your data:</p>
 
-<pre><code>ALTER ATTRIBUTE {attr.quotes.symbol} ADD KEYS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u> PRIMARY;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.quotes.symbol}</span> <span class="k">ADD</span> <span class="k">KEYS</span> <span class="nv dataColumn">{d_quotes_symbol.nm_symbol}</span> <span class="k">PRIMARY</span><span class="p">;</span></code></pre>
 
 <p>There are two types of keys supported: <code>PRIMARY</code> and <code>FULLSET</code>. Primary key must be unique in scope of the attribute.</p>
 
 <p>Correspondingly, you can drop keys from attributes as well:</p>
 
-<pre><code>ALTER ATTRIBUTE {attr.quotes.symbol} DROP KEYS <u title="data column identifier, see Identifiers section">{d_quotes_symbol.nm_symbol}</u>;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.quotes.symbol}</span> <span class="k">DROP</span> <span class="k">KEYS</span> <span class="nv dataColumn">{d_quotes_symbol.nm_symbol}</span><span class="p">;</span></code></pre>
+
 
 <h3>Create Multiple Fact Columns</h3>
 
 <p>In the following example, the fact <code>fact.quotes.open_price</code> already has a fact column f_quotes.f_open_price, but for performance reasons, an identical column in f_quotes2 is being added below:</p>
-<pre><code>ALTER FACT {fact.quotes.open_price} ADD <u title="data column identifier, see Identifiers section">{f_quotes2.f_open_price}</u>;</code></pre>
+<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">FACT</span> <span class="nv">{fact.quotes.open_price}</span> <span class="k">ADD</span> <span class="nv dataColumn">{f_quotes2.f_open_price}</span><span class="p">;</span></code></pre>
+

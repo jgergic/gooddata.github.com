@@ -121,7 +121,14 @@ ul, ol {
     border-width: 2px;
 }
 
-
+.dataColumn {
+    color: #fff !important;
+    background-color: #4C9E9E;
+}
+pre .dataColumn {
+    color: #F5F6FF !important;
+    background-color: #4C9E9E;
+}
 
 /* pygments */
 
