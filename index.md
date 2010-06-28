@@ -3,24 +3,31 @@ title: Welcome
 layout: default
 ---
 
-<div>
-    <img src="images/platform-stack.png" width="306" height="294" alt="Platform Stack" style="float: left; margin-right: 50px">
-    <h1 id="introducing_gooddata_platform_as_a_service">Introducing GoodData Platform as a Service</h1>
+<div id="homepage">
+    <div class="twoBlock left">
+        <img id="schema" src="images/platform-stack.png" width="306" height="294" alt="Platform Stack">
+    </div>
     
-    <p style="width: 800px">With GoodData Open Integration Framework, it's now easier then ever to have professional BI analytics package integrated in your solution. Gooddata provides a powerful array of tools and APIs to enable you deliver analytics to your users.</p>
+    <div class="rightBlock">
+        <h1 id="introducing_gooddata_platform_as_a_service">Introducing GoodData Platform as a Service</h1>
 
-    <p style="width: 800px">The GoodData CL utility helps you get started quickly and automate things later.</p>
-    
-    <div class="buttonsWrap">
-        <button onclick='window.open("/start/","_self");' style="line-height: 2em; margin-top: 20px;"><b>Watch</b> a quick-start screencast on using GoodData CL</button>
-        <button onclick='window.open("http://www.gooddata.com/technology/gooddata-2-0-launching-soon/","_blank");' style="line-height: 2em; margin-top: 20px;"><b>Join</b> early-access program</button>
+        <p>With GoodData Open Integration Framework, it's now easier then ever to have professional BI analytics package integrated in your solution. The GoodData CL utility helps you get started quickly and automate things later.</p>
+
+        <div class="buttonsWrap">
+        <a href="/start/" class="greenButton"><b>Watch</b> a 5-minute screencast on using GoodData CL</a>
+        <!-- <a href="http://www.gooddata.com/technology/gooddata-2-0-launching-soon/" class="greenButton"><b>Join</b> early-access program</a> -->
+        </div>
+        <p>Get started with loading data from:</p>
+        <div>
+            <a href="/gooddata-cl/examples/quotes/">Data File</a> |
+            <a href="/gooddata-cl/examples/jdbc/">SQL database</a> |
+            <a href="/gooddata-cl/examples/ga/">Google Analytics</a> |
+            <a href="/gooddata-cl/examples/sfdc/">Salesforce</a>
+        </div>
     </div>
 </div>
 
-<br clear="all">
-<div style="margin: 20px 0px;">&nbsp;</div>
-
-<div style="width: 400px; position: absolute; left: 50px;">
+<div class="twoBlock left">
     <h3>Getting Started</h3>
     <ul>
         <li><a href="https://secure.gooddata.com/registration.html">sign up</a> for a GoodData account</li>
@@ -29,7 +36,7 @@ layout: default
         <li><a href="/gooddata-cl/examples/">see examples</a> of different integration scenarios</li>
     </ul>
 </div>
-<div style="width: 400px; position: absolute; right: 50px">
+<div class="rightBlock">
     <h3>More Information</h3>
     <ul>
         <li>see more information about <a href="/download.html">GoodData CL</a></li>
@@ -38,6 +45,3 @@ layout: default
         <li><a href="http://support.gooddata.com/forums/176660-developer-forum">seek help</a> in our Developer Forums</li>
     </ul>
 </div>
-
-<br clear="all">
-<div style="margin: 40px 0px;">&nbsp;</div>
