@@ -29,7 +29,7 @@ Follow the quick [installation readme](http://github.com/gooddata/GoodData-CL/tr
 
 <h3 id="describe">Step 2 - describe your data</h3>
 
-Run the `gdi`, generate a XML config file describing your data. The example uses a file in your GoodData DI Framework. You might use your own data file (make sure the first row contains headers):
+Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData DI Framework. You might use your own data file (make sure the first row contains headers):
 
         ./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
         vi config.xml
@@ -38,7 +38,7 @@ This command generated a sample XML config file. Data types of your columns are 
 
 ### Step 3 - setup your project
 
-Save [this file](create.txt) as `create.txt` and run with `gdi`:
+Save [this file](create.txt) as `create.txt` and run with `gdi.sh` script:
 
         ./bin/gdi.sh -u [username] -p [password] create.txt
 
@@ -46,7 +46,7 @@ Now you can log into your project and visually verify your created attributes, f
 
 ### Step 4 - load your data
 
-Save [another file](load.txt) as `load.txt` and run with `gdi`:
+Save [another file](load.txt) as `load.txt` and run with `gdi.sh` script:
 
         ./bin/gdi.sh -u [username] -p [password] load.txt
 
@@ -61,5 +61,5 @@ Since step 4 is fully automatic, you can easily place that command into a shell 
 ### Learn more
 
  * See the [other examples](/gooddata-cl/examples/) included with GoodData DI.
- * Read the full `gdi` [documentation](/gooddata-cl/documentation.html) for more advanced options like data snapshotting, custom connectors etc.
+ * Read the full GoodData CL [documentation](/gooddata-cl/documentation.html) for more advanced options like data snapshotting, custom connectors etc.
  * Or dive even deeper and read our full [MAQL DDL documentation](/api/maql-ddl.html) for creating custom data models.
