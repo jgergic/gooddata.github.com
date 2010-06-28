@@ -14,8 +14,8 @@ A quick, easy-to-use **command-line** utility that wraps access to our APIs. It 
 By being command-line driven, it can be easily included as part of an automated integration workflow.
             
 <div class="buttonsWrap">
-    <button onclick="window.open('http://github.com/gooddata/GoodData-CL/downloads','_self');">Download GoodData CL</button>
-    <button onclick="window.open('http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/#readme','_self');">Installation ReadMe</button>
+    <button onclick='window.open("http://github.com/gooddata/GoodData-CL/downloads","_self");'>Download GoodData CL</button>
+    <button onclick='window.open("http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/#readme","_self");'>Installation ReadMe</button>
 </div>
             
 <div><br>
