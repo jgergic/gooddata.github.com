@@ -7,7 +7,7 @@ layout: default
     <img src="images/platform-stack.png" width="306" height="294" alt="Platform Stack" style="float: left; margin-right: 50px">
     <h1 id="introducing_gooddata_platform_as_a_service">Introducing GoodData Platform as a Service</h1>
     
-    <p style="width: 800px">With GoodData Open Integration Framework, it's now easier then ever to have professional BI analytics package integrated with your solution. Gooddata provides a powerful array of tools and APIs to enable you deliver analytics to your users.</p>
+    <p style="width: 800px">With GoodData Open Integration Framework, it's now easier then ever to have professional BI analytics package integrated in your solution. Gooddata provides a powerful array of tools and APIs to enable you deliver analytics to your users.</p>
 
     <p style="width: 800px">The GoodData CL utility helps you get started quickly and automate things later.</p>
     
