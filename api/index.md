@@ -3,8 +3,46 @@ title: API Documentation
 layout: default
 ---
 
-# Coming in July 2010:
+# GoodData API Structure
 
- * [MAQL DDL](maql-ddl.html) &mdash; <em>our scripted language for created a logical data model</em>
- * Data Integration API documentation
- * Authentication API
+GoodData platform exposes all of its functionality via the HTTP APIs. We will keep documenting the APIs here. Currently the fastest way how to learn about the GoodData APIs is to inspect the [Java code of the GoodData CL application](http://github.com/gooddata/GoodData-CL). We also recommend you to read the brief overview of the [GoodData CL architecture](http://github.com/gooddata/GoodData-CL/doc/architecture.md)
+
+A typical integration scenario looks like this:
+
+1. Login to GoodData (see the [Authentication API](#auth))
+1. Create a new GoodData project (see the [Provisioning API](#provision))
+1. Create new Logical Data Model by executing a [MAQL DDL](maql-ddl.html) script (see the [Modeling API](#model))
+1. Transform your data to fit Data Loading Interfaces (DLIs) generated from the [MAQL DDL](maql-ddl.html) script.
+1. Load your data to the GoodData project (see the [Data Loading API](#data))
+
+<a name="model">
+## Modeling API 
+</a>
+Each GoodData project requires so called Logical Data Model (LDM) that describes the data that are available for analysis. The LDM consists of mutually connected _attribute_, _fact_, _dataset_, and _folder_ objects. These objects are created using a MAQL DDL scripts.
+
+ * [MAQL DDL](maql-ddl.html) &mdash; <em>SQL-like scripted language for creating and changing a project's Logical Data Model</em>
+ * See the [_executeMAQL_ method in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) for more details about the project provisioning API.
+
+<a name="data">
+## Data Loading API
+</a>
+The data loading API enable the physical transfer of data between various data sources and a GoodData project. The MAQL DDL script generates so called Data Loading Interface (DLI) that you can use to load the data. Each DLI consists of multiple parts that each describe a structure of a data file that is exchanged between your application and GoodData. You need to transform your data to fit the structures described in the parts, package all data files along with a simple manifest into a ZIP archive, and transfer the archive via FTP to GoodData.
+
+ *  See the [_getDLIs_ and _getDLIParts_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) for more details about the DLI introspection.
+ *  See the [_deploySnapshot_ in the AbstractConnectorBackend.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/connector/backend/AbstractConnectorBackend.java) for more details about the creation of the data package that is transferred to the GoodData.
+ * See the [_deploySnapshot_ in the GdcFTPApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/ftp/GdcFTPApiWrapper.java) to get more details on the FTP transfer of the data package.
+ * Finally take a look at the _startLoading_ and _getLoadingStatus_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) that tell the GoodData project to process the data package. 
+
+<a name="auth">
+## Authentication API
+</a>
+The authentication API provides access to the GoodData's token-based authentication.
+
+* See the [_login_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) for more details about the authentication API.
+
+<a name="provision">
+## Project Provisioning API
+</a>
+The project provisioning API takes care of creating and dropping new projects. Please note that the amount of projects that you can create in the GoodData platform is limited.
+
+* See the [_createProject_ and _dropProject_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) for more details about the project provisioning API.
