@@ -13,10 +13,8 @@ layout: default
 
         <p>With GoodData Open Integration Framework, it's now easier then ever to have professional BI analytics package integrated in your solution. The GoodData CL utility helps you get started quickly and automate things later.</p>
 
-        <div class="buttonsWrap">
         <a href="/start/" class="greenButton"><b>Watch</b> a 5-minute screencast on using GoodData CL</a>
         <!-- <a href="http://www.gooddata.com/technology/gooddata-2-0-launching-soon/" class="greenButton"><b>Join</b> early-access program</a> -->
-        </div>
         <p>Get started with loading data from:</p>
         <div>
             <a href="/gooddata-cl/examples/quotes/">Data File</a> |
