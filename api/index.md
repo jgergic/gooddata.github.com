@@ -5,7 +5,7 @@ layout: default
 
 # GoodData API Structure
 
-GoodData platform exposes all of its functionality via the HTTP APIs. We will keep documenting the APIs here. Currently the fastest way how to learn about the GoodData APIs is to inspect the [Java code of the GoodData CL application](http://github.com/gooddata/GoodData-CL). We also recommend you to read the brief overview of the [GoodData CL architecture](http://github.com/gooddata/GoodData-CL/doc/architecture.md)
+GoodData platform exposes all of its functionality via the HTTP APIs. We will keep documenting the APIs here. Currently the fastest way how to learn about the GoodData APIs is to inspect the [Java code of the GoodData CL application](http://github.com/gooddata/GoodData-CL). We also recommend you to read the brief overview of the [GoodData CL architecture](/gooddata-cl/architecture.html)
 
 A typical integration scenario looks like this:
 
