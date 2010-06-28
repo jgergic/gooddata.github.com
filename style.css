@@ -110,6 +110,10 @@ ul, ol {
 #homepage h1 {
     margin-top: 0px;
 }
+#homepage .twoBlock.left {
+    width: 350px;
+    margin-right: 0px;
+}
 #homepage .rightBlock {
     width: 490px;
     margin-left: 350px;
