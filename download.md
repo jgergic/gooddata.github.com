@@ -21,5 +21,5 @@ By being command-line driven, it can be easily included as part of an automated 
 <div><br>
     <h3>Further information</h3>
     <a href="http://github.com/gooddata/GoodData-CL/">Project Page</a> on GitHub (where you can file issue requests, use the project wiki etc.)<br>
-    <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme">Example Usage</a> of using the tool to create project and load data
+    <a href="/gooddata-cl/examples/">Example Usage</a> of using the tool to create project and load data
 </div>

@@ -5,6 +5,10 @@ a:hover {
     color: #007CFF;
 }
 h1, h2 { color: #455360; }
+h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 h3 {
     font-size: 1.1em;
     font-weight: bold;
