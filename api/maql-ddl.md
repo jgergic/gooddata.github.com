@@ -15,7 +15,6 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
  * attributes (attribute is container of data that cannot be added - typically all strings and some numeric columns, like ID or SSN)
  * facts (a fact is a data column containing computational data - ie. prices, amounts etc.)
  * folders (folders are used to organize attributes and facts visually for users)
- * datatypes?
 
 <p>You can try the MAQL commands featured here directly in the REST API interface, just go to http://secure.gooddata.com/gdc/&lt;project&gt;/ldm/manage (replacing project with your own project's MD5 hash). It's good to mention as well that you can enter multiple commands into the text field. They will all execute together as part of a transaction and if any of them fails none of them will be applied.</p>
 
@@ -36,7 +35,7 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <h1 id="dataset">Dataset</h1>
 
-<p>Being a simple named container for attributes and facts, creating and modifying dataset is fairly simple:</p>
+<p>Since dataset is just a named container for attributes and facts, creating and modifying it is fairly simple:</p>
 
 <h3 id="create_dataset">CREATE DATASET</h3>
 

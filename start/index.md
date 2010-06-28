@@ -18,14 +18,14 @@ layout: documentation
         <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">MySQL</a>,
         <a href="http://dev.mysql.com/doc/refman/5.1/en/mysqldump.html" target="_blank">Oracle</a>,
         <a href="http://technet.microsoft.com/en-us/library/dd255223.aspx">MS SQL</a> etc.
-        ). We also have a JDBC connector that can attach to your database directly. See <a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/jdbc#readme">this example</a> to learn more.
+        ). We also have a JDBC connector that can attach to your database directly. See <a href="/gooddata-cl/examples/jdbc/">this example</a> to learn more.
     </p>
 </li>
 <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
 
 ### Step 1 - install the GoodData DI Framework
 
-Follow the quick [installation readme](http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/#readme).
+Follow the quick [installation readme](/gooddata-cl/install.html).
 
 <h3 id="describe">Step 2 - describe your data</h3>
 
@@ -34,7 +34,7 @@ Run the `gdi.sh` script, generate a XML config file describing your data. The ex
         ./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
         vi config.xml
 
-This command generated a sample XML config file. Data types of your columns are random. Read the [XML config documentation](http://github.com/gooddata/GoodData-CL/blob/master/cli-distro/doc/DOCUMENTATION.md#readme) to edit this file and describe your data. See [our examples](http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme) for typical basic usage.
+This command generated a sample XML config file. Data types of your columns are random. Read the [XML config documentation](/gooddata-cl/documentation.html) to edit this file and describe your data. See [our examples](/gooddata-cl/examples/) for typical basic usage.
 
 ### Step 3 - setup your project
 
