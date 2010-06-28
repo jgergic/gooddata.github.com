@@ -26,7 +26,7 @@ layout: default
         <li><a href="https://secure.gooddata.com/registration.html">sign up</a> for a GoodData account</li>
         <li><a href="/start/">watch</a> a short video to get started using GoodData CL</li>
         <li><a href="/download.html">download</a> GoodData CL utility</li>
-        <li><a href="http://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/#readme">see examples</a> of different integration scenarios</li>
+        <li><a href="/gooddata-cl/examples/">see examples</a> of different integration scenarios</li>
     </ul>
 </div>
 <div style="width: 400px; position: absolute; right: 50px">
