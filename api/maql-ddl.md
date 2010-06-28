@@ -36,7 +36,7 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <h1 id="dataset">Dataset</h1>
 
-<p>Being a simple named container for attributes and facts, creating and modifying dataset is fairly simple:</p>
+<p>Since dataset is just a named container for attributes and facts, creating and modifying it is fairly simple:</p>
 
 <h3 id="create_dataset">CREATE DATASET</h3>
 
