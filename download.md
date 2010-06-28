@@ -13,7 +13,7 @@ In this section we will feature various useful tools and utilities that help you
 A quick, easy-to-use **command-line** utility that wraps access to GoodData APIs. Abundant examples for loading data using **flat-files**, **RDBMS**, **Google Analytics**, **Salesforce**. Write your own custom data connectors - OpenSource code is available.
 
 <a class="greenButton" href="http://github.com/gooddata/GoodData-CL/downloads">Download GoodData CL</a>
-<a class="greenButton" href="/gooddata-cl">View Documentation</a>
+<a class="greenButton" href="/gooddata-cl">Read More</a>
 
 -----
 
