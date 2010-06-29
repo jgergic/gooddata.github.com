@@ -11,11 +11,13 @@ layout: default
     <div class="rightBlock">
         <h1 id="introducing_gooddata_platform_as_a_service">Introducing GoodData Platform as a Service</h1>
 
-        <p>With GoodData Open Integration Framework, it's now easier then ever to have professional BI analytics package integrated in your solution. The GoodData CL utility helps you get started quickly and automate things later.</p>
+        <p>We've opened up our platform to make it easy for you to use GoodData the way you want. Now you can manage GoodData data marts and users; model and load data, and share reports, dashboards and analytics – all programmatically using open APIs.</p>
+        <p>Start by downloading GoodData CL, a command-line utility that wraps our APIs for easy access, or use one of our pre-built connectors to load data from flat files, SQL, Salesforce, or Google Analytics.</p>
+
 
         <a href="/start/" class="greenButton"><b>Watch</b> a 5-minute screencast on using GoodData CL</a>
         <!-- <a href="http://www.gooddata.com/technology/gooddata-2-0-launching-soon/" class="greenButton"><b>Join</b> early-access program</a> -->
-        <p>Get started with loading data from:</p>
+        <div>Get started with loading data from:</div>
         <div>
             <a href="/gooddata-cl/examples/quotes/">Data File</a> |
             <a href="/gooddata-cl/examples/jdbc/">SQL database</a> |
