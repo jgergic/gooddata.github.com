@@ -31,7 +31,7 @@ Follow the quick [installation readme](/gooddata-cl/install.html).
 
 Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData CL Framework. You might use your own data file (make sure the first row contains headers):
 
-        ./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
+        ./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'
         vi config.xml
 
 This command generated a sample XML config file. Data types of your columns are random. Read the [XML config documentation](/gooddata-cl/documentation.html) to edit this file and describe your data. See [our examples](/gooddata-cl/examples/) for typical basic usage.
