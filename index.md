@@ -32,14 +32,14 @@ layout: default
     <ul>
         <li><a href="https://secure.gooddata.com/registration.html">sign up</a> for a GoodData account</li>
         <li><a href="/start/">watch</a> a short video to get started using GoodData CL</li>
-        <li><a href="/download.html">download</a> GoodData CL utility</li>
+        <li><a href="/gooddata-cl/">download</a> GoodData CL utility</li>
         <li><a href="/gooddata-cl/examples/">see examples</a> of different integration scenarios</li>
     </ul>
 </div>
 <div class="rightBlock">
     <h3>More Information</h3>
     <ul>
-        <li>see more information about <a href="/download.html">GoodData CL</a></li>
+        <li>see more information about <a href="/gooddata-cl/">GoodData CL</a></li>
         <li><a href="/api/maql-ddl.html">MAQL API documentation</a> for advanced data modeling</li>
         <li><a href="faq.html">read the FAQ</a> about the new platform</li>
         <li><a href="http://support.gooddata.com/forums/176660-developer-forum">seek help</a> in our Developer Forums</li>
