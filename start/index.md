@@ -23,13 +23,13 @@ layout: documentation
 </li>
 <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
 
-### Step 1 - install the GoodData DI Framework
+### Step 1 - install the GoodData CL Framework
 
 Follow the quick [installation readme](/gooddata-cl/install.html).
 
 <h3 id="describe">Step 2 - describe your data</h3>
 
-Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData DI Framework. You might use your own data file (make sure the first row contains headers):
+Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData CL Framework. You might use your own data file (make sure the first row contains headers):
 
         ./bin/gdi.sh -u [username] -p [password] -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/data.csv",configFile="config.xml");'
         vi config.xml
