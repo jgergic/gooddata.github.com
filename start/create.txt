@@ -8,7 +8,7 @@ CreateProject(name="My Sample Project");
 StoreProject(fileName="sample-project.pid");
 
 # Load the data
-LoadCsv(csvDataFile="data.csv", header="true", configFile="config.xml");
+LoadCsv(csvDataFile="examples/quotes/quotes.csv", header="true", configFile="config.xml");
 
 # Generate the data model MAQL script
 GenerateMaql(maqlFile="project.maql");

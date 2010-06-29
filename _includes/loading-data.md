@@ -18,7 +18,7 @@
 </li>
 <li>If you don't have an account with GoodData, go to <a href="http://www.gooddata.com/">www.gooddata.com</a> and register for one.</li>
 
-### Step 1 - install the GoodData CL Framework
+### Step 1 - install GoodData CL
 
 Follow the quick [installation readme](/gooddata-cl/install.html).
 
@@ -27,9 +27,7 @@ Follow the quick [installation readme](/gooddata-cl/install.html).
 
 Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData CL Framework. You might use your own data file (make sure the first row contains headers):
 
-        ./bin/gdi.sh -u [username] -p [password] -e \
-            'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'
-        vi config.xml
+    ./bin/gdi.sh -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'
 
 This command generated a sample XML config file. Data types of your columns are random. Read the [XML config documentation](/gooddata-cl/documentation.html) to edit this file and describe your data. See [our examples](/gooddata-cl/examples/) for typical basic usage.
 
@@ -37,7 +35,7 @@ This command generated a sample XML config file. Data types of your columns are 
 
 Save [this file](create.txt) as `create.txt` and run with `gdi.sh` script:
 
-        ./bin/gdi.sh -u [username] -p [password] create.txt
+    ./bin/gdi.sh -u [username] -p [password] create.txt
 
 Now you can log into your project and visually verify your created attributes, facts and data model (in the Data page).
 
@@ -46,7 +44,7 @@ Now you can log into your project and visually verify your created attributes, f
 
 Save [another file](load.txt) as `load.txt` and run with `gdi.sh` script:
 
-        ./bin/gdi.sh -u [username] -p [password] load.txt
+    ./bin/gdi.sh -u [username] -p [password] load.txt
 
 <hr>
 
