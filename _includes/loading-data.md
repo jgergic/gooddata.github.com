@@ -57,6 +57,6 @@ Since step 4 is fully automatic, you can easily place that command into a shell 
             
 ### Learn more
 
- * See the [other examples](/gooddata-cl/examples/) included with GoodData DI.
+ * See the [other examples](/gooddata-cl/examples/) included with GoodData CL.
  * Read the full GoodData CL [documentation](/gooddata-cl/documentation.html) for more advanced options like data snapshotting, custom connectors etc.
  * Or dive even deeper and read our full [MAQL DDL documentation](/api/maql-ddl.html) for creating custom data models.
