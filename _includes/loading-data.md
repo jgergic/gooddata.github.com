@@ -22,7 +22,7 @@
 
 Follow the quick [installation readme](/gooddata-cl/install.html).
 
-<a name="describe"></a>
+<a name="describe" style="position:absolute">&nbsp;</a>
 ### Step 2 - describe your data
 
 Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData CL Framework. You might use your own data file (make sure the first row contains headers):
@@ -41,7 +41,7 @@ Save [this file](create.txt) as `create.txt` and run with `gdi.sh` script:
 
 Now you can log into your project and visually verify your created attributes, facts and data model (in the Data page).
 
-<a name="upload"></a>
+<a name="upload" style="position:absolute">&nbsp;</a>
 ### Step 4 - load your data
 
 Save [another file](load.txt) as `load.txt` and run with `gdi.sh` script:
@@ -52,7 +52,7 @@ Save [another file](load.txt) as `load.txt` and run with `gdi.sh` script:
 
 # Next steps
 
-<a name="automate"></a>
+<a name="automate" style="position:absolute">&nbsp;</a>
 ### Automatic data load
 
 Since step 4 is fully automatic, you can easily place that command into a shell script (or Windows batch script) and run [periodically](http://en.wikipedia.org/wiki/Cron).
