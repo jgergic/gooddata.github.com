@@ -13,7 +13,7 @@ GoodData's open integration framework are a set of APIs and capabilities that ma
 ### What is the data integration piece?
 GoodData is launching new data loading and modeling APIs, scripts, tools and pre-built connectors to make it much easier for you to load and model data in GoodData. This new data integration framework is built atop GoodData's fluid data model which greatly increases the flexibility of any GoodData project. It includes new APIs, a Java Integration Framework, pre-built connectors for Google Analytics, connections with data integration platforms, and documentation.
 
-![Java DI Framework Architecture](images/JavaDIFrameworkArchitecture.png)
+![GoodData CL Framework Architecture](images/JavaDIFrameworkArchitecture.png)
 
 ### Why is it better than what GoodData already has?
 GoodData's new data integration framework fully supports our fluid data model which provides unprecedented flexibility in agile BI implementation. It's much easier to bring data into GoodData from many sources and with many methods, and it's easier to create a multi-dimensional data model for analysis. Most important, the fluid data model makes it simple to add or change data sources or models without breaking reports, projects, or dashboards.
