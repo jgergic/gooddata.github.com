@@ -15,7 +15,7 @@ layout: default
         <p>Start by downloading GoodData CL, a command-line utility that wraps our APIs for easy access, or use one of our pre-built connectors to load data from flat files, SQL, Salesforce, or Google Analytics.</p>
 
 
-        <a href="/start/" class="greenButton"><b>Watch</b> a 5-minute screencast on using GoodData CL</a>
+        <a href="/start/" class="greenButton"><b>Watch</b> a 10-minute screencast on using GoodData CL</a>
         <!-- <a href="http://www.gooddata.com/technology/gooddata-2-0-launching-soon/" class="greenButton"><b>Join</b> early-access program</a> -->
         <div>Get started with loading data from:</div>
         <div>

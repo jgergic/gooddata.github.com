@@ -1,9 +1,11 @@
+# Loading Data into GoodData in 5 minutes
+
+Step-by-step tutorial is below the screencast.
+
 <div style="text-align: center; margin-top: 25px;">
     <object width="640" height="456"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12674036&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=576bab&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=12674036&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=0&amp;show_portrait=0&amp;color=576bab&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="640" height="456"></embed></object>
     <br>
 </div>
-
-# Loading Data into GoodData in 5 minutes
 
 ### Preparation - find some data, create a GoodData account
 
