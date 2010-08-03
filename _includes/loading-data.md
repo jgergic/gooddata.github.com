@@ -1,4 +1,4 @@
-# Loading Data into GoodData in 5 minutes
+# Loading Data into GoodData in 10 minutes
 
 Step-by-step tutorial is below the screencast.
 
