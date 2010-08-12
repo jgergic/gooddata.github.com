@@ -18,4 +18,7 @@ A quick, easy-to-use **command-line** utility that wraps access to GoodData APIs
 -----
 
 ## SnapLogic
-SnapLogic component &mdash; GoodData plugin into 3rd-party Data Integration suite SnapLogic that contains a visual data modeling tool and powerful integration features. *coming in July 2010*
+You can try GoodData in SnapLogic as part of their [30-day trial](http://www.snaplogic.com/live-snaplogic-demo/). If you have an existing SnapLogic instance, you can download a [GoodData Snap component](http://store.snaplogic.com/collections/frontpage/products/good-data) for free &mdash; this will allow you to upload data integration results into GoodData effortlessly.
+
+<a class="greenButton" href="http://www.snaplogic.com/live-snaplogic-demo/">SnapLogic Trial Signup</a>
+<a class="greenButton" href="http://store.snaplogic.com/collections/frontpage/products/good-data">Download GoodData Snap</a>
