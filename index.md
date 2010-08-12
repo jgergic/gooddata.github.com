@@ -40,8 +40,8 @@ layout: default
     <h3>More Information</h3>
     <ul>
         <li>find out how to use <a href="/start/#snaplogic">GoodData in SnapLogic</a></li>
-        <li>see more information about <a href="/gooddata-cl/">GoodData CL</a></li>
         <li><a href="/api/maql-ddl.html">MAQL API documentation</a> for advanced data modeling</li>
+        <li><a href="faq.html">read the FAQ</a> about the new platform</li>
         <li><a href="http://support.gooddata.com/forums/176660-developer-forum">seek help</a> in our Developer Forums</li>
     </ul>
 </div>
