@@ -1,4 +1,4 @@
-# Loading Data into GoodData in 10 minutes
+# Loading Data into GoodData Using Command Line
 
 Step-by-step tutorial is below the screencast.
 

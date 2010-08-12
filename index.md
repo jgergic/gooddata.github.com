@@ -15,7 +15,7 @@ layout: default
         <p>Start by downloading GoodData CL, a command-line utility that wraps our APIs for easy access, or use one of our pre-built connectors to load data from flat files, SQL, Salesforce, or Google Analytics.</p>
 
 
-        <a href="/start/" class="greenButton"><b>Watch</b> a 10-minute screencast on using GoodData CL</a>
+        <a href="/start/#gdcl" class="greenButton"><b>Watch</b> a 10-minute screencast on using GoodData CL</a>
         <!-- <a href="http://www.gooddata.com/technology/gooddata-2-0-launching-soon/" class="greenButton"><b>Join</b> early-access program</a> -->
         <div>Get started with loading data from:</div>
         <div>
@@ -31,7 +31,7 @@ layout: default
     <h3>Getting Started</h3>
     <ul>
         <li><a href="https://secure.gooddata.com/registration.html">sign up</a> for a GoodData account</li>
-        <li><a href="/start/">watch</a> a short video to get started using GoodData CL</li>
+        <li><a href="/start/#gdcl">watch</a> a short video to get started using GoodData CL</li>
         <li><a href="/gooddata-cl/">download</a> GoodData CL utility</li>
         <li><a href="/gooddata-cl/examples/">see examples</a> of different integration scenarios</li>
     </ul>
@@ -39,9 +39,9 @@ layout: default
 <div class="rightBlock">
     <h3>More Information</h3>
     <ul>
+        <li>find out how to use <a href="/start/#snaplogic">GoodData in SnapLogic</a></li>
         <li>see more information about <a href="/gooddata-cl/">GoodData CL</a></li>
         <li><a href="/api/maql-ddl.html">MAQL API documentation</a> for advanced data modeling</li>
-        <li><a href="faq.html">read the FAQ</a> about the new platform</li>
         <li><a href="http://support.gooddata.com/forums/176660-developer-forum">seek help</a> in our Developer Forums</li>
     </ul>
 </div>
