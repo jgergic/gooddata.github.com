@@ -1,5 +1,5 @@
 ---
-title: GoodData CL XML config documentation
+title: GoodData CL XML Config Documentation
 layout: gdcl
 ---
 

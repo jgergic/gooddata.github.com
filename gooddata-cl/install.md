@@ -1,5 +1,5 @@
 ---
-title: GoodData CL installation
+title: GoodData CL Installation
 layout: gdcl
 ---
 

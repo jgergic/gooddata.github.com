@@ -1,6 +1,7 @@
 ---
 title: GoodData CL &ndash; command-line utility for quick GoodData access
 layout: default
+breadcrumb: GoodData CL
 ---
 
 # GoodData CL

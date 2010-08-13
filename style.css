@@ -1,3 +1,6 @@
+body {
+    font-family: sans-serif;
+}
 a, a:visited {
     color: #4183C4;
 }
@@ -25,11 +28,33 @@ ul, ol {
     line-height: 1.7em;
 }
 
+
+.breadcrumbs {
+    background-color: #F5F5F5;
+    border: 0px none;
+    margin-right: -1px;
+    border-bottom: 1px solid #B2CFD6;
+    padding: 0px 13px;
+    padding-left: 60px;
+    font-size: 14px;
+    line-height: 36px;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, rgb(226,234,240)),
+        color-stop(0.4, rgb(245,245,245))
+    );
+    background: -moz-linear-gradient(
+        center top,
+        rgb(221,233,236) 0%,
+        rgb(245,245,245) 40%
+    );
+}
 #contain-wrap {
     line-height: 1.4em;
     font-size: 14px;
     padding-bottom: 100px;
-    font-family: sans-serif;
     padding: 50px;
     padding-top: 10px;
     position: relative;

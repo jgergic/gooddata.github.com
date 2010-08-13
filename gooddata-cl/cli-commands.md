@@ -1,5 +1,5 @@
 ---
-title: GoodData CL commands
+title: GoodData CL Commands
 layout: gdcl
 ---
 

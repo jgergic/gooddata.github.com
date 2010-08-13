@@ -1,5 +1,5 @@
 ---
-title: GoodData CL architecture
+title: GoodData CL Architecture
 layout: gdcl
 ---
 
