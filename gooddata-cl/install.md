@@ -1,6 +1,6 @@
 ---
 title: GoodData CL installation
-layout: documentation
+layout: gdcl
 ---
 
 {% include gdcl/cli-distro/README.md %}

@@ -1,6 +1,6 @@
 ---
 title: GoodData CL documentation
-layout: documentation
+layout: gdcl
 ---
 
 {% include gdcl/cli-distro/doc/DOCUMENTATION.md %}

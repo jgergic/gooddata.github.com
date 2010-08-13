@@ -1,6 +1,6 @@
 ---
 title: Loading your SalesForce data into GoodData
-layout: documentation
+layout: gdcl-examples
 ---
 
 {% include gdcl/cli-distro/examples/sfdc/README.md %}

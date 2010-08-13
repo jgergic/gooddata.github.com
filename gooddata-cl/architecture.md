@@ -1,6 +1,6 @@
 ---
 title: GoodData CL architecture
-layout: documentation
+layout: gdcl
 ---
 
 {% include gdcl/doc/README.md %}

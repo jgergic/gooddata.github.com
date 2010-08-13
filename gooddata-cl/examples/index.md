@@ -1,6 +1,6 @@
 ---
 title: GoodData CL Example Usage
-layout: documentation
+layout: gdcl
 ---
 
 {% include gdcl/cli-distro/examples/README.md %}
