@@ -72,6 +72,8 @@ ul, ol {
     line-height: 1.4em;
 }
 #contain-wrap ul li { list-style-type: disc; }
+#contain-wrap ul li ul { display: none; }
+
 #contain-wrap ol li { list-style-type: decimal; }
 #contain-wrap img {
     border: 4px solid #ddd;
