@@ -3,41 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <title>GoodData Developer Network | {{ page.title }}</title>
-    <!--[if lte IE 8]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <!--[if IE]><![endif]-->
+
     <style>
         article, aside, dialog, figure, footer, header,
         hgroup, menu, nav, section { display: block; }
     </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico"> 
     <link rel="stylesheet" href="/global-skin.css" type="text/css">
     <link rel="stylesheet" href="/style.css" type="text/css">
     <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="http://www.gooddata.com/wp-content/themes/headway-162/media/css/ie.css" />
     <![endif]-->
 
-    <!--[if IE 6]>
-        <link rel="stylesheet" type="text/css" href="http://www.gooddata.com/wp-content/themes/headway-162/media/css/ie6.css" />
-        <script type="text/javascript" src="http://www.gooddata.com/wp-content/themes/headway-162/media/js/suckerfish.js"></script>
-    <![endif]-->
-
-    <!--[if IE 7]>
-        <link rel="stylesheet" type="text/css" href="http://www.gooddata.com/wp-content/themes/headway-162/media/css/ie7.css" />
-    <![endif]-->
-    
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-3766725-7']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
+    <script src="js/modernizr-1.5.min.js"></script>
 </head>
 <body class="single custom header-fixed footer-fixed skin-headway">
 
@@ -56,10 +38,14 @@
                 <a href="/start/" title="Getting Started">Getting Started</a>
             </li>
             <li class="page_item">
-                <a href="/api/" title="API Documentation">API Documentation</a>
+                <a href="/api/" title="API Documentation">Documentation</a>
             </li>
             <li class="page_item">
-                <a href="/download.html" title="Download">Download</a>
+                <a href="/download.html" title="Download">Tools</a>
+                <!-- <ul>
+                    <li class="page_item"><a href="/gooddata-cl/" title="GoodData Command-Line Utility">GoodData CL</a></li>
+                    <li class="page_item"><a href="/snaplogic/" title="GoodData + SnapLogic">GoodData + SnapLogic</a></li>
+                </ul> -->
             </li>
             <li class="page_item">
                 <a href="/faq.html" title="Frequently Asked Questions">FAQ</a>
@@ -97,6 +83,20 @@
 
     <div id="footer"></div>
     <!-- #footer --></div><!-- #wrapper -->
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-3766725-7']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
 
 </body>
 </html>

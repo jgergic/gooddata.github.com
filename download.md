@@ -1,9 +1,9 @@
 ---
-title: Download
+title: Tools
 layout: documentation
 ---
 
-# Downloads
+# Tools
 
 In this section we will feature various useful tools and utilities that help you utilize GoodData.
 
