@@ -1,0 +1,9 @@
+{
+    'name': 'gooddata.github.com',
+    'version': '0.0.1',
+    'description': 'GoodData Developer Portal',
+    'dependencies': {
+        'less': '',
+        'jake': ''
+    }
+}
