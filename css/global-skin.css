@@ -1,82 +1,15 @@
 /* Global declarations */
-div#wrapper {
-    margin: 0px auto;
-    width: 985px;
-    clear: both;
-    border: 1px solid #333;
-}
 div#container {
     width: 985px;
 }
-#header {
+header {
     margin: 0 auto;
     width: 985px;
     border-bottom-color: #eeeeee;
     background-color: #ffffff;
     border-bottom: 0px;
 }
-#top {
-    margin: 0;
-}
-#top a {
-    margin: 0;
-}
-#top img {
-    margin-bottom: -3px;
-}
-#navigation {
-    width: 985px;
-    display: block;
-    clear: both;
-    border-bottom-width: 1px;
-    border-bottom: 1px solid #888;
-    background-color: #ffffff;
-    border-bottom-color: #eeeeee;
-    width: 937px;
-    height: 38px;
-    background-image: url(http://www.gooddata.com/files/2009/10/gdbackgroundline.gif) ;
-    margin: 0 25px 0px 0px;
-    padding: 0px 25px 0 25px;
-    border-bottom: 0px;
-}
-ul.navigation {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    float: left;
-    position: relative;
-    z-index: 100;
-}
-ul.navigation li {
-    float: left;
-    list-style: none;
-    margin: 0;
-    position: relative;
-    font-weight: bold;
-}
-ul.navigation li a {
-    padding: 10px;
-    text-decoration: none;
-    border-right: 1px solid #666;
-    display: inline-block;
-    font-variant: normal;
-    letter-spacing: 0px;
-    font-family: arial,sans-serif;
-    border-width: 1px;
-    text-transform: none;
-    background-color: #ffffff;
-    color: #4f6a73;
-    font-weight: bold;
-    font-size: 12px;
-    border-color: #bcd5db;
-    line-height: 16px;
-    text-decoration: none;
-    letter-spacing: 0px;
-    font-size: 13px;
-}
-ul.navigation li a:hover {
-    text-decoration: underline;
-}
+
 #container {
     margin: 10px 0;
 }
@@ -102,11 +35,6 @@ ul.navigation li a:hover {
 li.widget {
     margin: 0 0 25px;
 }
-div#wrapper {
-    background: #fff;
-    border-color: #222;
-    border-width: 3px;
-}
 .headway-leaf {
     background: none;
 }
@@ -127,11 +55,6 @@ em,i {
 }
 div.headway-leaf {
     border-color: none;
-    background-color: #ffffff;
-}
-div#wrapper {
-    border-width: 0px;
-    border-color: #c3c3c3;
     background-color: #ffffff;
 }
 body.footer-fixed div#footer {
@@ -159,55 +82,48 @@ div.sidebar li.widget {
 div.sidebar a {
     color: #444444;
 }
-body.custom div#container {
+div#container {
     width: 937px;
-    background-image: url(http://www.gooddata.com/files/2009/10/gdbackground2.gif) ;
-    background-repeat: repeat-y;
     margin: 0px 0px 0 0;
     padding: 0px 25px 0 25px;
 }
-body.custom div#navigation a:hover {
+div#navigation a:hover {
     background: none;
     background-image: url(http://www.gooddata.com/files/2009/10/navhover.png) ;
     background-repeat: no-repeat;
     color: #667071;
 }
-body.custom div#navigation ul.navigation li a:link,ul.navigation li a:visited {
+div#navigation ul.navigation li a:link,ul.navigation li a:visited {
     padding-left: 15px;
     padding-right: 15px;
 }
-body.custom .headway-leaf {
+.headway-leaf {
     padding: 0px 0px 0px 0px;
 }
-body.custom a {
+a {
     text-decoration: none;
 }
-body.custom h1 {
+h1 {
     line-height: 30px;
     font-size: 24px;
 }
-body.custom div#container .subfooter {
-    float: left;
-    width: 960px;
-    margin: 0px 0px 0px -28px;
-    padding: 25px 13px 0px 18px;
+.subfooter {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
     color: #666;
-    background-image: url(http://www.gooddata.com/files/2009/10/footerbackground2.jpg);
-    background-repeat: no-repeat;
-    background-color: #ffffff;
 }
-body.custom div#container .subfooter a {
+.subfooter a {
 }
-body.custom #footerlinks {
+#footerlinks {
     float: right;
     color: rgb(74,124,147);
     width: 540px;
     margin: 0px 0px 0px 0px;
     padding: 10px 8px 0px 420px;
 }
-body.custom #footerlinks a {
+#footerlinks a {
     color: rgb(74,124,147);
 }
-body.custom #footer {
+#footer {
     border: 0px;
 }

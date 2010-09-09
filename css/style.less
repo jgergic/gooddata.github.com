@@ -1,6 +1,24 @@
 ---
 ---
 
+.box_shadow(@x: 0px, @y: 0px, @blur: 10px, @color: #000) {
+    -webkit-box-shadow: @x @y @blur @color;
+    -moz-box-shadow: @x @y @blur/2 @color;
+    -o-box-shadow: @x @y @blur @color;
+    box-shadow: @x @y @blur @color;
+}
+.transitionBoxShadow(@duration: 1s) {
+    -webkit-transition-property: -webkit-box-shadow;  
+    -moz-transition-property:    -moz-box-shadow;  
+    -o-transition-property:     -o-box-shadow;  
+    transition-property: box-shadow;  
+
+    -webkit-transition-duration: @duration;
+    -moz-transition-duration: @duration;
+    -o-transition-duration: @duration;
+    transition-duration: @duration;
+    
+}
 
 /* ---- CSS reset ---- */
 
@@ -19,32 +37,125 @@ strong,b{font-weight:bold}
 /* ---- generic declarations ---- */
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: sans-serif;
-    background-color: #ffffff;
+    background-color: #fff;
+    margin: 0px auto;
+    width: 985px;
 }
-
 a:link, a:visited { 
     text-decoration: underline;
     color: #4183C4;
     :hover { color: #007CFF; text-decoration: none; }
     img { border: none; }
 }
-
 h1, h2 { color: #455360; }
 h2 { font-size: 1.2em; font-weight: bold; }
 h3 { font-size: 1.1em; font-weight: bold; }
-
 table {
     th { font-weight: bold; }
     td, th { border: 1px solid black; padding: 2px; }
 }
-
 ul, ol {
     margin: 1em 0px 1em 2em;
     line-height: 1.7em;
 }
+
+/* ---- main layout ---- */
+
+#wrapper {
+    border: 1px solid #333;
+    border-width: 0px;
+    border-color: #c3c3c3;
+    background-color: #ffffff;
+}
+
+#top { 
+    margin: 0;
+    a { margin: 0; }
+    img { margin-bottom: -3px; }
+    height: 50px;
+    padding-top: 13px;
+    padding-left: 26px;
+}
+
+// frame construction
+
+#top {  background: url('../images/logo-bg.png') no-repeat bottom left; }
+#navigation {
+    background-image: url(http://www.gooddata.com/files/2009/10/gdbackgroundline.gif);
+    height: 38px;
+}
+#container {
+    background-image: url(http://www.gooddata.com/files/2009/10/gdbackground2.gif);
+    background-repeat: repeat-y;
+}
+.subfooter {
+    background-image: url(http://www.gooddata.com/files/2009/10/footerbackground2.jpg);
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+}
+
+html.boxshadow {
+    #top, #navigation, #container, .subfooter { background: none; }
+    #navigation, #container { padding: 0px; }
+    #navigation { border-bottom: 2px solid #A0C3D7; height: 36px;  }
+    body { width: 935px; }
+    #wrapper { .box_shadow(0px,0px,60px,#A0C3D7); }
+    
+}
+
+
+// navigation
+
+#navigation {
+    display: block;
+    width: 935px;
+    margin: 0px;
+    margin-right: 25px;
+    padding: 0px 25px;
+    border-bottom: 0px;
+
+    ul.navigation {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: relative;
+        z-index: 100;
+        
+        li {
+            float: left;
+            list-style: none;
+            margin: 0;
+            position: relative;
+            font-weight: bold;
+            
+            a {
+                padding: 10px;
+                text-decoration: none;
+                border-right: 1px solid #666;
+                display: inline-block;
+                font-variant: normal;
+                letter-spacing: 0px;
+                font-family: arial,sans-serif;
+                border-width: 1px;
+                text-transform: none;
+                background-color: #ffffff;
+                color: #4f6a73;
+                font-weight: bold;
+                font-size: 12px;
+                border-color: #bcd5db;
+                line-height: 16px;
+                text-decoration: none;
+                letter-spacing: 0px;
+                font-size: 13px;
+                
+                a:hover { text-decoration: underline; }
+            }
+        }
+    }
+}
+
+
 
 .breadcrumbs {
     background-color: #F5F5F5;
