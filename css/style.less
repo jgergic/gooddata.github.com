@@ -1,33 +1,50 @@
+---
+---
+
+
+/* ---- CSS reset ---- */
+
+body,div,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+q:before,q:after{content:'';}
+abbr,acronym{border:0;}
+em,i{font-style:italic}
+ul,ol,li{padding:0;margin:0;list-style:none;}
+strong,b{font-weight:bold}
+
+/* ---- generic declarations ---- */
+
 body {
+    margin: 0;
+    padding: 0;
     font-family: sans-serif;
+    background-color: #ffffff;
 }
-a, a:visited {
+
+a:link, a:visited { 
+    text-decoration: underline;
     color: #4183C4;
+    :hover { color: #007CFF; text-decoration: none; }
+    img { border: none; }
 }
-a:hover {
-    color: #007CFF;
-}
+
 h1, h2 { color: #455360; }
-h2 {
-    font-size: 1.2em;
-    font-weight: bold;
+h2 { font-size: 1.2em; font-weight: bold; }
+h3 { font-size: 1.1em; font-weight: bold; }
+
+table {
+    th { font-weight: bold; }
+    td, th { border: 1px solid black; padding: 2px; }
 }
-h3 {
-    font-size: 1.1em;
-    font-weight: bold;
-}
-table td, table th {
-    border: 1px solid black;
-    padding: 2px;
-}
-table th {
-    font-weight: bold;
-}
+
 ul, ol {
     margin: 1em 0px 1em 2em;
     line-height: 1.7em;
 }
-
 
 .breadcrumbs {
     background-color: #F5F5F5;
@@ -38,18 +55,8 @@ ul, ol {
     padding-left: 60px;
     font-size: 14px;
     line-height: 36px;
-    background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, rgb(226,234,240)),
-        color-stop(0.4, rgb(245,245,245))
-    );
-    background: -moz-linear-gradient(
-        center top,
-        rgb(221,233,236) 0%,
-        rgb(245,245,245) 40%
-    );
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgb(226,234,240)),color-stop(0.4, rgb(245,245,245)));
+    background: -moz-linear-gradient(center top,rgb(221,233,236) 0%,rgb(245,245,245) 40%);
 }
 #contain-wrap {
     line-height: 1.4em;
