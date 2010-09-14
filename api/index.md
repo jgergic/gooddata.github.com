@@ -1,6 +1,6 @@
 ---
 title: API Documentation
-layout: default
+layout: documentation
 ---
 
 # GoodData API Structure

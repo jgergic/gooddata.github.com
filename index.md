@@ -4,7 +4,29 @@ layout: default
 ---
 
 <div id="homepage">
-    <div class="twoBlock left">
+    <div id="workflow">
+        <div class="tabs"><div class="tab" data-for="setup">Setup</div><div class="tab" data-for="develop">Build</div><div class="tab" data-for="deploy">Deploy</div></div>
+        <div class="panes"><div class="active" id="setup">
+            <ul>
+            	<li>sign up with GoodData</li>
+    			<li>download CL tool / sudo gem install gooddata-ruby</li>
+    			<li>create project</li>
+            </ul>
+        </div><div id="develop">
+            <ul>
+                <li>create data model</li>
+    			<li>automate data upload</li>
+    			<li>create dashboards &amp; embed</li>
+            </ul>
+        </div><div id="deploy">
+            <ul>
+                <li>auto-provision projects &amp; users</li>
+    			<li>manage changes across multiple projects</li>
+            </ul>
+        </div></div>
+    </div>
+    
+    <!-- <div class="twoBlock left">
         <img id="schema" src="images/platform-stack.png" width="306" height="294" alt="Platform Stack">
     </div>
     
@@ -16,7 +38,7 @@ layout: default
 
 
         <a href="/start/#gdcl" class="greenButton"><b>Watch</b> a 10-minute screencast on using GoodData CL</a>
-        <!-- <a href="http://www.gooddata.com/technology/gooddata-2-0-launching-soon/" class="greenButton"><b>Join</b> early-access program</a> -->
+        <a href="http://www.gooddata.com/technology/gooddata-2-0-launching-soon/" class="greenButton"><b>Join</b> early-access program</a>
         <div>Get started with loading data from:</div>
         <div>
             <a href="/gooddata-cl/examples/quotes/">Data File</a> |
@@ -24,10 +46,10 @@ layout: default
             <a href="/gooddata-cl/examples/ga/">Google Analytics</a> |
             <a href="/gooddata-cl/examples/sfdc/">Salesforce</a>
         </div>
-    </div>
+    </div> -->
 </div>
 
-<div class="twoBlock left">
+<!-- <div class="twoBlock left">
     <h3>Getting Started</h3>
     <ul>
         <li><a href="https://secure.gooddata.com/registration.html">sign up</a> for a GoodData account</li>
@@ -44,4 +66,4 @@ layout: default
         <li><a href="faq.html">read the FAQ</a> about the new platform</li>
         <li><a href="http://support.gooddata.com/forums/176660-developer-forum">seek help</a> in our Developer Forums</li>
     </ul>
-</div>
+</div> -->
