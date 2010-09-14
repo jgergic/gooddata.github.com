@@ -3,12 +3,12 @@
 
 .box_shadow(@x: 0px, @y: 0px, @blur: 10px, @color: #000) {
     -webkit-box-shadow: @x @y @blur @color;
-    -moz-box-shadow: @x @y @blur/2 @color;
+    -moz-box-shadow: @x @y (@blur/2) @color;
     -o-box-shadow: @x @y @blur @color;
     box-shadow: @x @y @blur @color;
 }
-.transitionBoxShadow(@duration: 1s) {
-    -webkit-transition-property: -webkit-box-shadow;  
+.transitionBoxShadow(@duration: 1s, @property: box-shadow) {
+    -webkit-transition-property: -webkit-box-shadow;
     -moz-transition-property:    -moz-box-shadow;  
     -o-transition-property:     -o-box-shadow;  
     transition-property: box-shadow;  
@@ -19,6 +19,8 @@
     transition-duration: @duration;
     
 }
+
+@linkColor: #4183C4;
 
 /* ---- CSS reset ---- */
 
@@ -44,9 +46,16 @@ body {
 }
 a:link, a:visited { 
     text-decoration: underline;
-    color: #4183C4;
+    color: @linkColor;
     :hover { color: #007CFF; text-decoration: none; }
     img { border: none; }
+}
+em,i {
+    font-style: italic;
+}
+h1 {
+    line-height: 30px;
+    font-size: 24px;
 }
 h1, h2 { color: #455360; }
 h2 { font-size: 1.2em; font-weight: bold; }
@@ -69,39 +78,49 @@ ul, ol {
     background-color: #ffffff;
 }
 
-#top { 
-    margin: 0;
+
+// frame construction
+
+header {
+    background: url('../images/frame/logo-bg.png') no-repeat bottom left;
+    margin: 0 auto;
     a { margin: 0; }
     img { margin-bottom: -3px; }
     height: 50px;
     padding-top: 13px;
-    padding-left: 26px;
+    padding-left: 50px;
 }
-
-// frame construction
-
-#top {  background: url('../images/logo-bg.png') no-repeat bottom left; }
 #navigation {
-    background-image: url(http://www.gooddata.com/files/2009/10/gdbackgroundline.gif);
+    background-image: url(../images/frame/menu.gif);
     height: 38px;
 }
 #container {
-    background-image: url(http://www.gooddata.com/files/2009/10/gdbackground2.gif);
+    background-image: url(../images/frame/body.gif);
     background-repeat: repeat-y;
+    margin: 0px;
+    padding: 0px 25px 0 25px;
 }
-.subfooter {
-    background-image: url(http://www.gooddata.com/files/2009/10/footerbackground2.jpg);
-    background-repeat: no-repeat;
-    background-color: #ffffff;
+footer {
+    background: #ffffff url(../images/frame/footer.jpg) no-repeat;
+    min-height: 100px;
+    text-align: right;
+    padding-right: 70px;
+    padding-top: 30px;
+    font-size: 13px;
+    line-height: 16px;
+    color: #4a7c93;
 }
 
+// frame using box_shadow where available
 html.boxshadow {
-    #top, #navigation, #container, .subfooter { background: none; }
-    #navigation, #container { padding: 0px; }
-    #navigation { border-bottom: 2px solid #A0C3D7; height: 36px;  }
     body { width: 935px; }
+    header, #navigation, #container, footer { background: none; padding-left: 26px; }
+    #navigation, #container { padding: 0px; }
     #wrapper { .box_shadow(0px,0px,60px,#A0C3D7); }
-    
+    #navigation { border-bottom: 2px solid #C1D4E8; height: 36px;  }
+}
+
+header {
 }
 
 
@@ -115,7 +134,7 @@ html.boxshadow {
     padding: 0px 25px;
     border-bottom: 0px;
 
-    ul.navigation {
+    ul {
         margin: 0;
         padding: 0;
         list-style: none;
@@ -123,39 +142,37 @@ html.boxshadow {
         z-index: 100;
         
         li {
-            float: left;
+            display: inline-block;
             list-style: none;
             margin: 0;
+            padding: 0;
             position: relative;
             font-weight: bold;
             
-            a {
+            a:link, a:visited {
                 padding: 10px;
-                text-decoration: none;
-                border-right: 1px solid #666;
-                display: inline-block;
-                font-variant: normal;
-                letter-spacing: 0px;
-                font-family: arial,sans-serif;
-                border-width: 1px;
-                text-transform: none;
                 background-color: #ffffff;
+                border-right: 1px solid #bcd5db;
+                display: inline-block;
+                font: normal bold 13px/16px arial, sans-serif;
                 color: #4f6a73;
-                font-weight: bold;
-                font-size: 12px;
-                border-color: #bcd5db;
-                line-height: 16px;
                 text-decoration: none;
+                text-transform: none;
                 letter-spacing: 0px;
-                font-size: 13px;
+                padding-left: 15px;
+                padding-right: 15px;
                 
-                a:hover { text-decoration: underline; }
+                :hover {
+                    text-decoration: underline;
+                    background: none;
+                    background-image: url(http://www.gooddata.com/files/2009/10/navhover.png) ;
+                    background-repeat: no-repeat;
+                    color: #667071;
+                }
             }
         }
     }
 }
-
-
 
 .breadcrumbs {
     background-color: #F5F5F5;
@@ -169,6 +186,7 @@ html.boxshadow {
     background: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgb(226,234,240)),color-stop(0.4, rgb(245,245,245)));
     background: -moz-linear-gradient(center top,rgb(221,233,236) 0%,rgb(245,245,245) 40%);
 }
+
 #contain-wrap {
     line-height: 1.4em;
     font-size: 14px;
@@ -176,25 +194,26 @@ html.boxshadow {
     padding: 50px;
     padding-top: 10px;
     position: relative;
-}
-#contain-wrap h1 {
-    font-size: 2em;
-    margin-top: 40px;
-    margin-bottom: 20px;
-/*    text-align: center;*/
-}
-#contain-wrap ul.centered {
-    text-align: left;
-    padding-left: 0em;
-    margin-left: 300px;
-    line-height: 1.4em;
-}
-#contain-wrap ul li { list-style-type: disc; }
-#contain-wrap ul li ul { display: none; }
 
-#contain-wrap ol li { list-style-type: decimal; }
-#contain-wrap img {
-    border: 4px solid #ddd;
+    h1 {
+        font-size: 2em;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    /*    text-align: center;*/
+    }
+
+    ul.centered {
+        text-align: left;
+        padding-left: 0em;
+        margin-left: 300px;
+        line-height: 1.4em;
+    }
+    ul li { list-style-type: disc; }
+    ul li ul { display: none; }
+    ol li { list-style-type: decimal; }
+    img {
+        border: 4px solid #ddd;
+    }
 }
 .centerText {
     margin-left: 100px;
@@ -268,6 +287,7 @@ html.boxshadow {
     line-height: 2em;
     margin: 0px 40px;
     margin-bottom: 16px;
+    text-decoration: none;
 }
 
 #documentation {
