@@ -43,8 +43,6 @@
                         <li><a href="/snaplogic/" title="GoodData + SnapLogic">GoodData + SnapLogic</a></li>
                     </ul> -->
                 </li><li>
-                    <a href="/faq.html" title="Frequently Asked Questions">FAQ</a>
-                </li><li>
                     <a href="http://support.gooddata.com/forums/176660-developer-forum" title="Developer Forum">Forum</a> 
                 </li>
             </ul>
@@ -75,26 +73,6 @@
     <footer>
         © 2010 <strong>GoodData Corporation</strong>. All rights reserved. <a href="http://www.gooddata.com/about/contact-us/">Contact</a> | <a href="http://www.gooddata.com/privacy-policy/">Privacy Policy</a>
     </footer>
-    
-    <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
-    
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready(function() {
-            $('#workflow div.panes div').hover(function() {
-                $('#workflow div.panes div.active').removeClass('active');
-                $(this).addClass('active');
-            });
-            
-            $('#workflow div.tabs div').click(function() {
-                var id = '#'+($(this).attr('data-for'));
-                $('#workflow div.panes div.active').removeClass('active');
-                console.log(id);
-                $(id).addClass('active');
-            });
-        });
-    </script>
     
     <script type="text/javascript">
 

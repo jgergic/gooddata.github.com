@@ -1,6 +1,6 @@
 ---
 title: Tools
-layout: documentation
+layout: default
 ---
 
 # Tools
@@ -14,6 +14,15 @@ A quick, easy-to-use **command-line** utility that wraps access to GoodData APIs
 
 <a class="greenButton" href="http://github.com/gooddata/GoodData-CL/downloads">Download GoodData CL</a>
 <a class="greenButton" href="/gooddata-cl/">Read More</a>
+
+-----
+
+## GoodData Ruby Gem
+A installable library for use in Ruby projects with a interactive mode for command-line use.
+
+<code>sudo gem install gooddata</code>
+<br>
+<a class="greenButton" href="http://github.com/gooddata/gooddata-ruby/downloads">Download GoodData CL</a>
 
 -----
 
