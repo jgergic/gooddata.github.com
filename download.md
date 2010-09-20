@@ -1,6 +1,6 @@
 ---
 title: Tools
-layout: documentation
+layout: default
 ---
 
 # Tools

@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-layout: documentation
+layout: default
 ---
 
 # Contents

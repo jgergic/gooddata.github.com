@@ -27,6 +27,13 @@ ul, ol {
     margin: 1em 0px 1em 2em;
     line-height: 1.7em;
 }
+hr {
+    width: 90%;
+    color: #DEDEDE;
+    margin: 40px auto 40px;
+    border-style: solid;
+    border-width: 2px;
+}
 
 
 .breadcrumbs {
@@ -65,6 +72,7 @@ ul, ol {
     margin-bottom: 20px;
 /*    text-align: center;*/
 }
+#contain-wrap #documentation h1 { margin-top: 0px; }
 #contain-wrap ul.centered {
     text-align: left;
     padding-left: 0em;
@@ -72,7 +80,7 @@ ul, ol {
     line-height: 1.4em;
 }
 #contain-wrap ul li { list-style-type: disc; }
-#contain-wrap ul li ul { display: none; }
+/*#contain-wrap ul li ul { display: none; }*/
 
 #contain-wrap ol li { list-style-type: decimal; }
 #contain-wrap img {
@@ -186,13 +194,6 @@ ul, ol {
 }
 #documentation ul li { margin-left: 15px; }
 #documentation ol li { margin-left: 20px; }
-#documentation hr {
-    width: 90%;
-    color: #DEDEDE;
-    margin: 40px auto 40px;
-    border-style: solid;
-    border-width: 2px;
-}
 
 .dataColumn {
     color: #fff !important;
@@ -206,6 +207,46 @@ pre .dataColumn {
 #contain-wrap #introducing_gooddata_platform_as_a_service {
     font-size: 24px;
 }
+
+/* --- documentation submenu --- */
+
+#documentation {
+    margin-left: 247px;
+    min-height: 750px;
+    position: relative;
+}
+
+#contain-wrap .menu.documentation {
+    width: 280px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    margin-left: -53px;
+    top: 10px;
+    padding-left: 30px;
+}
+#contain-wrap .menu.documentation ul, #contain-wrap .menu.documentation ul li {
+    padding-left: 0px;
+    margin-left: 0px;
+    list-style-type: none;
+    list-style: none;
+}
+#contain-wrap .menu.documentation ul {
+    margin: 0px;
+    padding-right: 20px;
+}
+#contain-wrap .menu.documentation ul li a:link, #contain-wrap .menu.documentation ul li a:visited {
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 28px;
+    display: block;
+}
+#contain-wrap .menu.documentation ul li a:hover { background-color: #FFFEDE; text-decoration: underline; }
+#contain-wrap .menu.documentation ul li a.active { background: #DEE8EB url(/images/submenu-arrow.png) no-repeat  center right; }
+#contain-wrap .menu.documentation ul li ul { padding-right: 0px; border-top: 1px solid #eee; }
+#contain-wrap .menu.documentation ul li ul li { border-bottom: 1px solid #eee; }
+#contain-wrap .menu.documentation ul li ul li a:link, a:visited { font-weight: normal; padding-left: 15px; }
+
 
 /* pygments coloring, taken from http://github.com/mojombo/tpw/blob/master/css/syntax.css */
 

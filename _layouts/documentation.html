@@ -1,6 +1,35 @@
 ---
 layout: default
+section: documentation
 ---
+
+<div class="menu documentation">
+<ul>
+    <li><a href="/gooddata-cl"{% if page.stub == 'gooddata-cl' %} class="active"{% endif %}>GoodData CL</a>
+        <ul>
+            <li><a href="/gooddata-cl/install.html"{% if page.stub == 'gooddata-cl-install' %} class="active"{% endif %}>Installation</a></li>
+            <li><a href="/gooddata-cl/documentation.html"{% if page.stub == 'gooddata-cl-basics' %} class="active"{% endif %}>Basic Usage</a></li>
+            <li><a href="/gooddata-cl/xml-config.html"{% if page.stub == 'gooddata-cl-xml' %} class="active"{% endif %}>Schema XML syntax</a></li>
+            <li><a href="/gooddata-cl/cli-commands.html"{% if page.stub == 'gooddata-cl-commands' %} class="active"{% endif %}>Runtime Commands</a></li>
+            <li><a href="/gooddata-cl/architecture.html"{% if page.stub == 'gooddata-cl-architecture' %} class="active"{% endif %}>Source Code Architecture</a></li>
+        </ul>
+    </li>
+    <li><a href="/gooddata-cl/examples/"{% if page.stub == 'gooddata-cl-examples' %} class="active"{% endif %}>Usage Examples</a>
+        <ul>
+            <li><a href="/gooddata-cl/examples/quotes/"{% if page.stub == 'gooddata-cl-examples-quotes' %} class="active"{% endif %}>Basic Example (Quotes)</a></li>
+            <li><a href="/gooddata-cl/examples/hr/"{% if page.stub == 'gooddata-cl-examples-hr' %} class="active"{% endif %}>Multiple Datasets (HR)</a></li>
+            <li><a href="/gooddata-cl/examples/ga/"{% if page.stub == 'gooddata-cl-examples-ga' %} class="active"{% endif %}>Analyzing Google Analytics</a></li>
+            <li><a href="/gooddata-cl/examples/sfdc/"{% if page.stub == 'gooddata-cl-examples-sfdc' %} class="active"{% endif %}>Analyzing Salesforce</a></li>
+            <li><a href="/gooddata-cl/examples/jdbc/"{% if page.stub == 'gooddata-cl-examples-jdbc' %} class="active"{% endif %}>Using JDBC Driver</a></li>
+        </ul>
+    </li>
+    <li><a href="/api/maql-ddl.html"{% if page.stub == 'maql-ddl' %} class="active"{% endif %}>Using REST API with MAQL DDL</a></li>
+    <li><a href="/faq.html"{% if page.stub == 'faq' %} class="active"{% endif %}>FAQ</a></li>
+</ul>
+
+	
+</ul>
+</div>
 <div id="documentation">
     {{content}}
 </div>

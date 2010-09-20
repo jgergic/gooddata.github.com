@@ -4,6 +4,7 @@ layout: documentation
 breadcrumbs:
 - name: API Documentation
   url: /api/
+stub: maql-ddl
 ---
 
 <h1 id="modeling_data_with_maql_ddl">Modeling Data with MAQL DDL</h1>

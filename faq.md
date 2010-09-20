@@ -1,6 +1,7 @@
 ---
 title: Data Integration FAQ
 layout: documentation
+stub: faq
 ---
 
 # Product
