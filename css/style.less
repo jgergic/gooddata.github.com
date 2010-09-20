@@ -431,18 +431,22 @@ pre .dataColumn {
 /* -------- documentation -------- */
 
 #documentation {
-    margin-left: 280px;
+    margin-left: 247px;
+    min-height: 750px;
+    position: relative;
 }
 
-.nonexistent { text-decoration: line-through !important; }
+
+a[href=""] { text-decoration: line-through !important; }
 
 #contain-wrap .menu.documentation {
+
     width: 280px;
     overflow: hidden;
     position: absolute;
     float: left;
     position: relative;
-    left: -53px;
+    margin-left: -53px;
     top: 10px;
     padding-left: 30px;
 
@@ -465,6 +469,9 @@ pre .dataColumn {
                     background-color: #FFFEDE;
                     text-decoration: underline;
                 }
+            }
+            a.active {
+                background: #DEE8EB url(/images/submenu-arrow.png) no-repeat  center right;
             }
             ul {
                 padding-right: 0px;

@@ -4,41 +4,48 @@ layout: default
 
 <div class="menu documentation">
 <ul>
-    <li><a href="#" class="nonexistent">Create Data Model</a>
+    <li><a href="/docs/data-model/">Creating Data Model</a>
         <ul>
-            <li><a href="#" class="nonexistent">generic data modeling section</a></li>
-            <li><a href="/gooddata-cl/xml-config.html">XML config</a></li>
-            <li class="active"><a href="/api/maql-ddl.html">MAQL DDL?</a></li>
+            <li><a href="/docs/data-model/"{% if page.stub == 'data-model' %} class="active"{% endif %}>What is a Data Model?</a></li>
+            <li><a href="/docs/data-model/setup.html"{% if page.stub == 'data-model-setup' %} class="active"{% endif %}>Setting up Data Model</a></li>
         </ul>
     </li>
-    <li><a href="/gooddata-cl/cli-commands.html">Automate Upload:</a>
+    <li><a href="/docs/data-transfer/">Transfering Data</a>
         <ul>
-            <li><a href="/gooddata-cl/cli-commands.html">Data Snapshots</a></li>
-            <li><a href="/gooddata-cl/cli-commands.html">Transfering Updates vs All Data</a></li>
+            <li><a href="/docs/data-transfer/"{% if page.stub == 'data-transfer' %} class="active"{% endif %}>Data Snapshots</a></li>
+            <li><a href=""{% if page.stub == 'data-transfer-partial' %} class="active"{% endif %}>Transfering Updates vs All Data</a></li>
         </ul>
     </li>
     <li><a href="">Creating Reports &amp; Dashboards</a>
         <ul>
-            <li><a href="">adding metrics</a></li>
-            <li><a href="">creating reports &amp; dashboards</a></li>
-            <li><a href="">advanced charting</a></li>
+            <li><a href="">Creating Reports &amp; Dashboards</a></li>
+            <li><a href="">Using Metrics</a></li>
+            <li><a href="">Advanced Charts and Formatting</a></li>
         </ul>
     </li>
     <li><a href="">Embedding</a>
         <ul>
-            <li><a href="">dashboard-only role</a></li>
-            <li><a href="">user filters</a></li>
+            <li><a href="">Starting with Embedded Dashboards</a></li>
+            <li><a href="">Setting up User Filters</a></li>
+            <li><a href="">Dashboard-Only Role</a></li>
+        </ul>
+    </li>
+    <li><a href="">Working with Projects</a>
+        <ul>
+            <li><a href="">Creating Projects &amp; Users</a></li>
+            <li><a href="">Sharing/Permissions</a></li>
+            <li><a href="">Creating Templates</a></li>
+            <li><a href="">Synchronizing Multiple Projects</a></li>
+        </ul>
+    </li>
+    <li><a href="/gooddata-cl"{% if page.stub == 'gooddata-cl' %} class="active"{% endif %}>GoodData CL</a>
+        <ul>
+            <li><a href="/gooddata-cl/documentation.html"{% if page.stub == 'gooddata-cl-basics' %} class="active"{% endif %}>Basic Usage</a></li>
+            <li><a href="/gooddata-cl/xml-config.html"{% if page.stub == 'gooddata-cl-xml' %} class="active"{% endif %}>Schema XML syntax</a></li>
+            <li><a href="/gooddata-cl/cli-commands.html"{% if page.stub == 'gooddata-cl-commands' %} class="active"{% endif %}>Runtime Commands</a></li>
         </ul>
     </li>
     <li><a href="/faq.html">FAQ</a></li>
-    <li>Creating Projects</li>
-    <li>Sharing/Permissions</li>
-    <li>Embedding</li>
-    <li>Master/Slave template management</li>
-    <li>CL tool</li>
-    <li>Basic Usage</li>
-    <li>data schema XML syntax</li>
-    <li>CL commands (running, command-line, install)</li>
 </ul>
 
 	
