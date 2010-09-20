@@ -31,13 +31,13 @@
         <div id="navigation">
             <ul>
                 <li>
-                    <a href="/" title="Home">Home</a>
+                    <a href="/" title="Home"{% if page.section == 'home' %} class="active"{% endif %}>Home</a>
                 </li><li>
-                    <a href="/start/" title="Getting Started">Getting Started</a>
+                    <a href="/start/" title="Getting Started"{% if page.section == 'start' %} class="active"{% endif %}>Getting Started</a>
                 </li><li>
-                    <a href="/api/" title="API Documentation">Documentation</a>
+                    <a href="/api/" title="API Documentation"{% if page.section == 'documentation' %} class="active"{% endif %}>Documentation</a>
                 </li><li>
-                    <a href="/download.html" title="Download">Tools</a>
+                    <a href="/download.html" title="Download"{% if page.section == 'download' %} class="active"{% endif %}>Tools</a>
                     <!-- <ul>
                         <li><a href="/gooddata-cl/" title="GoodData Command-Line Utility">GoodData CL</a></li>
                         <li><a href="/snaplogic/" title="GoodData + SnapLogic">GoodData + SnapLogic</a></li>

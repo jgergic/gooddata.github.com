@@ -1,6 +1,7 @@
 ---
 title: Getting Started
 layout: default
+section: start
 ---
 
 # Welcome

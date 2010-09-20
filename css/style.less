@@ -73,6 +73,7 @@ a:link, a:visited {
     :hover { color: #007CFF; text-decoration: none; }
     img { border: none; }
 }
+a[href=""] { text-decoration: line-through !important; }
 em,i {
     font-style: italic;
 }
@@ -185,14 +186,15 @@ header {
                 padding-left: 15px;
                 padding-right: 15px;
                 
-                :hover {
-                    text-decoration: underline;
-                    background: none;
-                    background-image: url(http://www.gooddata.com/files/2009/10/navhover.png) ;
-                    background-repeat: no-repeat;
-                    color: #667071;
-                }
             }
+            a:link.active, a:hover {
+                text-decoration: underline;
+                background: none;
+                background-image: url(http://www.gooddata.com/files/2009/10/navhover.png) ;
+                background-repeat: no-repeat;
+                color: #667071;
+            }
+            
         }
     }
 }
@@ -435,9 +437,6 @@ pre .dataColumn {
     min-height: 750px;
     position: relative;
 }
-
-
-a[href=""] { text-decoration: line-through !important; }
 
 #contain-wrap .menu.documentation {
 
