@@ -219,7 +219,7 @@ pre .dataColumn {
     position: relative;
 }
 #documentation img {
-    width: 100%;
+    max-width: 100%;
 }
 
 #contain-wrap .menu.documentation {
