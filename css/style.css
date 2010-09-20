@@ -99,6 +99,9 @@ hr {
 .clear {
     clear: both;
 }
+.next {
+    float: right;
+}
 
 
 .twoBlock.right {
