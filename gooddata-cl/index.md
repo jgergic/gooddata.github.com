@@ -15,11 +15,5 @@ A quick, easy-to-use **command-line** utility that wraps access to GoodData APIs
 By being command-line driven, it can be easily included as part of an automated integration workflow.
             
 <a class="greenButton" href="http://github.com/gooddata/GoodData-CL/downloads">Download GoodData CL</a>
-<a class="greenButton" href="/gooddata-cl/install.html">Installation ReadMe</a>
-<a class="greenButton" href="/gooddata-cl/documentation.html">Full Documentation</a>
             
-<div><br>
-    <h3>Further information</h3>
-    <a href="/gooddata-cl/examples/">Usage Examples</a> with full documentation describing different scenarios for using the tool<br>
-    <a href="http://github.com/gooddata/GoodData-CL/">Source Code</a> on GitHub (where you can file issue requests, use the project wiki etc.)<br>
-</div>
+<div class="next">Next:&nbsp;<a href="/gooddata-cl/install.html">Installation Instructions&nbsp;▶</a></div>
