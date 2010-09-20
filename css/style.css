@@ -218,6 +218,9 @@ pre .dataColumn {
     min-height: 750px;
     position: relative;
 }
+#documentation img {
+    width: 100%;
+}
 
 #contain-wrap .menu.documentation {
     width: 280px;
