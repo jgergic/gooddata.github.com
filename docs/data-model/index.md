@@ -9,19 +9,16 @@ Data Model helps GoodData understand the structure of your data and create datab
 
 **nice infographic follows**
 
-There are two important things to get right: Attributes/Facts and Data Structure.
-
 ## Data Types
 
 In business intelligence, data is separated between quantitative (*facts*) and qualitative (*attributes*).
 
-*Facts* are numerical data that can be aggregated (summed, averaged, etc.) Not all numerical data are facts however - a table ID or social security number are examples of purely numerical fields that cannot be aggregated with math.
+Examples of *facts*: age, # of items, revenue, **not** social security number or an ID. Generally anything you can count.
+Examples of *attributes*: names, places, colors, IDs.
 
-*Attributes* are any labels that you can apply to data. Some can be textual, some numeric. Examples would include names, places, colors, IDs.
+There are more types with special semantics/behavior available (for example Dates). See ldmType in the [Schema XML documentation](/gooddata-cl/xml-config.html) for more details.
 
-There are more types with special semantics/behavior available (for example dates). See ldmType in the [Schema XML documentation](/gooddata-cl/xml-config.html).
-
-When configuring your data model, help us by identifying which fields are facts and which are attributes. If you get it wrong, you can [change your model](/api/maql-ddl.html) later, however you'll have to rebuild your reports from scratch.
+When configuring your data model, help us by identifying which fields are facts and which are attributes. If you get it wrong, you *can* [change your model](/api/maql-ddl.html) later, however it's not entirely easy and you'll have to reload all your data again into GoodData.
 
 **Example:**
 

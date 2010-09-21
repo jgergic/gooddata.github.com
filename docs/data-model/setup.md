@@ -23,10 +23,6 @@ If you're using [GoodData CL](/gooddata-cl), you'll need to create an XML file d
       </columns>
     </schema>
 
-### SnapLogic
-Our Snaplogic plugin asks you for description of your model in step 6 (in the wizard this is called DLI definition). You get a chance to specify your ldmDataTypes (see [Schema XML syntax](/gooddata-cl/xml-config.html)). Each dataset is uploaded as a separate star
-
-**screenshot of snaplogic setup**
 
 ### Using REST API and MAQL DDL
 You can create/modify the data model directly using the REST API and our data description language - [MAQL DDL](/api/maql-ddl.html).
