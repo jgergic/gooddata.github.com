@@ -5,6 +5,10 @@ layout: default
 
 <h1>Welcome to GoodData. Let's get started.</h1>
 
+<div id="reports">
+    <em>35,000</em> reports computed last week
+</div>
+
 <div id="homepage">
     <div id="workflow">
         <div class="panes">
@@ -55,25 +59,32 @@ layout: default
     			</li>
             </ul>
         </div>
+        </div>
     </div>
 </div>
-    
+
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
+<script src="js/jquery-ui.custom.min.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript" charset="utf-8">
+
     $(document).ready(function() {
-        $('#workflow div.panes div header').hover(function() {
-            $('#workflow div.panes div.active').removeClass('active');
-            $(this).parent().addClass('active');
-        });
-        
-        $('#workflow div.panes div header').click(function() {
-            var id = '#'+($(this).attr('data-for'));
-            $('#workflow div.panes div.active').removeClass('active');
-            console.log(id);
-            $(id).addClass('active');
+        $('#workflow div.pane:not([class~=active]) ul').css({display:'none'});
+        $('#workflow div.pane header').hover(function() {
+            if (!$(this).parent('div.pane').hasClass('active')) {
+                $('#workflow div.pane ul').stop(true,true);
+                $('#workflow div.pane').each(function() { $(this).removeClass('active'); });
+                $(this).parent('div.pane').addClass('active');
+
+                $('#workflow div.pane ul').each(function() {
+                    if (!$(this).parent('div.pane').hasClass('active'))
+                        $(this).slideUp('500');
+                    else
+                        $(this).slideDown('500');
+                });
+            }
         });
     });
 </script>
