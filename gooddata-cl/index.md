@@ -14,6 +14,8 @@ A quick, easy-to-use **command-line** utility that wraps access to GoodData APIs
  * **…and even more** &mdash; *partial loads, data snapshotting, time dimension mapping and more…*
 
 By being command-line driven, it can be easily included as part of an automated integration workflow.
+
+If you use GoodData CL, please follow the [announcement mailing list](http://groups.google.com/group/gooddata-cl-announce/) to get notified of new features and changes.
             
 <a class="greenButton" href="http://github.com/gooddata/GoodData-CL/downloads">Download GoodData CL</a>
             
