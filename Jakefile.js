@@ -16,7 +16,7 @@ task('default', [], function() {
 
 desc('Build Jekyll website, compress CSS');
 task('build', [], function() {
-    run_command('Building Jekyll site...', 'rm -Rf _site && jekyll && cat _site/css/style.css | java -jar /usr/local/bin/yuicompressor.jar --type css > _site/css/style.css', function() {
+    run_command('Building Jekyll site...', 'rm -Rf _site && jekyll && cat _site/css/style.css | java -jar /usr/local/bin/yuicompressor.jar --type css > _site/css/style-min.css && mv _site/css/style-min.css _site/css/style.css', function() {
         sys.puts('done.');
         complete();
     });
@@ -24,7 +24,7 @@ task('build', [], function() {
 
 desc('Push website to developer-beta');
 task('deploy', [], function() {
-    run_command('Uploading website...', '$(cd _site/ && tar czf - . | ssh root@jn.users.getgooddata.com \'cat | tar xzf test.tgz -C /opt/devsite/\')', function() {
+    run_command('Uploading website...', '$(cd _site/ && tar czf - . | ssh root@jn.users.getgooddata.com \'cat | tar xzf - -C /opt/devsite/\')', function() {
         sys.puts('done.');
         complete();
     });
