@@ -6,26 +6,29 @@ layout: default
 <h1>Welcome to GoodData. Let's get started.</h1>
 
 <div id="homepage">
-    <div id="reports">
-        <em>35,000</em> reports computed last week
+    <div id="sidebar">
+        <div id="reports">
+            <em>578,842</em> served to our customers this year.
+        </div>
+        <p><a href="https://secure.gooddata.com/registration.html" target="signup">Sign Up</a>&nbsp;|&nbsp;<a href="http://github.com/gooddata/GoodData-CL/downloads" target="gdcl">Get GoodData CL</a></p>
     </div>
 
     <div id="workflow">
         <div class="panes">
         <div class="active pane">
-            <header>Setup</header>
+            <header>Model</header>
             <ul>
             	<li>
-            	    <h3><span>➊</span> Sign up with GoodData</h3>
-            	    <div class="detail">Regular GoodData account will do. Fill out <a href="https://secure.gooddata.com/registration.html" target="signup">the form</a> and you'll get a signup email in a couple minutes.</div>
+            	    <h3><span>➊</span> Create Your Project</h3>
+            	    <div class="detail"><code>CreateProject(name="my project");</code></div>
             	</li>
     			<li>
-    			    <h3><span>➋</span> Create your Project</h3>
-    			    <div class="detail">Project is your <q>database</q> inside GoodData. You can have more then one project, but each project has separate users &amp; permissions.</div>
+    			    <h3><span>➋</span> Setup Data Model</h3>
+    			    <div class="detail"><code>LoadCsv(csvDataFile="data.csv", configFile="config.xml", header="true"); GenerateMaql(maqlFile="model.maql"); ExecuteMaql(maqlFile="model.maql");</code></div>
     			</li>
     			<li>
-    			    <h3><span>➌</span> Download Dev Tools</h3>
-    			    <div class="detail">Depending on your preferred language/toolchain, download our <a href="/gooddata-cl/" target="gdcl">Java CL tool</a> or <a href="" target="gdrb">Ruby Gem</a></div>
+    			    <h3><span>➌</span> Transfer Data</h3>
+    			    <div class="detail"><code>TransferLastSnapshot();</code><br><a href="start/load-in-5-minutes.html">Watch a short screencast</a></div>
     			</li>
             </ul>
         </div>
@@ -33,16 +36,16 @@ layout: default
             <header>Build</header>
             <ul>
                 <li>
-                    <h3><span>➊</span> Create Data Model</h3>
-                    <div class="detail">Data Modeling helps us compute your reports.</div>
+                    <h3><span>➊</span> Create Reports &amp; Charts</h3>
+                    <div class="detail"><a href="http://vimeo.com/9204751" target="_blank">create reports</a>, <a href="http://vimeo.com/9209005" target="_blank">format numbers</a>, <a href="http://vimeo.com/9179268" target="_blank">configure behavior</a></div>
                 </li>
     			<li>
-    			    <h3><span>➋</span> Automate Data Upload</h3>
-                    <div class="detail">Set up fully automated daily updates using our developer tools or API.</div>
+    			    <h3><span>➋</span> Design Dashboards</h3>
+                    <div class="detail">Lay out <a href="http://vimeo.com/13680975" target="_blank">vivid dashboards</a>.</div>
     			</li>
     			<li>
-    			    <h3><span>➌</span> Create Dashboards &amp; Embed</h3>
-                    <div class="detail">Prepare vivid reports &amp; dashboards.</div>
+    			    <h3><span>➌</span> Embed Into Your App</h3>
+                    <div class="detail">&lt;iframe src=&quot;...&quot; width=&quot;100%&quot; height=&quot;1650px&quot;&gt;&lt;/iframe&gt;<br><a href="https://secure.gooddata.com/docs/html/reference.guide.dashboard.share.html" target="_blank">more info…</a></div>
     			</li>
             </ul>
         </div>
@@ -53,20 +56,39 @@ layout: default
                     <h3><span>➊</span> Auto-Provision Projects &amp; Users</h3>
                     <div class="detail">Using our open APIs, link up your app with our infrastructure and provision new projects and users within seconds.</div>
                 </li>
+                <li>
+                    <h3><span>➋</span> Set Up User Permissions</h3>
+                    <div class="detail">Using our open APIs, link up your app with our infrastructure and provision new projects and users within seconds.</div>
+                </li>
     			<li>
-    			    <h3><span>➋</span> Manage Changes Across Projects</h3>
+    			    <h3><span>➌</span> Manage Changes Across Projects</h3>
                     <div class="detail">Keep your users in sync with updates from your master template.</div>
     			</li>
             </ul>
         </div>
         </div>
     </div>
+    
+    <div id="testimonials">
+        <a class="testimonial" target="testimonial1" href="http://www.gooddata.com/what-is-gooddata/zendesk/">Zendesk Case Study</a>
+        <a class="testimonial" target="testimonial2" href="http://www.gooddata.com/gazelle-runs-a-metrics-driven-business/">Gazelle Video</a>
+        <br clear="all">
+    </div>
+    
+    <p id="quicklinks">
+        <a href="/gooddata-cl/">About GoodData CL</a> |
+        Usage Examples:
+        <a href="/gooddata-cl/examples/quotes/">CSV</a>,
+        <a href="/gooddata-cl/examples/jdbc/">JDBC</a>,
+        <a href="/gooddata-cl/examples/ga/">Google Analytics</a>,
+        <a href="/gooddata-cl/examples/sfdc/">Salesforce</a>
+    </p>
 </div>
 
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
-<script src="js/jquery-ui.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script>!window.jQuery && document.write('<script src="/js/jquery-1.4.2.min.js"><\/script>')</script>
+<script src="/js/number-functions.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript" charset="utf-8">
 
@@ -86,5 +108,15 @@ layout: default
                 });
             }
         });
+
+        var em = $('#reports em'), startDate = 1286277992574, startNumber = 578842, rate = 0.084, counterString='';
+        var counter = startNumber + (((new Date()).getTime() - startDate) / 1000 * rate);
+        
+        function updateTimer() {
+            counter+=rate;
+            em.text(Math.round(counter).numberFormat('0,0'));
+        }
+        setInterval(updateTimer,1000);
+        updateTimer();
     });
 </script>
