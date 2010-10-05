@@ -6,4 +6,5 @@ breadcrumbs:
   url: /start/
 ---
 
+<a name="gdcl">&nbsp;</a>
 {% include loading-data.md %}
