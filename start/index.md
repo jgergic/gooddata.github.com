@@ -5,7 +5,7 @@ section: start
 ---
 
 # Welcome
-You can use GooData in several different ways. Here is how to choose which one you should start with:
+You can use GoodData in several different ways. Here is how to choose which one you should start with:
 
 * [GoodData CL](load-in-5-minutes.html) is a command-line tool for GoodData API. It offers the most functions, is completely scriptable, but some programming experience is recommended.
 
