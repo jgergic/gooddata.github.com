@@ -101,6 +101,7 @@ layout: default
 <script type="text/javascript" charset="utf-8">
 
     $(document).ready(function() {
+        $('#workflow').css({'height':'380px'});
         $('#workflow div.pane:not([class~=active]) ul').css({display:'none'});
         $('#workflow div.pane header').hover(function() {
             if (!$(this).parent('div.pane').hasClass('active')) {
