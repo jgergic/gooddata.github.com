@@ -15,6 +15,15 @@ A typical integration scenario looks like this:
 1. Transform your data to fit Data Loading Interfaces (DLIs) generated from the [MAQL DDL](maql-ddl.html) script.
 1. Load your data to the GoodData project (see the [Data Loading API](#data))
 
+<a name="auth" style="position:absolute;">&nbsp;</a>
+## Authentication API
+
+The authentication API provides access to the GoodData's token-based authentication
+which is required prior to authorizing access to most GoodData resources.
+
+To lean more about how to authenticate to GoodData, read the [Authentication API](auth.html)
+documentation, where you can find an example as well.
+
 <a name="model" style="position:absolute;">&nbsp;</a>
 ## Modeling API 
 Each GoodData project requires so called Logical Data Model (LDM) that describes the data that are available for analysis. The LDM consists of mutually connected _attribute_, _fact_, _dataset_, and _folder_ objects. These objects are created using a MAQL DDL scripts.
@@ -31,11 +40,8 @@ The data loading API enable the physical transfer of data between various data s
  * See the [_deploySnapshot_ in the GdcFTPApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/ftp/GdcFTPApiWrapper.java) to get more details on the FTP transfer of the data package.
  * Finally take a look at the _startLoading_ and _getLoadingStatus_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) that tell the GoodData project to process the data package. 
 
-<a name="auth" style="position:absolute;">&nbsp;</a>
-## Authentication API
-The authentication API provides access to the GoodData's token-based authentication.
-
-* See the [_login_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) for more details about the authentication API.
+You can find a more depth-in explanation of the language and its use
+on a dedicated [MAQL DDL](maql-ddl.html) page.
 
 <a name="provision" style="position:absolute;">&nbsp;</a>
 ## Project Provisioning API
