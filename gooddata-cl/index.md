@@ -18,4 +18,4 @@ If you use GoodData CL, please follow the [announcement mailing list](http://gro
             
 <a class="greenButton" href="http://github.com/gooddata/GoodData-CL/downloads">Download GoodData CL</a>
             
-<div class="next">Next:&nbsp;<a href="/gooddata-cl/install.html">Installation Instructions&nbsp;▶</a></div>
+<div class="next">Next:&nbsp;<a href="{{ site.root }}/gooddata-cl/install.html">Installation Instructions&nbsp;▶</a></div>

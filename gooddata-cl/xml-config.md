@@ -5,4 +5,4 @@ stub: gooddata-cl-xml
 ---
 
 {% include gdcl/cli-distro/doc/XML.md %}
-<div class="next">Next:&nbsp;<a href="/gooddata-cl/cli-commands.html">Runtime Commands&nbsp;▶</a></div>
+<div class="next">Next:&nbsp;<a href="{{ site.root }}/gooddata-cl/cli-commands.html">Runtime Commands&nbsp;▶</a></div>

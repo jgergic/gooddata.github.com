@@ -23,4 +23,4 @@ stub: gooddata-cl-commands
     file                  path to script file with commands to execute
 
 {% include gdcl/cli-distro/doc/CLI.md %}
-<div class="next">Next:&nbsp;<a href="/gooddata-cl/examples/">Usage Examples&nbsp;▶</a></div>
+<div class="next">Next:&nbsp;<a href="{{ site.root }}/gooddata-cl/examples/">Usage Examples&nbsp;▶</a></div>

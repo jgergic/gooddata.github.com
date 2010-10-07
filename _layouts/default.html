@@ -13,13 +13,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="favicon.ico"> 
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <script src="/js/modernizr-1.5.min.js"></script>
+    <link rel="stylesheet" href="{{ site.root }}/css/style.css" type="text/css">
+    <script src="{{ site.root }}/js/modernizr-1.5.min.js"></script>
 </head>
 <body>
 
     <header>
-        <a href="http://www.gooddata.com/" title="GoodData"><img src="/images/logo.png" alt="GoodData | Developer Network" /></a>
+        <a href="http://www.gooddata.com/" title="GoodData"><img src="{{ site.root }}/images/logo.png" alt="GoodData | Developer Network" /></a>
     </header>
 
     <div id="wrapper">
@@ -27,13 +27,13 @@
         <div id="navigation">
             <ul>
                 <li>
-                    <a href="/" title="Home"{% if page.section == 'home' %} class="active"{% endif %}>Home</a>
+                    <a href="{{ site.root }}/" title="Home"{% if page.section == 'home' %} class="active"{% endif %}>Home</a>
                 </li><li>
-                    <a href="/start/" title="Getting Started"{% if page.section == 'start' %} class="active"{% endif %}>Getting Started</a>
+                    <a href="{{ site.root }}/start/" title="Getting Started"{% if page.section == 'start' %} class="active"{% endif %}>Getting Started</a>
                 </li><li>
-                    <a href="/api/" title="API Documentation"{% if page.section == 'documentation' %} class="active"{% endif %}>Documentation</a>
+                    <a href="{{ site.root }}/api/" title="API Documentation"{% if page.section == 'documentation' %} class="active"{% endif %}>Documentation</a>
                 </li><li>
-                    <a href="/download.html" title="Download"{% if page.section == 'download' %} class="active"{% endif %}>Tools</a>
+                    <a href="{{ site.root }}/download.html" title="Download"{% if page.section == 'download' %} class="active"{% endif %}>Tools</a>
                     <!-- <ul>
                         <li><a href="/gooddata-cl/" title="GoodData Command-Line Utility">GoodData CL</a></li>
                         <li><a href="/snaplogic/" title="GoodData + SnapLogic">GoodData + SnapLogic</a></li>
