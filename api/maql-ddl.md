@@ -1,7 +1,7 @@
 ---
 title: MAQL DDL Documentation
 layout: documentation
-stub: maql-ddl
+stub: api-maql-ddl
 ---
 
 <h1 id="modeling_data_with_maql_ddl">Modeling Data with MAQL DDL</h1>

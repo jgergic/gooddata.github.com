@@ -1,6 +1,7 @@
 ---
 title: API Documentation
 layout: documentation
+stub: api
 ---
 
 # GoodData API Structure
