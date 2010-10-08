@@ -38,18 +38,19 @@
     -moz-border-radius: @radius;
     border-radius: @radius;
 }
-.no_bottom_rounded_corners {
-    -webkit-border-bottom-left-radius: 0px;
-    -moz-border-bottom-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+.bottom_rounded_corners(@radius: 3px) {
+    -webkit-border-bottom-left-radius: @radius;
+    -moz-border-bottom-left-radius: @radius;
+    border-bottom-left-radius: @radius;
 
-    -webkit-border-bottom-right-radius: 0px;
-    -moz-border-bottom-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    -webkit-border-bottom-right-radius: @radius;
+    -moz-border-bottom-right-radius: @radius;
+    border-bottom-right-radius: @radius;
 }
 
-
 @linkColor: #4183C4;
+@spacing: 40px;
+
 
 /* ---- CSS reset ---- */
 
@@ -100,6 +101,10 @@ ul, ol {
     margin: 1em 0px 1em 2em;
     line-height: 1.7em;
 }
+.clear {
+    clear: both;
+}
+
 
 /* ---- main layout ---- */
 
@@ -159,8 +164,8 @@ html.boxshadow {
     display: block;
     width: 935px;
     margin: 0px;
-    margin-right: 25px;
-    padding: 0px 25px;
+    margin-right: @spacing;
+    padding: 0px @spacing;
     border-bottom: 0px;
 
     ul {
@@ -204,19 +209,6 @@ html.boxshadow {
     }
 }
 
-.breadcrumbs {
-    background-color: #F5F5F5;
-    border: 0px none;
-    margin-right: -1px;
-    border-bottom: 1px solid #B2CFD6;
-    padding: 0px 13px;
-    padding-left: 60px;
-    font-size: 14px;
-    line-height: 36px;
-    background: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgb(226,234,240)),color-stop(0.4, rgb(245,245,245)));
-    background: -moz-linear-gradient(center top,rgb(221,233,236) 0%,rgb(245,245,245) 40%);
-}
-
 #contain-wrap {
     line-height: 1.4em;
     font-size: 14px;
@@ -227,90 +219,48 @@ html.boxshadow {
 
     h1 {
         font-size: 2em;
-        margin-top: 20px;
+        margin-top: @spacing / 2;
         margin-bottom: 0px;
     /*    text-align: center;*/
     }
 
-    ul.centered {
-        text-align: left;
-        padding-left: 0em;
-        margin-left: 300px;
-        line-height: 1.4em;
-    }
     ul li { list-style-type: disc; }
 /*    ul li ul { display: none; }*/
     ol li { list-style-type: decimal; }
     img {
         border: 4px solid #ddd;
     }
-}
-.centerText {
-    margin-left: 100px;
-}
-.twoBlock {
-    width: 400px;
-    position: absolute;
-}
-.spacer {
-    height: 20px;
-}
-.clear {
-    clear: both;
+
+    .greenButton, .buttonsWrap button {
+        display: inline-block;
+        background-color: #6DAF37;
+        -moz-border-radius:3px;
+        -webkit-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        border: 0px none;
+        margin: 5px;
+        padding: 5px 15px;
+        color: white;
+        text-shadow: #468422 1px 1px 2px;
+        font-size: 1em;
+        cursor: pointer;
+        width: auto;
+        overflow: visible;
+        text-decoration: none;
+    }
 }
 
-
-.twoBlock.right {
-    right: 50px;
-}
-.twoBlock.left {
-    left: 50px;
-}
-.rightBlock {
-    margin-left: 400px;
-    width: 400px;
-}
-
-#contain-wrap .greenButton, #contain-wrap .buttonsWrap button {
-    display: inline-block;
-    background-color: #6DAF37;
-    -moz-border-radius:3px;
-    -webkit-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;
-    border: 0px none;
-    margin: 5px;
-    padding: 5px 15px;
-    color: white;
-    text-shadow: #468422 1px 1px 2px;
-    font-size: 1em;
-    cursor: pointer;
-    width: auto;
-    overflow: visible;
-    text-decoration: none;
-}
-
-.links {
-    margin-top: 50px;
-    text-align: left;
-    margin-left: 200px;
-}
-.links a {
-    color: #4E68B8;
-}
-
-#documentation {
+#documentation, #gettingstarted {
     text-align: left;
     margin: 0px;
-/*    background-color: #F6F6F6;*/
-/*    border: 1px solid #E9E9E9;*/
-    padding: 10px;
     margin-top: 0px;
+    padding: 10px;
     
     h1 { margin-top: 0px }
     h3 {
         margin-bottom: 0px;
-        margin-top: 20px;
+        margin-top: @spacing / 2;
     }
     
     h3 + p {
@@ -337,15 +287,15 @@ html.boxshadow {
     }
     ul li { margin-left: 15px; }
     ol li { margin-left: 20px; }
+    .next {
+        float: right;
+    }
     hr {
         width: 90%;
         color: #DEDEDE;
-        margin: 40px auto 40px;
+        margin: @spacing auto;
         border-style: solid;
         border-width: 2px;
-    }
-    .next {
-        float: right;
     }
 }
 
@@ -365,7 +315,7 @@ pre .dataColumn {
 /* -------- homepage -------- */
 
 #homepage {
-    margin-top: 40px;
+    margin-top: @spacing;
     min-height: 400px;
     position: relative;
     
@@ -377,6 +327,18 @@ pre .dataColumn {
 
         width: 550px;
         overflow: hidden;
+        
+        @workflow-radius: 5px;
+        #workflow-model {
+            .rounded_corners(@workflow-radius);
+            .bottom_rounded_corners(0px);
+            overflow: hidden;
+        }
+        
+        #workflow-deploy {
+            .bottom_rounded_corners(@workflow-radius);
+            overflow: hidden;
+        }
 
         div.pane {
             border: 1px solid #ccc;
@@ -406,7 +368,7 @@ pre .dataColumn {
                         span { font-size: 2em; display: inline-block; vertical-align: middle; margin-top: -5px; margin-right: 5px; }
                     }
                     div.detail {
-                        margin-bottom: 20px;
+                        margin-bottom: @spacing / 2;
                     }
                 }
             }
@@ -419,10 +381,18 @@ pre .dataColumn {
     #sidebar {
         position: absolute;
         right: 20px;
-        top: 100px;
+        top: 60px;
         margin-left: 600px;
+        
+        h3 {
+            font-size: 1.5em;
+            line-height: 1.2em;
+            font-weight: bold;
+            margin-bottom: @spacing / 2;
+        }
 
-        #reports {
+        #stats {
+            display: none;
             font-size: 2em;
             line-height: 1.2em;
             em {

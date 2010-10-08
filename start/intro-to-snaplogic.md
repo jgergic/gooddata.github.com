@@ -1,7 +1,6 @@
 ---
 title: Getting Started with SnapLogic
-layout: default
-section: start
+layout: gettingstarted
 ---
 
 <a name="snaplogic">&nbsp;</a>

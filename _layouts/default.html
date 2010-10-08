@@ -49,19 +49,6 @@
 
 
         <div id="container">
-            {% if page.breadcrumbs %}
-                <div class="breadcrumbs">
-                    {% for breadcrumb in page.breadcrumbs %}
-                        {% if breadcrumb.url %}<a href="{{breadcrumb.url}}">{% endif %}{{ breadcrumb.name }}{% if breadcrumb.url != empty %}</a>{% endif %}
-                        {% unless forloop.last == true %}&gt;{% endunless %}
-                    {% endfor %}
-                    {% if page.breadcrumb %}
-                        &gt; {{ page.breadcrumb }}
-                    {% else %}
-                        &gt; {{ page.title }}
-                    {% endif %}
-                </div>
-            {% endif %}
             <div id="contain-wrap">
             {{ content }}
             </div>

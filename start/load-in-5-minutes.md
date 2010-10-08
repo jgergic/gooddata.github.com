@@ -1,9 +1,6 @@
 ---
 title: Getting Started with GoodData CL
-layout: documentation
-breadcrumbs:
-- name: Getting Started
-  url: /start/
+layout: gettingstarted
 ---
 
 <a name="gdcl">&nbsp;</a>

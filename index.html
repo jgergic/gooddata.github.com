@@ -11,61 +11,62 @@ layout: default
 
 <div id="homepage">
     <div id="sidebar">
-        <div id="reports">
-            <em>578,842</em> reports served this year.
+        <h3>BI Cloud Platform at Your Fingertips</h3>
+        <div id="stats">
+            <em>Lots of</em> REST&nbsp;API calls this week
         </div>
-        <p><a href="https://secure.gooddata.com/registration.html" target="signup">Sign Up</a>&nbsp;|&nbsp;<a href="http://github.com/gooddata/GoodData-CL/downloads" target="gdcl">Get GoodData CL</a></p>
+        <p><a href="http://github.com/gooddata/GoodData-CL/downloads" target="gdcl">Get GoodData CL</a></p>
     </div>
 
     <div id="workflow">
         <div class="panes">
-        <div class="active pane">
+        <div class="active pane" id="workflow-model">
             <header>Model</header>
             <ul>
             	<li>
-            	    <h3><span>➊</span> Create Your Project</h3>
+            	    <h3>Create Your Project</h3>
             	    <div class="detail"><code>CreateProject(name="my project");</code></div>
             	</li>
     			<li>
-    			    <h3><span>➋</span> Setup Data Model</h3>
+    			    <h3>Setup Data Model</h3>
     			    <div class="detail"><code>LoadCsv(csvDataFile="data.csv", configFile="config.xml", header="true"); GenerateMaql(maqlFile="model.maql"); ExecuteMaql(maqlFile="model.maql");</code></div>
     			</li>
     			<li>
-    			    <h3><span>➌</span> Transfer Data</h3>
-    			    <div class="detail"><code>TransferLastSnapshot();</code><br><a href="start/load-in-5-minutes.html">Watch a short screencast</a></div>
+    			    <h3>Transfer Data</h3>
+    			    <div class="detail"><code>TransferLastSnapshot();</code><br><a href="start/load-in-5-minutes.html">Watch a short sample screencast</a></div>
     			</li>
             </ul>
         </div>
-        <div class="pane">
+        <div class="pane" id="workflow-build">
             <header>Build</header>
             <ul>
                 <li>
-                    <h3><span>➊</span> Create Reports &amp; Charts</h3>
+                    <h3>Create Reports &amp; Charts</h3>
                     <div class="detail"><a href="http://vimeo.com/9204751" target="_blank">create reports</a>, <a href="http://vimeo.com/9209005" target="_blank">format numbers</a>, <a href="http://vimeo.com/9179268" target="_blank">configure behavior</a></div>
                 </li>
     			<li>
-    			    <h3><span>➋</span> Design Dashboards</h3>
-                    <div class="detail">Lay out <a href="http://vimeo.com/13680975" target="_blank">vivid dashboards</a>.</div>
+    			    <h3>Design Dashboards</h3>
+                    <div class="detail">Create <a href="http://vimeo.com/15632660">beautiful charts</a> and lay them out on <a href="http://vimeo.com/13680975" target="_blank">vivid dashboards</a>.</div>
     			</li>
     			<li>
-    			    <h3><span>➌</span> Embed Into Your App</h3>
+    			    <h3>Embed Into Your App</h3>
                     <div class="detail">&lt;iframe src=&quot;...&quot; width=&quot;100%&quot; height=&quot;1650px&quot;&gt;&lt;/iframe&gt;<br><a href="https://secure.gooddata.com/docs/html/reference.guide.dashboard.share.html" target="_blank">more info…</a></div>
     			</li>
             </ul>
         </div>
-        <div class="pane">
+        <div class="pane" id="workflow-deploy">
             <header>Deploy</header>
             <ul>
                 <li>
-                    <h3><span>➊</span> Auto-Provision Projects &amp; Users</h3>
+                    <h3>Auto-Provision Projects &amp; Users</h3>
                     <div class="detail">Using our open APIs, link up your app with our infrastructure and provision new projects and users within seconds.</div>
                 </li>
                 <li>
-                    <h3><span>➋</span> Set Up User Permissions</h3>
+                    <h3>Set Up User Permissions</h3>
                     <div class="detail">Using our open APIs, link up your app with our infrastructure and provision new projects and users within seconds.</div>
                 </li>
     			<li>
-    			    <h3><span>➌</span> Manage Changes Across Projects</h3>
+    			    <h3>Manage Changes Across Projects</h3>
                     <div class="detail">Keep your users in sync with updates from your master template.</div>
     			</li>
             </ul>
@@ -121,14 +122,15 @@ layout: default
             }
         });
 
-        var em = $('#reports em'), startDate = 1286277992574, startNumber = 578842, rate = 0.084, counterString='';
-        var counter = startNumber + (((new Date()).getTime() - startDate) / 1000 * rate);
+        var em = $('#stats em'), rate = 6.911, counterString='', counter, weekOffset;
         
         function updateTimer() {
-            counter+=rate;
+            weekOffset = (((new Date()).getTime() - 1285538400000) % 604800000) / 1000; // offset from the start of week in seconds
+            counter = weekOffset * rate;
             em.text(Math.round(counter).numberFormat('0,0'));
         }
-        setInterval(updateTimer,1000);
+        setInterval(updateTimer,1300);
         updateTimer();
+        $('#stats').show();
     });
 </script>
