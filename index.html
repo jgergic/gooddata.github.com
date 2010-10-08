@@ -1,0 +1,136 @@
+---
+title: Welcome
+layout: default
+---
+
+<script type="text/javascript" charset="utf-8">
+    document.write('<style>#workflow { height: 380px; }</style>');
+</script>
+
+<h1>Welcome to GoodData. Let's get started.</h1>
+
+<div id="homepage">
+    <div id="sidebar">
+        <h3>BI Cloud Platform at Your Fingertips</h3>
+        <div id="stats">
+            <em>Lots of</em> REST&nbsp;API calls this week
+        </div>
+        <p><a href="http://github.com/gooddata/GoodData-CL/downloads" target="gdcl">Get GoodData CL</a></p>
+    </div>
+
+    <div id="workflow">
+        <div class="panes">
+        <div class="active pane" id="workflow-model">
+            <header>Model</header>
+            <ul>
+            	<li>
+            	    <h3>Create Your Project</h3>
+            	    <div class="detail"><code>CreateProject(name="my project");</code></div>
+            	</li>
+    			<li>
+    			    <h3>Setup Data Model</h3>
+    			    <div class="detail"><code>LoadCsv(csvDataFile="data.csv", configFile="config.xml", header="true"); GenerateMaql(maqlFile="model.maql"); ExecuteMaql(maqlFile="model.maql");</code></div>
+    			</li>
+    			<li>
+    			    <h3>Transfer Data</h3>
+    			    <div class="detail"><code>TransferLastSnapshot();</code><br><a href="start/load-in-5-minutes.html">Watch a short sample screencast</a></div>
+    			</li>
+            </ul>
+        </div>
+        <div class="pane" id="workflow-build">
+            <header>Build</header>
+            <ul>
+                <li>
+                    <h3>Create Reports &amp; Charts</h3>
+                    <div class="detail"><a href="http://vimeo.com/9204751" target="_blank">create reports</a>, <a href="http://vimeo.com/9209005" target="_blank">format numbers</a>, <a href="http://vimeo.com/9179268" target="_blank">configure behavior</a></div>
+                </li>
+    			<li>
+    			    <h3>Design Dashboards</h3>
+                    <div class="detail">Create <a href="http://vimeo.com/15632660">beautiful charts</a> and lay them out on <a href="http://vimeo.com/13680975" target="_blank">vivid dashboards</a>.</div>
+    			</li>
+    			<li>
+    			    <h3>Embed Into Your App</h3>
+                    <div class="detail">&lt;iframe src=&quot;...&quot; width=&quot;100%&quot; height=&quot;1650px&quot;&gt;&lt;/iframe&gt;<br><a href="https://secure.gooddata.com/docs/html/reference.guide.dashboard.share.html" target="_blank">more info…</a></div>
+    			</li>
+            </ul>
+        </div>
+        <div class="pane" id="workflow-deploy">
+            <header>Deploy</header>
+            <ul>
+                <li>
+                    <h3>Auto-Provision Projects &amp; Users</h3>
+                    <div class="detail">Using our open APIs, link up your app with our infrastructure and provision new projects and users within seconds.</div>
+                </li>
+                <li>
+                    <h3>Set Up User Permissions</h3>
+                    <div class="detail">Using our open APIs, link up your app with our infrastructure and provision new projects and users within seconds.</div>
+                </li>
+    			<li>
+    			    <h3>Manage Changes Across Projects</h3>
+                    <div class="detail">Keep your users in sync with updates from your master template.</div>
+    			</li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    
+    <div id="testimonials">
+        <h3>Success stories</h3>
+        <div class="testimonial">
+            <a target="testimonial1" href="http://www.gooddata.com/what-is-gooddata/zendesk/"><img src="images/zendesk.png" width="150" height="38" alt="Zendesk"></a> Using the same tools (GoodData CL) we've created an automatic integration that synchronizes your Zendesk ticket data on a daily basis. See an example of 3rd-party integration.<br>
+            <a target="testimonial1" href="http://www.gooddata.com/what-is-gooddata/zendesk/">Read more</a>
+        </div>
+        <div class="testimonial">
+            <a target="testimonial2" href="http://www.gooddata.com/gazelle-runs-a-metrics-driven-business/"><img src="images/gazelle.jpg" width="123" height="71" alt="Gazelle"></a> See how Gazelle uses GoodData and our REST APIs to integrate their internal data in GoodData and run a metrics-driven business.<br>
+            <a target="testimonial2" href="http://www.gooddata.com/gazelle-runs-a-metrics-driven-business/">Read more</a>
+        </div>
+        <br clear="all">
+    </div>
+    
+    <p id="quicklinks">
+        <a href="/gooddata-cl/">About GoodData CL</a> |
+        Usage Examples:
+        <a href="/gooddata-cl/examples/quotes/">CSV</a>,
+        <a href="/gooddata-cl/examples/jdbc/">JDBC</a>,
+        <a href="/gooddata-cl/examples/ga/">Google Analytics</a>,
+        <a href="/gooddata-cl/examples/sfdc/">Salesforce</a> |
+        <a href="/faq.html">FAQ</a>
+    </p>
+</div>
+
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="/js/jquery-1.4.2.min.js"><\/script>')</script>
+<script src="/js/number-functions.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+    $(document).ready(function() {
+        $('#workflow div.pane:not([class~=active]) ul').css({display:'none'});
+        $('#workflow div.pane header').hover(function() {
+            if (!$(this).parent('div.pane').hasClass('active')) {
+                $('#workflow div.pane ul').stop(true,true);
+                $('#workflow div.pane').each(function() { $(this).removeClass('active'); });
+                $(this).parent('div.pane').addClass('active');
+
+                $('#workflow div.pane ul').each(function() {
+                    if (!$(this).parent('div.pane').hasClass('active'))
+                        $(this).slideUp('500');
+                    else
+                        $(this).slideDown('500');
+                });
+            }
+        });
+
+        var em = $('#stats em'), rate = 6.911, counterString='', counter, weekOffset;
+        
+        function updateTimer() {
+            weekOffset = (((new Date()).getTime() - 1285538400000) % 604800000) / 1000; // offset from the start of week in seconds
+            counter = weekOffset * rate;
+            em.text(Math.round(counter).numberFormat('0,0'));
+        }
+        setInterval(updateTimer,1200);
+        updateTimer();
+        $('#stats').show();
+    });
+</script>

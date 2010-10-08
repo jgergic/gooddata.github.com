@@ -13,74 +13,49 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="favicon.ico"> 
-    <link rel="stylesheet" href="/css/global-skin.css" type="text/css">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
-    <!--[if IE]>
-        <link rel="stylesheet" type="text/css" href="http://www.gooddata.com/wp-content/themes/headway-162/media/css/ie.css" />
-    <![endif]-->
-
     <script src="/js/modernizr-1.5.min.js"></script>
 </head>
-<body class="single custom header-fixed footer-fixed skin-headway">
+<body>
+
+    <header>
+        <a href="http://www.gooddata.com/" title="GoodData"><img src="/images/logo.png" alt="GoodData | Developer Network" /></a>
+    </header>
 
     <div id="wrapper">
 
-    <div id="header">
-        <div id="top"><a href="http://www.gooddata.com/" title="GoodData" rel="home"><img src="/images/gdheader3.png" alt="GoodData" /></a></div>
-    </div>
+        <div id="navigation">
+            <ul>
+                <li>
+                    <a href="/" title="Home"{% if page.section == 'home' %} class="active"{% endif %}>Home</a>
+                </li><li>
+                    <a href="/start/" title="Getting Started"{% if page.section == 'start' %} class="active"{% endif %}>Getting Started</a>
+                </li><li>
+                    <a href="/api/" title="API Documentation"{% if page.section == 'documentation' %} class="active"{% endif %}>Documentation</a>
+                </li><li>
+                    <a href="/download.html" title="Download"{% if page.section == 'download' %} class="active"{% endif %}>Tools</a>
+                    <!-- <ul>
+                        <li><a href="/gooddata-cl/" title="GoodData Command-Line Utility">GoodData CL</a></li>
+                        <li><a href="/snaplogic/" title="GoodData + SnapLogic">GoodData + SnapLogic</a></li>
+                    </ul> -->
+                </li><li>
+                    <a href="http://support.gooddata.com/forums/176660-developer-forum" title="Developer Forum">Forum</a> 
+                </li>
+            </ul>
+        </div>
 
-    <div id="navigation">
-        <ul class="navigation navigation-left">
-            <li class="page_item">
-                <a href="/" title="Home">Home</a>
-            </li>
-            <li class="page_item">
-                <a href="/start/" title="Getting Started">Getting Started</a>
-            </li>
-            <li class="page_item">
-                <a href="/api/" title="API Documentation">Documentation</a>
-            </li>
-            <li class="page_item">
-                <a href="/download.html" title="Download">Tools</a>
-                <!-- <ul>
-                    <li class="page_item"><a href="/gooddata-cl/" title="GoodData Command-Line Utility">GoodData CL</a></li>
-                    <li class="page_item"><a href="/snaplogic/" title="GoodData + SnapLogic">GoodData + SnapLogic</a></li>
-                </ul> -->
-            </li>
-            <li class="page_item">
-                <a href="http://support.gooddata.com/forums/176660-developer-forum" title="Developer Forum">Forum</a> 
-            </li>
-        </ul>
-    </div>
-
-
-    <div id="container">
-        {% if page.breadcrumbs %}
-            <div class="breadcrumbs">
-                {% for breadcrumb in page.breadcrumbs %}
-                    {% if breadcrumb.url %}<a href="{{breadcrumb.url}}">{% endif %}{{ breadcrumb.name }}{% if breadcrumb.url != empty %}</a>{% endif %}
-                    {% unless forloop.last == true %}&gt;{% endunless %}
-                {% endfor %}
-                {% if page.breadcrumb %}
-                    &gt; {{ page.breadcrumb }}
-                {% else %}
-                    &gt; {{ page.title }}
-                {% endif %}
+        <div id="container">
+            <div id="contain-wrap">
+            {{ content }}
             </div>
-        {% endif %}
-        <div id="contain-wrap">
-{{ content }}
         </div>
-        
-        <div class="sidebar subfooter box-no-title headway-leaf" id="leaf-155">
-            <div class="leaf-content"><ul class="sidebar"><li id="text-9" class="widget widget_text"><div class="textwidget"><div id="footerlinks">&copy; 2010 <strong>GoodData Corporation</strong>. All rights reserved. <a href="http://www.gooddata.com/about/contact-us/">Contact</a> | <a href="http://www.gooddata.com/privacy-policy/">Privacy Policy</a></div></div></li></ul></div>
-        </div>
+
     </div>
 
-
-    <div id="footer"></div>
-    <!-- #footer --></div><!-- #wrapper -->
-
+    <footer>
+        © 2010 <strong>GoodData Corporation</strong>. All rights reserved. <a href="http://www.gooddata.com/about/contact-us/">Contact</a> | <a href="http://www.gooddata.com/privacy-policy/">Privacy Policy</a>
+    </footer>
+    
     <script type="text/javascript">
 
       var _gaq = _gaq || [];

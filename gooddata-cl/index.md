@@ -1,7 +1,6 @@
 ---
 title: GoodData CL &ndash; command-line utility for quick GoodData access
 layout: documentation
-breadcrumb: GoodData CL
 stub: gooddata-cl
 ---
 
@@ -19,4 +18,8 @@ If you use GoodData CL, please follow the [announcement mailing list](http://gro
             
 <a class="greenButton" href="http://github.com/gooddata/GoodData-CL/downloads">Download GoodData CL</a>
             
+<<<<<<< HEAD
 <div class="next">Next:&nbsp;<a href="/gooddata-cl/install.html">Installation Instructions&nbsp;▶</a></div>
+=======
+<div class="next">Next:&nbsp;<a href="/gooddata-cl/install.html">Installation Instructions&nbsp;▶</a></div>
+>>>>>>> beta

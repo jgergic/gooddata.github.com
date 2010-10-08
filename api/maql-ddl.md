@@ -1,9 +1,6 @@
 ---
 title: MAQL DDL Documentation
 layout: documentation
-breadcrumbs:
-- name: API Documentation
-  url: /api/
 stub: maql-ddl
 ---
 
