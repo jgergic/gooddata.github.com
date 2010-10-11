@@ -11,8 +11,10 @@ var run_command = function(info, command, callback) {
 
 desc('…blank…');
 task('default', [], function() {
-    sys.puts('Available targets: upload, clean, build, deploy');
+    sys.puts('Available targets: upload, clean, build, deploy, deploy-production');
 }, true);
+
+// --BETA-DEPLOYS------------------------------------------
 
 desc('Build Jekyll website, compress CSS');
 task('build', ['clean'], function() {
@@ -30,6 +32,32 @@ task('deploy', [], function() {
     });
 }, true);
 
+desc('Build and upload website');
+task('upload', ['build','deploy'], function() {});
+
+// --PRODUCTION-DEPLOYS------------------------------------
+
+desc('Build Jekyll website, compress CSS');
+task('build-production', ['clean'], function() {
+    run_command('Building Jekyll site...', 'cat css/style.less | tail -n +3 > /tmp/style.less && lessc /tmp/style.less | java -jar /usr/local/bin/yuicompressor.jar --type css > css/style.css', function() {
+        sys.puts('done.');
+        complete();
+    });
+}, true);
+
+desc('Push website to developer-beta');
+task('deploy-production', [], function() {
+    run_command('Uploading website...', 'echo "Review your changes in git, commit and push to origin"', function() {
+        sys.puts('done.');
+        complete();
+    });
+}, true);
+
+desc('Build and upload website');
+task('upload-production', ['build-production','deploy-production'], function() {});
+
+// --------------------------------------------------------
+
 desc('Clean old statically generated version');
 task('clean', [], function() {
     run_command('Cleaning...', 'rm -Rf _site', function() {
@@ -37,6 +65,3 @@ task('clean', [], function() {
         complete();
     });
 }, true);
-
-desc('Build and upload website');
-task('upload', ['build','deploy'], function() {});
