@@ -5,11 +5,38 @@ section: documentation
 
 <div class="menu documentation">
 <ul>
-    <li><a href="{{ site.root }}/api"{% if page.stub == 'api' %} class="active"{% endif %}>API<span></span></a>
+    <li><a href="{{ site.root }}/docs/data-model/">Creating Data Model</a>
         <ul>
-            <li><a href="{{ site.root }}/api/auth.html"{% if page.stub == 'api-auth' %} class="active"{% endif %}>Authentication<span></span></a></li>
-            <!--li><a href="{{ site.root }}/api/upload.html"{% if page.stub == 'api-upload' %} class="active"{% endif %}>Data Upload</a></li-->
-            <li><a href="{{ site.root }}/api/maql-ddl.html"{% if page.stub == 'api-maql-ddl' %} class="active"{% endif %}>Modelling with MAQL<span></span></a></li>
+            <li><a href="{{ site.root }}/docs/data-model/"{% if page.stub == 'data-model' %} class="active"{% endif %}>What is a Data Model?<span></span></a></li>
+            <li><a href="{{ site.root }}/docs/data-model/setup.html"{% if page.stub == 'data-model-setup' %} class="active"{% endif %}>Setting up Data Model<span></span></a></li>
+        </ul>
+    </li>
+    <li><a href="{{ site.root }}/docs/data-transfer/">Transfering Data</a>
+        <ul>
+            <li><a href="{{ site.root }}/docs/data-transfer/"{% if page.stub == 'data-transfer' %} class="active"{% endif %}>Data Snapshots<span></span></a></li>
+            <li><a href=""{% if page.stub == 'data-transfer-partial' %} class="active"{% endif %}>Incremental Updates vs Transferring All Data<span></span></a></li>
+        </ul>
+    </li>
+    <li><a href="">Creating Reports &amp; Dashboards</a>
+        <ul>
+            <li><a href="">Creating Reports &amp; Dashboards<span></span></a></li>
+            <li><a href="">Using Metrics<span></span></a></li>
+            <li><a href="">Advanced Charts and Formatting<span></span></a></li>
+        </ul>
+    </li>
+    <li><a href="">Embedding</a>
+        <ul>
+            <li><a href="">Starting with Embedded Dashboards<span></span></a></li>
+            <li><a href="">Setting up User Filters<span></span></a></li>
+            <li><a href="">Dashboard-Only Role<span></span></a></li>
+        </ul>
+    </li>
+    <li><a href="">Working with Projects</a>
+        <ul>
+            <li><a href="">Creating Projects &amp; Users<span></span></a></li>
+            <li><a href="">Sharing/Permissions<span></span></a></li>
+            <li><a href="">Creating Templates<span></span></a></li>
+            <li><a href="">Synchronizing Multiple Projects<span></span></a></li>
         </ul>
     </li>
     <li><a href="{{ site.root }}/gooddata-cl"{% if page.stub == 'gooddata-cl' %} class="active"{% endif %}>GoodData CL<span></span></a>
@@ -18,10 +45,9 @@ section: documentation
             <li><a href="{{ site.root }}/gooddata-cl/documentation.html"{% if page.stub == 'gooddata-cl-basics' %} class="active"{% endif %}>Basic Usage<span></span></a></li>
             <li><a href="{{ site.root }}/gooddata-cl/xml-config.html"{% if page.stub == 'gooddata-cl-xml' %} class="active"{% endif %}>Schema XML syntax<span></span></a></li>
             <li><a href="{{ site.root }}/gooddata-cl/cli-commands.html"{% if page.stub == 'gooddata-cl-commands' %} class="active"{% endif %}>Runtime Commands<span></span></a></li>
-            <li><a href="{{ site.root }}/gooddata-cl/architecture.html"{% if page.stub == 'gooddata-cl-architecture' %} class="active"{% endif %}>Source Code Architecture<span></span></a></li>
         </ul>
     </li>
-    <li><a href="{{ site.root }}/gooddata-cl/examples/"{% if page.stub == 'gooddata-cl-examples' %} class="active"{% endif %}>Usage Examples<span></span></a>
+    <li><a href="{{ site.root }}/gooddata-cl/examples/"{% if page.stub == 'gooddata-cl-examples' %} class="active"{% endif %}>CL Usage Examples<span></span></a>
         <ul>
             <li><a href="{{ site.root }}/gooddata-cl/examples/quotes/"{% if page.stub == 'gooddata-cl-examples-quotes' %} class="active"{% endif %}>Basic Example (Quotes)<span></span></a></li>
             <li><a href="{{ site.root }}/gooddata-cl/examples/hr/"{% if page.stub == 'gooddata-cl-examples-hr' %} class="active"{% endif %}>Multiple Datasets (HR)<span></span></a></li>
@@ -32,10 +58,8 @@ section: documentation
     </li>
     <li><a href="{{ site.root }}/faq.html"{% if page.stub == 'faq' %} class="active"{% endif %}>FAQ<span></span></a></li>
 </ul>
-
-	
-</ul>
 </div>
+
 <div id="documentation">
     {{content}}
 </div>
