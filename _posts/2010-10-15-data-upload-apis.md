@@ -1,6 +1,6 @@
 ---
 title: Update on Data Upload APIs
-excerpt: We've been really busy in GoodData in the past couple months reshaping our upload APIs
+excerpt: We've been really busy in GoodData in the past couple months reshaping our upload APIs - simplifying them, speeding them up and opening them up to more flexibility. In summer we've released our v2.0 APIs to our developer community through our GoodData CL. Now we're back with the latest installment - SLI API allowing you to load a single file and have it normalized in GoodData. Read more on how to start using them.
 layout: post
 ---
 # On Data Upload APIs
@@ -24,4 +24,4 @@ Currently, the new version of CL tool using these APIs is a special build. Once 
 * You need a special CL tool build (currently, eventually we'll migrate all projects)
 * `-b, -c, -d, -m` (or `--backend, --dbusername, --dbpassword` and `--memory`) CL flags are meaning less
 
-We'd like you to help us prototype the new APIs. If you're interested, download this special build ([tar.gz]({{ site.root }}/files/gooddata-cli-1.2.1-SNAPSHOT.tar.gz), [zip]({{ site.root }}/files/gooddata-cli-1.2.1-SNAPSHOT.zip)) - and if you run into issues,
+We'd like you to help us prototype the new APIs. If you're interested, download this special build ([tar.gz]({{ site.root }}/files/gooddata-cli-1.2.1-SNAPSHOT.tar.gz), [zip]({{ site.root }}/files/gooddata-cli-1.2.1-SNAPSHOT.zip)) - and if you run into issues, let us know on [Developer Forum](http://support.gooddata.com/forums/176660-developer-forum) (and please indicate you're using SLI APIs).
