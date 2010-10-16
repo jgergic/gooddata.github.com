@@ -39,7 +39,7 @@ The data loading API enable the physical transfer of data between various data s
  *  See the [_getDLIs_ and _getDLIParts_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) for more details about the DLI introspection.
  *  See the [_deploySnapshot_ in the AbstractConnectorBackend.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/connector/backend/AbstractConnectorBackend.java) for more details about the creation of the data package that is transferred to the GoodData.
  * See the [_deploySnapshot_ in the GdcFTPApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/ftp/GdcFTPApiWrapper.java) to get more details on the FTP transfer of the data package.
- * Finally take a look at the _startLoading_ and _getLoadingStatus_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) that tell the GoodData project to process the data package. 
+ * Finally take a look at the [_startLoading_ and _getLoadingStatus_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) that tell the GoodData project to process the data package.
 
 You can find a more depth-in explanation of the language and its use
 on a dedicated [MAQL DDL](maql-ddl.html) page.
