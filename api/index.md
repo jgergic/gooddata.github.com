@@ -48,4 +48,5 @@ on a dedicated [MAQL DDL](maql-ddl.html) page.
 ## Project Provisioning API
 The project provisioning API takes care of creating and dropping new projects. Please note that the amount of projects that you can create in the GoodData platform is limited.
 
-* See the [_createProject_ and _dropProject_ methods in the GdcRESTApiWrapper.java](http://github.com/gooddata/GoodData-CL/blob/master/backend/src/main/java/com/gooddata/integration/rest/GdcRESTApiWrapper.java) for more details about the project provisioning API.
+Consult a more depth-in [Provisioning API](projects.html) documentation learn more about how to manage GoodData projects,
+accompanied with practical examples.
