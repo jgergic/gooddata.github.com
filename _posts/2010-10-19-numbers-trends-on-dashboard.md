@@ -18,7 +18,8 @@ Some of you have written in and asked how we achieved our nice [GetSatisfaction 
 
 ###Trending Colored Arrows:
 5. To show a positive/negative trend, you need to create a second metric showing a difference in time. Here is a MAQL example for a metric called `Revenue`, showing trend between last month and the month before it (attribute `Month`):
-<pre><code>SELECT (SELECT Revenues FOR Previous(Month, 1)) - (SELECT Revenues FOR Previous(Month, 2))</code></pre>
+<pre><code>SELECT (SELECT Revenue WHERE Month/Year = {Previous} )
+    - (SELECT Revenue WHERE Month/Year = {Previous}-1)</code></pre>
 You will need to create this as a [Advanced Custom Metric](https://secure.gooddata.com/docs/html/reference.guide.createmetrics.advancedMetricEditor.html#reference.guide.createmetrics.advanced.custom). See more documentation on [floating date metrics](https://secure.gooddata.com/docs/html/reference.guide.maql.previousPeriod.html).
 6. Create a customized formatting for this metric. Here's where the trick get's a bit hairy, full documentation is [available here](https://secure.gooddata.com/docs/html/reference.guide.reportoptions.formatting.html). We're using both conditional formatting (different for negative and positive numbers) and changing the font color. For the final trick, we provide a Unicode symbol for up/down arrow. The final formatting string looks like this:
 <pre><code>[green]▲;[red]▼</code></pre>
