@@ -1,11 +1,11 @@
 ---
 title: Numbers &amp; Arrows in Dashboards
-excerpt: We've been really busy in GoodData in the past couple months reshaping our upload APIs - simplifying them, speeding them up and opening them up to more flexibility. In summer we've released our v2.0 APIs to our developer community through our GoodData CL. Now we're back with the latest installment - SLI API allowing you to load a single file and have it normalized in GoodData. Read more on how to start using them.
+excerpt: Some of you have written in and asked how we achieved our nice <a href="http://www.gooddata.com/blog/get-satisfaction-and-gooddata-team-up-to-transform-social-engagement-metrics/">GetSatisfaction health dashboards</a> with large numbers visual and progress indicators. Since this is a bit of a hack, I decided this would be a good audience to explain the trick. We do intend to implement this feature properly - in about a month. However, in the mean time, some clever tricks / a bit of wrestling can get you this effect today.
 layout: post
 ---
 # Numbers &amp; Arrows in Dashboards
 
-Some of you have written in and asked how we achieved our nice [GetSatisfaction health dashboards](http://www.gooddata.com/blog/get-satisfaction-and-gooddata-team-up-to-transform-social-engagement-metrics/) with large numbers and progress indicators. Since this is a bit of a hack, I decided this would be a good audience to explain the trick. We do intend to implement this feature properly - in about a month. However, in the mean time, some clever tricks / a bit of wrestling can get you this effect today:
+Some of you have written in and asked how we achieved our nice [GetSatisfaction health dashboards](http://www.gooddata.com/blog/get-satisfaction-and-gooddata-team-up-to-transform-social-engagement-metrics/) with large numbers visual and progress indicators. Since this is a bit of a hack, I decided this would be a good audience to explain the trick. We do intend to implement this feature properly - in about a month. However, in the mean time, some clever tricks / a bit of wrestling can get you this effect today:
 <img src="http://www.gooddata.com/files/2010/10/GetSatisfaction-Dashboard.jpg" alt="Custom Arrows Formatting">
 
 ###Large Font Numeric Report:
