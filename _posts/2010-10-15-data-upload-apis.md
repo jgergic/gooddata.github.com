@@ -24,4 +24,4 @@ Currently, the new version of CL tool using these APIs is a special build. Once 
 * You need a special CL tool build (currently, eventually we'll migrate all projects)
 * `-b, -c, -d, -m` (or `--backend, --dbusername, --dbpassword` and `--memory`) CL flags are meaning less
 
-We'd like you to help us prototype the new APIs. If you're interested, download this special build ([tar.gz](http://dl.dropbox.com/u/9417728/gooddata-cli-1.2.1-SNAPSHOT.tar.gz), [zip](http://dl.dropbox.com/u/9417728/gooddata-cli-1.2.1-SNAPSHOT.zip) - and if you run into issues, let us know on [Developer Forum](http://support.gooddata.com/forums/176660-developer-forum) (and please indicate you're using SLI APIs).
+We'd like you to help us prototype the new APIs. If you're interested, download this special build ([tar.gz](http://support.gooddata.com/attachments/token/pndcwqku8uz3rjb/?name=gooddata-cli-1.2.1-SNAPSHOT.tar.gz), [zip](http://support.gooddata.com/attachments/token/karqcqu6llycoxx/?name=gooddata-cli-1.2.1-SNAPSHOT.zip) - and if you run into issues, let us know on [Developer Forum](http://support.gooddata.com/forums/176660-developer-forum) (and please indicate you're using SLI APIs).
