@@ -22,6 +22,8 @@ Some of you have written in and asked how we achieved our nice [GetSatisfaction 
     - (SELECT Revenue WHERE Month/Year = {Previous}-1)</code></pre>
 You will need to create this as a [Advanced Custom Metric](https://secure.gooddata.com/docs/html/reference.guide.createmetrics.advancedMetricEditor.html#reference.guide.createmetrics.advanced.custom). See more documentation on [floating date metrics](https://secure.gooddata.com/docs/html/reference.guide.maql.previousPeriod.html).
 6. Create a customized formatting for this metric. Here's where the trick get's a bit hairy, full documentation is [available here](https://secure.gooddata.com/docs/html/reference.guide.reportoptions.formatting.html). We're using both conditional formatting (different for negative and positive numbers) and changing the font color. For the final trick, we provide a Unicode symbol for up/down arrow. The final formatting string looks like this:
+
 <pre><code>[green]▲;[red]▼</code></pre>
 <p><img src="/images/posts/custom-arrows-formatting.png" alt="Custom Arrows Formatting"></p>
+
 You can choose your own symbols/arrows, for example by copy/pasting them from Wikipedia ([shapes](http://en.wikipedia.org/wiki/Geometric_shapes), [arrows](http://en.wikipedia.org/wiki/Arrow_%28symbol%29)).
