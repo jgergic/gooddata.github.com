@@ -18,7 +18,7 @@ task('default', [], function() {
 
 desc('Build Jekyll website, compress CSS');
 task('build', ['clean'], function() {
-    run_command('Building Jekyll site...', 'jekyll && cat _site/css/style.css | java -jar /usr/local/bin/yuicompressor.jar --type css > _site/css/style-min.css && mv _site/css/style-min.css _site/css/style.css', function() {
+    run_command('Building Jekyll site...', 'jekyll && cat _site/css/style.css | java -jar /usr/local/bin/yuicompressor.jar --type css > _site/css/style-min.css && mv _site/css/style-min.css _site/css/style.css && echo "User-Agent: *\nDisallow: /" > _site/robots.txt', function() {
         sys.puts('done.');
         complete();
     });
