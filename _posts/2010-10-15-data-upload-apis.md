@@ -1,9 +1,9 @@
 ---
-title: Update on Data Upload APIs
+title: Update on Data Upload APIs (and CL tool v1.2)
 excerpt: We've been really busy in GoodData in the past couple months reshaping our upload APIs - simplifying them, speeding them up and opening them up to more flexibility. In summer we've released our v2.0 APIs to our developer community through our GoodData CL. Now we're back with the latest installment - SLI API allowing you to load a single file and have it normalized in GoodData. Read more on how to start using them.
 layout: post
 ---
-# On Data Upload APIs
+# On Data Upload APIs (and CL tool v1.2)
 
 We've been really busy in GoodData in the past couple months reshaping our upload APIs - simplifying them, speeding them up and opening them up to more flexibility. Our v1.0 API allowed you to upload a single CSV file and our product would try to infer the data model from it (giving you a few couple options to choose from along the way).
 
@@ -20,8 +20,11 @@ Currently, the new version of CL tool using these APIs is a special build. Once 
 * CL tool doesn't need any DB backend (Derby or MySQL)
 * Uploads processing should be significantly faster
 * GoodData CL (and other API clients) can be significantly simplified
+* You can upload into one project from different computers (no single CL tool instance necessary)
 * You cannot mix&amp;match DLI and SLI in single project. You can only use one or the other.
 * You need a special CL tool build (currently, eventually we'll migrate all projects)
 * `-b, -c, -d, -m` (or `--backend, --dbusername, --dbpassword` and `--memory`) CL flags are meaning less
 
 We'd like you to help us prototype the new APIs. If you're interested, download [this special build](http://support.gooddata.com/entries/304812-gooddata-cl-1-2-sli-alpha-build). If you run into issues, let us know on [Developer Forum](http://support.gooddata.com/forums/176660-developer-forum) (and please indicate you're using SLI APIs).
+
+**Note:** for existing projects created with CL tool 1.1, a migration process might be necessary. Read the [follow-up blog post]({{ site.root }}/blog/2010/10/25/gooddata-cl-migration/) for details.

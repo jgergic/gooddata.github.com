@@ -1,11 +1,13 @@
 ---
 title: GoodData CL 1.1 to 1.2 Migration
-excerpt: The CL tool version 1.2 requires a simple migration of projects that have been created with the previous versions of the CL tool
+excerpt: In this follow-up to our update on SLI APIs, we detail the migration process of existing projects to thew new CL tool v1.2
 layout: post
 ---
 #Upgrading projects created with CL tool 1.1 to CL tool 1.2
 
-The new 1.2 version of CL tool changes the way data models are being created. This requires a simple migration of projects created with CL tool 1.1 and older. 
+*Note: This is a follow-up blog post to our [recent post about new SLI APIs]({{site.root}}/blog/2010/10/15/data-upload-apis/) and new CL tool version.*  
+
+The new 1.2 version of CL tool changes the way data models are being created. This new version changes the way data models are being created. This requires a simple migration of projects created with CL tool 1.1 and older. 
 
 Only projects that use datasets without any facts require the migration. If you try to load data to such project, you'll most probably receive an error reading "Unknown import mode" or complaints about non-existing `factsof` attribute.
 
