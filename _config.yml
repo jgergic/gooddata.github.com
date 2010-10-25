@@ -1,3 +1,14 @@
 ---
 root: 
 permalink: /blog/:year/:month/:day/:title
+test: 'abc'
+
+#
+# Site configuration
+#
+url:          http://developer.gooddata.com
+title:        GoodData Developer Blog
+description:  Updates on the GoodData tools and APIs ecosystem
+keywords:     gooddata, good, data, blog, bi, analytics, gdcl, cl, integration, upload, analyze
+author:       Jakub Nesetril
+email:        jakub@gooddata.com
