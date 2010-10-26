@@ -1,7 +1,6 @@
 ---
 root: 
 permalink: /blog/:year/:month/:day/:title
-test: 'abc'
 
 #
 # Site configuration
