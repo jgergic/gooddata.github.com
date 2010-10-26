@@ -530,6 +530,7 @@ pre .dataColumn {
     #starting-menu {
         @menu-height: 60px;
         @padding: 10px;
+        @active-color: #8699AA;
 
         margin-top: @spacing / 2;
         margin-bottom: @spacing / 2;
@@ -549,8 +550,16 @@ pre .dataColumn {
                 display: block;
                 color: #333;
             }
+            :hover { background-color: @active-color; }
         }
-        div.active, div:hover { background-color: #8699AA; }
+        div.active {
+            background-color: @active-color;
+            a {
+                text-decoration: none;
+                font-weight: bold;
+                cursor: default;
+            }
+        }
     }
 
     #pages {
