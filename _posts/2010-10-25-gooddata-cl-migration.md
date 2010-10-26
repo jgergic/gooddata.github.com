@@ -15,6 +15,9 @@ If your project requires migration, you'll need to execute a migration MAQL scri
 
 You'll need to run the `ALTER ATTRIBUTE` statement on the line 5 for every `REFERENCE` to the migrated dataset. You'll also need to `SYNCHRONIZE` all `REFERENCE` datasets.
 
+{% comment %}
+Original MAQL pre-pygmentize
+
     ALTER ATTRIBUTE {attr.<dataset-name>.<connection-point-name>} DROP KEYS {f_<dataset-name>.id};
     ALTER DATASET {dataset.<dataset-name>} DROP {attr.<dataset-name>.factsof};
     DROP {attr.<dataset-name>.factsof};
@@ -27,6 +30,22 @@ You'll need to run the `ALTER ATTRIBUTE` statement on the line 5 for every `REFE
     # Also you need to synchronize all REFERENCE datasets
     SYNCHRONIZE {dataset.<reference-dataset-name>};
 
+{% endcomment %}
+
+<div class="highlight"><pre><span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.&lt;dataset-name&gt;.&lt;connection-point-name&gt;}</span> <span class="k">DROP</span> <span class="k">KEYS</span> <span class="nv">{f_&lt;dataset-name&gt;.id}</span><span class="p">;</span>
+<span class="k">ALTER</span> <span class="k">DATASET</span> <span class="nv">{dataset.&lt;dataset-name&gt;}</span> <span class="k">DROP</span> <span class="nv">{attr.&lt;dataset-name&gt;.factsof}</span><span class="p">;</span>
+<span class="k">DROP</span> <span class="nv">{attr.&lt;dataset-name&gt;.factsof}</span><span class="p">;</span>
+
+<span class="c1"># You need to add this statement for each REFERENCE to the migrated dataset</span>
+<span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.&lt;dataset-name&gt;.&lt;connection-point-name&gt;}</span> <span class="k">ADD</span> <span class="k">KEYS</span>
+    <span class="nv">{d_&lt;reference-dataset-name&gt;_&lt;reference-name&gt;.&lt;dataset-name&gt;_id}</span><span class="p">;</span>
+
+<span class="k">SYNCHRONIZE</span> <span class="nv">{dataset.&lt;dataset-name&gt;}</span><span class="p">;</span>
+<span class="c1"># Also you need to synchronize all REFERENCE datasets</span>
+<span class="k">SYNCHRONIZE</span> <span class="nv">{dataset.&lt;reference-dataset-name&gt;}</span><span class="p">;</span>
+</pre></div>
+
+
 Let me illustrate this on the HR demo project. There are two datasets with no facts: department, and employee. The following figure highlights the `factsof` attributes that we need to delete and reconnect. 
 
 ![Old Model]({{ site.root }}/images/posts/old.model.png)
@@ -36,6 +55,9 @@ and here is the new model that we need to create
 ![New Model]({{ site.root }}/images/posts/new.model.png)
 
 Here is the script that updates both department and employee datasets. 
+
+{% comment %}
+Original MAQL pre-pygmentize
 
     # Disconnect the department attribute from the department factsof that we are going to drop
     ALTER ATTRIBUTE {attr.department.department} DROP KEYS {f_department.id};
@@ -61,6 +83,35 @@ Here is the script that updates both department and employee datasets.
     SYNCHRONIZE {dataset.department};
     SYNCHRONIZE {dataset.employee};
     SYNCHRONIZE {dataset.salary};
+
+{% endcomment %}
+
+<div class="highlight"><pre><span class="c1"># Disconnect the department attribute from the department factsof that we are going to drop</span>
+<span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.department.department}</span> <span class="k">DROP</span> <span class="k">KEYS</span> <span class="nv">{f_department.id}</span><span class="p">;</span>
+<span class="c1"># Remove the department factsof from the department dataset</span>
+<span class="k">ALTER</span> <span class="k">DATASET</span> <span class="nv">{dataset.department}</span> <span class="k">DROP</span> <span class="nv">{attr.department.factsof}</span><span class="p">;</span>
+<span class="c1"># Drop the department factsof</span>
+<span class="k">DROP</span> <span class="nv">{attr.department.factsof}</span><span class="p">;</span>
+
+<span class="c1"># Disconnect the employee attribute from the employee factsof that we are going to drop</span>
+<span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.employee.employee}</span> <span class="k">DROP</span> <span class="k">KEYS</span> <span class="nv">{f_employee.id}</span><span class="p">;</span>
+<span class="c1"># Remove the employee factsof from the employee dataset</span>
+<span class="k">ALTER</span> <span class="k">DATASET</span> <span class="nv">{dataset.employee}</span> <span class="k">DROP</span> <span class="nv">{attr.employee.factsof}</span><span class="p">;</span>
+<span class="c1"># Drop the employee factsof</span>
+<span class="k">DROP</span> <span class="nv">{attr.employee.factsof}</span><span class="p">;</span>
+
+<span class="c1"># Reconnect the department attribute to the employee (bridge the non-existing factsof)</span>
+<span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.department.department}</span> <span class="k">ADD</span> <span class="k">KEYS</span> <span class="nv">{d_employee_employee.department_id}</span><span class="p">;</span>
+<span class="c1"># Reconnect the employee attribute to the employee (bridge the non-existing factsof)</span>
+<span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.employee.employee}</span> <span class="k">ADD</span> <span class="k">KEYS</span> <span class="nv">{f_salary.employee_id}</span><span class="p">;</span>
+
+<span class="c1"># Synchronize the model changes with the underlying storage</span>
+<span class="c1"># Please note that currently all data will be deleted after running the SYNCHRONIZE command!</span>
+<span class="k">SYNCHRONIZE</span> <span class="nv">{dataset.department}</span><span class="p">;</span>
+<span class="k">SYNCHRONIZE</span> <span class="nv">{dataset.employee}</span><span class="p">;</span>
+<span class="k">SYNCHRONIZE</span> <span class="nv">{dataset.salary}</span><span class="p">;</span>
+</pre></div>
+
 
 *Caution:* The `SYNCHRONIZE` statement will delete all data from the given server-side data set. You will need to perform a full load after issuing the statements above!
 
