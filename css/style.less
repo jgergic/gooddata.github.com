@@ -503,14 +503,26 @@ pre .dataColumn {
 }
 
 #blog {
-    img {
-        max-width: 820px;
+    margin-top: @spacing;
+    
+    ul {
+        margin-left: 0px;
+        li {
+            margin-top: @spacing / 4;
+            em.blog-excerpt { font-style: normal; font-size: 12px; }
+        }
+    }
+    
+    img { max-width: 820px; }
+    #rss {
+        position: absolute;
+        right: @spacing;
+        top: @spacing;
+        a { display: inline-block; text-decoration: none; }
+        img { border: 0px none; vertical-align: middle; margin-bottom: 3px; }
     }
 }
 #contain-wrap ul.posts li {
         list-style-type: none;
 }
 
-h2.blog-header {
-    margin-top: @spacing;
-}
