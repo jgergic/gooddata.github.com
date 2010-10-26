@@ -1,0 +1,73 @@
+---
+title: Getting Started
+layout: default
+section: start
+---
+
+<div id="getting-started">
+    
+    <h1>Getting Started with GoodData</h1>
+    
+    <div id="starting-menu">
+        <div id="model" class="active"><a href="#">Model</a></div><div id="load"><a href="#">Load</a></div><div id="report"><a href="#">Report</a></div>
+    </div>
+
+    <div id="pages">
+        <div id="modelPage" class="page active">
+            In order to start working in GoodData, you need to specify the data model for your data. Here's a couple things you should know:
+            <ul>
+                <li>Each dataset is represented by one <a href="http://en.wikipedia.org/wiki/Star_schema">star schema</a> or a dimension (multiple linked attributes without a fact)</li>
+                <li>Multiple datasets can be <a href="https://secure.gooddata.com/docs/html/reference.guide.ldm.joinDataSets.html">linked</a> together to represent a <a href="http://en.wikipedia.org/wiki/Snowflake_schema">snowflake schema</a></li>
+                <li>On the lowest level, data model is described using <a href="{{ site.root }}/api/maql-ddl.html">MAQL DDL</a> language</li>
+                <li>GoodData CL makes modeling easier by generating MAQL DDL out of an <a href="{{ site.root }}/gooddata-cl/xml-config.html">XML Schema</a></li>
+            </ul>
+            <p><img src="{{ site.root }}/images/getting-started/model-layers.png" alt="Data Model Layers"></p>
+            In order to generate a data model, you need to run one of the <code>Load*</code> commands, and then proceed to <code>GenerateMaql</code> (which produces a MAQL file) and <code>ExecuteMaql</code> (which runs this MAQL in your project on GoodData server). See <a href="{{ site.root }}/gooddata-cl/examples/">examples</a> and <a href="{{ site.root }}/gooddata-cl/cli-commands.html">documentations</a> for more.
+            <p class="next">Next:&nbsp;<a href="#">Load&nbsp;▶</a></p>
+        </div>
+
+        <div id="loadPage" class="page">
+            <ul>
+                <li>Your data model from previous step determines a <em>Data Loading Interface</em> (DLI)</li>
+                <li>GoodData CL automatically transforms your data into the DLI/SLI format</li>
+            </ul>
+            <p><img src="{{ site.root }}/images/getting-started/load.png" alt="Data Load"></p>
+            In order to load data, you need to run one of the <code>Load*</code> commands before running one of the <code>Transfer*</code> commands. See <a href="{{ site.root }}/gooddata-cl/examples/">examples</a> and <a href="{{ site.root }}/gooddata-cl/cli-commands.html">documentations</a> for more.
+            <p class="prev">Previous:&nbsp;<a href="#">◀&nbsp;Model</a></p>
+            <p class="next">Next:&nbsp;<a href="#">Report&nbsp;▶</a></p>
+        </div>
+
+        <div id="reportPage" class="page">
+            <ul>
+                <li>GoodData uses the data model (the mapping between logical and physical data model) to automatically create database queries based on your reporting</li>
+                <li>Structure of the data model determines what attributes/facts can be used in a single report together</li>
+            </ul>
+            <p><img src="{{ site.root }}/images/getting-started/reporting.png" alt="Data Model"></p>
+            <p>Sometimes you see "grayed out", inactive attributes/metrics in What/How dialog when constructing a report. The connections in data model are the root cause. The selected combination of existing attributes and metrics cannot be connected to some other attributes and metrics. We deactivate these in the 3CD to save you the trouble of constructing reports that cannot be computed.</p>
+            <p><a href="http://support.gooddata.com/">Contact us</a> if you have questions around how to create your data model</p>
+            <p class="prev">Previous:&nbsp;<a href="#">◀&nbsp;Load</a></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="{{ site.root }}/js/jquery.min.js"><\/script>')</script>
+<script src="{{ site.root }}/js/number-functions.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+    $(document).ready(function() {
+        var menu = ['model','load','report'], offset = 0;
+        
+        var refreshView = function() {
+            $('#starting-menu div, #pages .page').removeClass('active');
+            $('#'+menu[offset]+', #'+menu[offset]+'Page').addClass('active');
+        };
+        
+        $('#starting-menu div').click(function() { offset = menu.indexOf(this.id); refreshView(); return false; });
+        $('#pages .prev').click(function() { offset-=1; refreshView(); return false; });
+        $('#pages .next').click(function() { offset+=1; refreshView(); return false; });
+    });
+</script>

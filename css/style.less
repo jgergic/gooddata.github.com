@@ -526,3 +526,46 @@ pre .dataColumn {
         list-style-type: none;
 }
 
+#getting-started {
+    #starting-menu {
+        @menu-height: 60px;
+        @padding: 10px;
+
+        margin-top: @spacing / 2;
+        margin-bottom: @spacing / 2;
+        height: @menu-height;
+        width: 100%;
+        padding: 0px;
+/*        background: url('../images/getting-started/menu.png') no-repeat scroll 0px -80px;*/
+        div {
+            display: inline-block;
+            margin-right: 5px;
+            height: @menu-height - 2*@padding;
+            line-height: @menu-height - 2*@padding;
+            text-align: center;
+            background-color: #BAD1E1;
+            width: 32%;
+            a {
+                display: block;
+                color: #333;
+            }
+        }
+        div.active, div:hover { background-color: #8699AA; }
+    }
+
+    #pages {
+        margin-bottom: @spacing;
+
+        img {
+            max-width: 800px;
+            border: 0px;
+        }
+        .prev,.next { position: absolute; a { text-decoration: none; } }
+        .prev { left: @spacing; }
+        .next { right: @spacing*2; }
+    }
+}
+html.js #getting-started {
+    div.page { display: none; }
+    div.page.active { display: block; }
+}
