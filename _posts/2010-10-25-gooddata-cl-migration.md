@@ -117,10 +117,21 @@ Original MAQL pre-pygmentize
 
 You need to create your migration script, save it in a `migrate.maql` file, and create the migration commands file that opens the migrated project and execute the migration MAQL.
 
+{% comment %}
+Original script before pygmentize:
+
     # Open the migrated project
     OpenProject(id="<your-migrated-project-hash>");
     # Execute the MAQL
     ExecuteMaql(maqlFile="migrate.maql");
+
+{% endcomment %}
+
+<div class="highlight"><pre><span class="c1"># Open the migrated project</span>
+<span class="nf">OpenProject</span><span class="p">(</span><span class="nv">id</span><span class="o">=</span><span class="s">&quot;&lt;your-migrated-project-hash&gt;&quot;</span><span class="p">);</span>
+<span class="c1"># Execute the MAQL</span>
+<span class="nf">ExecuteMaql</span><span class="p">(</span><span class="nv">maqlFile</span><span class="o">=</span><span class="s">&quot;migrate.maql&quot;</span><span class="p">);</span>
+</pre></div>
 
 Finally, you will need to run your data loading script to re-populate the data sets as their contents have been deleted by the `SYNCHRONIZE` MAQL statement. 
 
