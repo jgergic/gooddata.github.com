@@ -15,5 +15,7 @@ section: blog
         </li>
       {% endfor %}
     </ul>
-    <p id="rss"><a href="{{ site.root }}/atom.xml"><img src="{{ site.root }}/images/rss_icon.png"> Atom feed</a></p>
+    <p id="rss">
+        <a href="http://feeds.feedburner.com/gooddata-developer-blog" title="Subscribe to blog feed" rel="alternate" type="application/rss+xml"><img src="http://www.feedburner.com/fb/images/pub/feed-icon32x32.png" alt="" style="border:0"/></a><a href="http://feeds.feedburner.com/gooddata-developer-blog" title="Subscribe to my feed" rel="alternate" type="application/rss+xml">Subscribe in a reader</a>
+    </p>
 </div>
