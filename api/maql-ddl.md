@@ -165,20 +165,6 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 <p><sup>*</sup>) The DATE datatype automatically maps with the GoodData-provided date dimension, if you have previously included it into the project:</p>
 <pre class="highlight"><code class="maql"><span class="k">INCLUDE</span> <span class="k">TEMPLATE</span> <span class="s">&quot;URN:GOODDATA:DATE&quot;</span> <span class="k">MODIFY</span> <span class="p">(</span><span class="nb">IDENTIFIER</span> <span class="s">&quot;my-date&quot;</span><span class="p">,</span> <span class="k">TITLE</span> <span class="s">&quot;quote&quot;</span><span class="p">);</span></code></pre>
 
-
-<h3>Specify index keys</h3>
-
-<p>You can opt to specify indexing hints for your data:</p>
-
-<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.quotes.symbol}</span> <span class="k">ADD</span> <span class="k">KEYS</span> <span class="nv dataColumn">{d_quotes_symbol.nm_symbol}</span> <span class="k">PRIMARY</span><span class="p">;</span></code></pre>
-
-<p>There are two types of keys supported: <code>PRIMARY</code> and <code>FULLSET</code>. Primary key must be unique in scope of the attribute.</p>
-
-<p>Correspondingly, you can drop keys from attributes as well:</p>
-
-<pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">ATTRIBUTE</span> <span class="nv">{attr.quotes.symbol}</span> <span class="k">DROP</span> <span class="k">KEYS</span> <span class="nv dataColumn">{d_quotes_symbol.nm_symbol}</span><span class="p">;</span></code></pre>
-
-
 <h3>Create Multiple Fact Columns</h3>
 
 <p>In the following example, the fact <code>fact.quotes.open_price</code> already has a fact column f_quotes.f_open_price, but for performance reasons, an identical column in f_quotes2 is being added below:</p>
