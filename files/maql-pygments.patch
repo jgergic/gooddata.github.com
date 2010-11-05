@@ -1,0 +1,143 @@
+# HG changeset patch
+# User Lubomir Rintel <lkundrak@v3.sk>
+# Date 1277464510 -7200
+# Node ID db14cb372beeac8ee458bbdec25d3aae60d2464f
+# Parent  a32d7988c3695e0b0a41cf764afaa9e701a858e7
+Add lexer for MAQL
+
+diff -r a32d7988c369 -r db14cb372bee pygments/lexers/_mapping.py
+--- a/pygments/lexers/_mapping.py	Mon May 10 02:18:06 2010 +0200
++++ b/pygments/lexers/_mapping.py	Fri Jun 25 13:15:10 2010 +0200
+@@ -117,6 +117,7 @@
+     'MakoJavascriptLexer': ('pygments.lexers.templates', 'JavaScript+Mako', ('js+mako', 'javascript+mako'), (), ('application/x-javascript+mako', 'text/x-javascript+mako', 'text/javascript+mako')),
+     'MakoLexer': ('pygments.lexers.templates', 'Mako', ('mako',), ('*.mao',), ('application/x-mako',)),
+     'MakoXmlLexer': ('pygments.lexers.templates', 'XML+Mako', ('xml+mako',), (), ('application/xml+mako',)),
++    'MaqlLexer': ('pygments.lexers.maql', 'MAQL', ('maql',), ('*.maql',), ('text/x-gooddata-maql', 'application/x-gooddata-maql')),
+     'MatlabLexer': ('pygments.lexers.math', 'Matlab', ('matlab', 'octave'), ('*.m',), ('text/matlab',)),
+     'MatlabSessionLexer': ('pygments.lexers.math', 'Matlab session', ('matlabsession',), (), ()),
+     'MiniDLexer': ('pygments.lexers.agile', 'MiniD', ('minid',), ('*.md',), ('text/x-minidsrc',)),
+diff -r a32d7988c369 -r db14cb372bee pygments/lexers/maql.py
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/pygments/lexers/maql.py	Fri Jun 25 13:15:10 2010 +0200
+@@ -0,0 +1,74 @@
++# -*- coding: utf-8 -*-
++"""
++    pygments.lexers.maql
++    ~~~~~~~~~~~~~~~~~~~~
++
++    Lexer for GoodData MAQL
++    https://secure.gooddata.com/docs/html/advanced.metric.tutorial.html
++
++    :copyright: Copyright 2010 by Lubomir Rintel <lkundrak@v3.sk>
++    :license: BSD, see LICENSE for details.
++"""
++
++import re
++from pygments.lexer import RegexLexer
++from pygments.token import Name, Literal, Operator, Keyword, String, \
++                           Token, Text
++from pygments.token import Error
++
++__all__ = ['MaqlLexer']
++
++class MaqlLexer(RegexLexer):
++    """
++    Lexer for MAQL.
++    """
++
++    name = 'MAQL'
++    aliases = ['maql']
++    filenames = ['*.maql']
++    mimetypes = ['text/x-gooddata-maql','application/x-gooddata-maql']
++
++    flags = re.IGNORECASE
++    tokens = {
++        'root': [
++            # IDENTITY
++            (r'IDENTIFIER\b', Name.Builtin),
++            # FUNCNAME
++            (r'[[:alpha:]]\w*\b', Name.Function),
++            # IDENTIFIER
++            (r'\{[^}]+\}', Name.Variable),
++            # NUMBER
++            (r'[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]{1,3})?', Literal.Number),
++            # STRING
++            (r'"', Literal.String, 'string-literal'),
++            #  RELATION
++            (r'\<\>|\!\=', Operator),
++            (r'\=|\>\=|\>|\<\=|\<', Operator),
++            # :=
++            (r'\:\=', Operator),
++            # OBJECT
++            (r'\[[^]]+\]', Name.Variable.Class),
++            # keywords
++            (r'(DIMENSIONS?|BOTTOM|METRIC|COUNT|OTHER|FACT|WITH|TOP|OR|'
++             r'ATTRIBUTE|CREATE|PARENT|FALSE|ROWS?|FROM|ALL|AS|PF|'
++             r'COLUMNS?|DEFINE|REPORT|LIMIT|TABLE|LIKE|AND|BY|'
++             r'BETWEEN|EXCEPT|SELECT|MATCH|WHERE|TRUE|FOR|IN|'
++             r'WITHOUT|FILTER|ALIAS|ORDER|FACT|WHEN|NOT|ON|'
++             r'KEYS|KEY|FULLSET|PRIMARY|LABELS|LABEL|VISUAL|'
++             r'TITLE|DESCRIPTION|FOLDER|ALTER|DROP|ADD|DATASET|'
++             r'DATATYPE|INT|BIGINT|DOUBLE|DATE|VARCHAR|DECIMAL|'
++             r'SYNCHRONIZE|TYPE|DEFAULT|ORDER|ASC|DESC|HYPERLINK|'
++             r'INCLUDE|TEMPLATE|MODIFY)\b', Keyword),
++            # Punctuation
++            (r'[,;\(\)]', Token.Punctuation),
++            # Space is not significant
++            (r'\s', Text)
++        ],
++        'string-literal': [
++            (r'\\[tnrfbae"\\]', String.Escape),
++            (r'"', Literal.String, '#pop'),
++            (r'.', Literal.String)
++        ]
++    }
++
++
+diff -r a32d7988c369 -r db14cb372bee tests/examplefiles/kokot.maql
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/tests/examplefiles/kokot.maql	Fri Jun 25 13:15:10 2010 +0200
+@@ -0,0 +1,43 @@
++CREATE DATASET {dataset.quotes} VISUAL(TITLE "St\\tock Qu\totes Data");
++
++CREATE DATASET {dataset.quotes} VISUAL(TITLE "Stock Qu\"otes Data");
++
++CREATE DATASET {dataset.quotes} VISUAL(TITLE "Stock Quotes Data");
++
++ALTER DATASET {dataset.quotes} ADD {attribute.sector};
++
++ALTER DATASET {dataset.quotes} DROP {attribute.symbol};
++
++ALTER DATASET {dataset.quotes} VISUAL(TITLE "Internal Quotes Data");
++
++CREATE ATTRIBUTE {attr.quotes.symbol}
++    VISUAL(TITLE "Symbol", FOLDER {folder.quotes.attr})
++    AS {d_quotes_symbol.nm_symbol};
++
++ALTER ATTRIBUTE {attr.quotes.symbol}
++    ADD LABELS {attr.quotes.company} VISUAL(TITLE "Company")
++    AS {d_quotes_symbol.nm_company};
++
++CREATE FACT {fact.quotes.open_price}
++    VISUAL( TITLE "Open Price", FOLDER {folder.quotes.fact}) AS {f_quotes.f_open_price};
++
++ALTER FACT {fact.quotes.open_price} ADD {f_quotes2.f_open_price};
++
++CREATE FOLDER {folder.quotes.attr}
++    VISUAL ( TITLE "Stock Quotes Data",
++             DESCRIPTION "Stock quotes data obtained from John Doe etc." )
++    TYPE ATTRIBUTE;
++
++ALTER DATATYPE {d_quotes_symbol.nm_symbol} CHAR(4),
++    {d_quotes_symbol.nm_symbol} VARCHAR(80),
++    {f_quotes.f_open_price} DECIMAL(10,2);
++
++INCLUDE TEMPLATE "URN:GOODDATA:DATE" MODIFY (IDENTIFIER "my-date", TITLE "quote")
++
++ALTER ATTRIBUTE {attr.quotes.symbol} ADD KEYS {d_quotes_symbol.nm_symbol} PRIMARY;
++
++ALTER ATTRIBUTE {attr.quotes.symbol} DROP KEYS {d_quotes_symbol.nm_symbol};
++
++ALTER FACT {fact.quotes.open_price} ADD {f_quotes2.f_open_price};
++
++

@@ -1,0 +1,99 @@
+# HG changeset patch
+# User Lubomir Rintel <lkundrak@v3.sk>
+# Date 1288111008 -7200
+# Node ID a4bc27fc742d5ffdc541dd9c20461efe673c775b
+# Parent  47467c9e554dacdc9cb5b1b68e1796996c081bf6
+Add lexer for GoodData-CL scripts
+
+diff -r 47467c9e554d -r a4bc27fc742d pygments/lexers/_mapping.py
+--- a/pygments/lexers/_mapping.py	Tue Oct 26 18:00:09 2010 +0200
++++ b/pygments/lexers/_mapping.py	Tue Oct 26 18:36:48 2010 +0200
+@@ -85,6 +85,7 @@
+     'GherkinLexer': ('pygments.lexers.other', 'Gherkin', ('Cucumber', 'cucumber', 'Gherkin', 'gherkin'), ('*.feature',), ('text/x-gherkin',)),
+     'GnuplotLexer': ('pygments.lexers.other', 'Gnuplot', ('gnuplot',), ('*.plot', '*.plt'), ('text/x-gnuplot',)),
+     'GoLexer': ('pygments.lexers.compiled', 'Go', ('go',), ('*.go',), ('text/x-gosrc',)),
++    'GoodDataCLLexer': ('pygments.lexers.gooddata-cl', 'GoodData-CL', ('gooddata-cl',), ('*.gdc',), ('text/x-gooddata-cl',)),
+     'GroffLexer': ('pygments.lexers.text', 'Groff', ('groff', 'nroff', 'man'), ('*.[1234567]', '*.man'), ('application/x-troff', 'text/troff')),
+     'HamlLexer': ('pygments.lexers.web', 'Haml', ('haml', 'HAML'), ('*.haml',), ('text/x-haml',)),
+     'HaskellLexer': ('pygments.lexers.functional', 'Haskell', ('haskell', 'hs'), ('*.hs',), ('text/x-haskell',)),
+diff -r 47467c9e554d -r a4bc27fc742d pygments/lexers/gooddata-cl.py
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/pygments/lexers/gooddata-cl.py	Tue Oct 26 18:36:48 2010 +0200
+@@ -0,0 +1,60 @@
++# -*- coding: utf-8 -*-
++"""
++    pygments.lexers.gooddata-cl
++    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++    Lexer for GoodData script files
++    http://github.com/gooddata/GoodData-CL/raw/master/cli/src/main/resources/com/gooddata/processor/COMMANDS.txt
++
++    :copyright: Copyright 2010 by Lubomir Rintel <lkundrak@v3.sk>
++    :license: BSD, see LICENSE for details.
++"""
++
++import re
++from pygments.lexer import RegexLexer
++from pygments.token import Name, Literal, Operator, Keyword, String, \
++                           Token, Text, Comment
++from pygments.token import Error
++
++__all__ = ['GoodDataCLLexer']
++
++class GoodDataCLLexer(RegexLexer):
++    """
++    Lexer for GoodData-CL scripts.
++    """
++
++    name = 'GoodData-CL'
++    aliases = ['gooddata-cl']
++    filenames = ['*.gdc']
++    mimetypes = ['text/x-gooddata-cl']
++
++    flags = re.IGNORECASE
++    tokens = {
++        'root': [
++            # Comments
++            (r'#.*', Comment.Single),
++            # Function call
++            (r'[a-zA-Z0-9]+', Name.Function),
++            # Argument list
++            (r'\(', Token.Punctuation, 'args-list'),
++            # Punctuation
++            (r';', Token.Punctuation),
++            # Space is not significant
++            (r'\s', Text)
++        ],
++        'args-list': [
++            (r'\)', Token.Punctuation, '#pop'),
++            (r',', Token.Punctuation),
++            (r'[a-zA-Z0-9]+', Name.Variable),
++            (r'=', Operator),
++            (r'"', Literal.String, 'string-literal'),
++            (r'[0-9]+(?:\.[0-9]+)?(?:[eE][+-]?[0-9]{1,3})?', Literal.Number),
++            # Space is not significant
++            (r'\s', Text)
++        ],
++        'string-literal': [
++            (r'\\[tnrfbae"\\]', String.Escape),
++            (r'"', Literal.String, '#pop'),
++            (r'.', Literal.String)
++        ]
++    }
+diff -r 47467c9e554d -r a4bc27fc742d tests/examplefiles/kokot.gdc
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/tests/examplefiles/kokot.gdc	Tue Oct 26 18:36:48 2010 +0200
+@@ -0,0 +1,13 @@
++# Execute the date dimension MAQL script
++ExecuteMaql(maqlFile="examples/quotes/quote_date.maql");
++
++# load the stock quotes data file
++# the data file config has been generated
++LoadCsv(csvDataFile="examples/quotes/quotes.csv",
++	header="true",
++	configFile="examples/quotes/quotes.config.xml");
++
++# transfer the stock quotes data
++TransferLastSnapshot();
++
++LoadGoogleAnalytics(configFile="examples/ga/ga.config.xml",username="example@gmail.com",password="******",profileId="ga:7468896",dimensions="ga:date|ga:browser|ga:browserVersion|ga:country|ga:isMobile",metrics="ga:bounces|ga:newVisits|ga:pageViews|ga:visits",startDate="2008-01-01",endDate="2010-06-15");
