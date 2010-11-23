@@ -1,4 +1,5 @@
 ---
+title: MAQL Metrics
 layout: documentation
 stub: docs-maql-metrics
 ---
