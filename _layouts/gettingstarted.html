@@ -6,3 +6,35 @@ section: start
 <div id="gettingstarted">
 {{content}}
 </div>
+
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="{{ site.root }}/js/jquery.min.js"><\/script>')</script>
+<script src="{{ site.root }}/js/jquery.client.js" type="text/javascript" charset="utf-8"></script>
+<script src="{{ site.root }}/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+
+    var platform = $.cookie('platform');
+    if(platform == null) $.cookie('platform',$.client.os);
+    
+    var renderPlatforms = function() {
+        if ($.cookie('platform') == 'Windows') {
+            $('.platforms .unix').hide();
+            $('.platforms .win').show();
+        } else {
+            $('.platforms .win').hide();
+            $('.platforms .unix').show();
+        }
+    };
+    
+    $(document).ready(function() {
+        renderPlatforms();
+        
+        $('.platforms .switcher a').click(function(e) {
+            $.cookie('platform', $(this).attr('data-platform'));
+            renderPlatforms();
+            e.preventDefault();
+            return false;
+        });
+    });
+</script>
