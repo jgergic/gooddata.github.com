@@ -4,6 +4,30 @@ layout: documentation
 stub: faq
 ---
 
+# Limits
+
+<style>
+  table#limits { margin: 40px 0px; }
+  table#limits td, table#limits th { padding: 10px; }
+</style>
+
+<table id="limits">
+  <tr>
+    <th># of columns</th>
+    <td>60 cols / dataset</td>
+  </tr>
+  <tr>
+    <th># of rows</th>
+    <td>10^6 rows is fine, 10^7 rows is getting slow, more is bad</td>
+  </tr>
+  <tr>
+    <th>Length of a column</th>
+    <td>
+      <strong>Attribute:</strong> 128 characters by default, <a href="{{site.root}}/api/maql-ddl.html#performance">extensible</a> to 256 characters<br>
+      <strong>Fact:</strong> DECIMAL(12,2) by default (-10^10..10^10, 2 decimal places), <a href="{{site.root}}/api/maql-ddl.html#performance">extensible</a> to DECIMAL(15,6) (-10^15..10^15, 6 decimal places )
+    </td>
+  </tr>
+</table>
 # Product
 
 ### What is the GoodData Open Integration Framework?
