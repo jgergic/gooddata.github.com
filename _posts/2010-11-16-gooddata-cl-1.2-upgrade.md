@@ -17,5 +17,5 @@ Starting today when you download the latest version of GoodData CL, you will get
 
 ### Draw-backs:
 
-* you **cannot** use **CL v1.2 with older projects** created in v1.1 and earlier. Either create a new project or use this [migration guide](/2010/10/25/gooddata-cl-migration) to make your older project compatible. Contact us if you need help with the migration to 1.2
-* there are significant changes in the command set. Most `*.cmd` files will need to be updated. Most imporatntly `Load*` ⇒ `Use*`
+* you **cannot** use **CL v1.2 with older projects** created in v1.1 and earlier. Either create a new project or use this [migration guide](/blog/2010/10/25/gooddata-cl-migration) to make your older project compatible. Contact us if you need help with the migration to 1.2
+* there are significant changes in the command set. Most `*.cmd` files will need to be updated. Most importantly, `Load*` ⇒ `Use*`
