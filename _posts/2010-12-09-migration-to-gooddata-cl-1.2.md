@@ -1,6 +1,6 @@
 ---
-title: Major Upgrade to GoodData CL v1.2
-excerpt: The new v1.2 of GoodData CL (formerly the SLI branch) was released today. Before upgrading, read more here about the major changes and what it means for you.
+title: Major release - GoodData CL v1.2 - Migration &amp; New Features
+excerpt: New CL v1.2 was released today. Before upgrading, read here more about the major changes and how to migrate from your existing version.
 layout: post
 ---
 
