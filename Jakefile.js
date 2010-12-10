@@ -47,10 +47,8 @@ task('build-production', ['clean'], function() {
 
 desc('Push website to developer-beta');
 task('deploy-production', [], function() {
-    run_command('Uploading website...', 'echo "Review your changes in git, commit and push to origin"', function() {
-        sys.puts('done.');
-        complete();
-    });
+    sys.puts('Review your changes in git, commit and push to origin.');
+    complete();
 }, true);
 
 desc('Build and upload website');

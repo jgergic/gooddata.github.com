@@ -4,7 +4,6 @@ permalink: /blog/:year/:month/:day/:title
 lsi: false
 pygments: true
 
-
 #
 # Site configuration
 #
