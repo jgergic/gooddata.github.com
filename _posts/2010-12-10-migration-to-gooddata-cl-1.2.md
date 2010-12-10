@@ -6,7 +6,7 @@ layout: post
 
 # New GoodData CL Version 1.2 Is Here
 
-Starting today when you download the latest version of GoodData CL, you will get the new v1.2. It has been in preparation for weeks. Here is a run-down of new features and important migration information for existing projects:
+Starting today, when you download the latest version of GoodData CL, you will get the new v1.2. It has been in preparation for weeks. Here is a run-down of new features and important migration information for existing projects:
 
 ## New Features:
 
@@ -14,7 +14,7 @@ Starting today when you download the latest version of GoodData CL, you will get
 * does not use local MySQL/Derby database anymore (details in [previous post]({{ site.root }}/blog/2010/10/15/data-upload-apis))
 * this version also supports multiple profiles when loading into [Google Analytics]({{ site.root }}/blog/2010/10/26/google-analytics-multiple-profiles/) and has a separate tool for pushing [notification streams]({{ site.root }}/blog/2010/11/02/automated-notifications-messages/)
 * you can export all your metrics/reports/dashboards, back them up, and load them into another project (allowing you to clone projects, migrate your dashboards to a new project etc.)
-* you can use date dimension with time data
+* you can now use the built-in date dimension with time data
 
 ## Migration of Older Projects:
 
@@ -26,7 +26,7 @@ Your projects can either be used **exclusively either with CL 1.1 or with CL 1.2
 
    where `list-of-files` is a comma-separates list of paths to XML schema files that represent datasets that are to be migrated.
 
-2. Additionally, you'll need to modify your project model to adhere to the way the new version constructs data models. Only projects that contain datasets without any facts require this migration. If you try to load data to such project, you’ll most probably receive an error reading “Unknown import mode” or complaints about non-existing `factsof` attribute. If your project requires migration, you’ll need to execute a migration MAQL script via the `ExecuteMaql` command. The migration script deletes the ambiguous `factsof` attribute that has been created for the dataset’s `CONNECTION_POINT`.
+2. Additionally, you'll need to modify your project model to adhere to the way the new version constructs data models. Only projects that contain datasets without any facts require this migration. If you try to load data into such a project, you’ll most probably receive an error reading “Unknown import mode” or complaints about missing `factsof` attribute. If your project requires migration, you’ll need to execute a migration MAQL script via the `ExecuteMaql` command. The migration script deletes the ambiguous `factsof` attribute that has been created for the dataset’s `CONNECTION_POINT`.
 
    You'll need to run the `ALTER ATTRIBUTE` statement on the line 5 for every `REFERENCE` to the migrated dataset. You'll also need to `SYNCHRONIZE` all `REFERENCE` datasets.
 
@@ -70,14 +70,14 @@ Your projects can either be used **exclusively either with CL 1.1 or with CL 1.2
 
 **Changed Commands:**
 
-* `UseDateDimension` now supports time (`includeTime = <true | false>`), you need to use `<datetime>true</datetime>` element in your XML config to activate this and you must use `TransferData` command to load the time portion of the date dimension - see the XML and cmd files of [Forex example](https://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/forex).
-* support for `<dataType>` key directly in your [XML model]({{ site.root }}/gooddata-cl/xml-config.html)
+* `UseDateDimension` now supports time (`includeTime = <true | false>`), you need to use the `<datetime>true</datetime>` element in your XML config to activate this and you must use `TransferData` command to load the time portion of the date dimension - see the XML and cmd files of [Forex example](https://github.com/gooddata/GoodData-CL/tree/master/cli-distro/examples/forex).
+* support for the `<dataType>` key directly in your [XML schema]({{ site.root }}/gooddata-cl/xml-config.html)
 * new `IDENTITY` datatype creates a new column with a unique ID for each row of your dataset. It creates the ID as an MD5 hash of the whole row.
 * `DATE` format supports time, [see more]({{ site.root }}/gooddata-cl/xml-config.html)
 
 
 **Renamed Commands:**
-We've simplified/consolidated names of the CL tool commands. Old names are still working, however will be deprecated in the future:
+We've simplified/consolidated names of the CL tool commands. Old names are still working, however they will be deprecated in the future:
 
 * `Load*` -> `Use*`
 * `DropProject` -> `DeleteProject`
