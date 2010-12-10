@@ -30,7 +30,7 @@ Follow the quick [installation readme](/gooddata-cl/install.html).
 
 Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData CL Framework. You might use your own data file (make sure the first row contains headers):
 
--    ./bin/gdi.sh -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'
+    ./bin/gdi.sh -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'
 
 <!--div class="platforms">
   <pre class="unix"><code>./bin/gdi.sh -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'</code></pre>
@@ -43,7 +43,7 @@ This command generated a sample XML config file. Data types of your columns are 
 
 Save [this file](create.txt) as `create.txt` and run with `gdi.sh` script:
 
--    ./bin/gdi.sh -u [username] -p [password] create.txt
+    ./bin/gdi.sh -u <username> -p <password> create.txt
 
 <!--div class="platforms">
   <div class="switcher"><a href="#" data-platform="Windows">win</a><a href="unix" data-platform="UNIX">unix</a></div>
@@ -58,7 +58,7 @@ Now you can log into your project and visually verify your created attributes, f
 
 Save [another file](load.txt) as `load.txt` and run with `gdi.sh` script:
 
-    ./bin/gdi.sh -u [username] -p [password] load.txt
+    ./bin/gdi.sh -u <username> -p <password> load.txt
 
 <hr>
 
