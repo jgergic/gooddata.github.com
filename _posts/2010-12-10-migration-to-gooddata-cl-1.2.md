@@ -4,7 +4,7 @@ excerpt: New CL v1.2 was released today. Before upgrading, read here more about 
 layout: post
 ---
 
-# New Gooddata CL Version 1.2 Is Here
+# New GoodData CL Version 1.2 Is Here
 
 Starting today when you download the latest version of GoodData CL, you will get the new v1.2. It has been in preparation for weeks. Here is a run-down of new features and important migration information for existing projects:
 
