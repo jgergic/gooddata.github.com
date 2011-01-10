@@ -26,7 +26,7 @@ task('build', ['clean'], function() {
 
 desc('Push website to developer-beta');
 task('deploy', [], function() {
-    run_command('Uploading website...', '$(cd _site/ && tar czf - . | ssh root@jn.users.getgooddata.com \'cat | tar xzf - -C /opt/devsite/\')', function() {
+    run_command('Uploading website...', '$(cd _site/ && tar czf - . | ssh jakub@jn.users.getgooddata.com \'cat | tar xzf - -C /opt/devsite/\')', function() {
         sys.puts('done.');
         complete();
     });
