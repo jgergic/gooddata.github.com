@@ -47,6 +47,11 @@
     -moz-border-radius-bottomright: @radius;
     border-bottom-right-radius: @radius;
 }
+.inline-block {
+    display: inline-block;
+    zoom:1;
+    *display: inline;
+}
 
 @linkColor: #4183C4;
 @spacing: 40px;
@@ -176,18 +181,17 @@ html.boxshadow {
         z-index: 100;
         
         li {
-            display: inline-block;
             list-style: none;
             margin: 0;
             padding: 0;
             position: relative;
             font-weight: bold;
+            .inline-block;
             
             a:link, a:visited {
                 padding: 10px;
                 background-color: #ffffff;
                 border-right: 1px solid #bcd5db;
-                display: inline-block;
                 font: normal bold 13px/16px arial, sans-serif;
                 color: #4f6a73;
                 text-decoration: none;
@@ -195,7 +199,7 @@ html.boxshadow {
                 letter-spacing: 0px;
                 padding-left: 15px;
                 padding-right: 15px;
-                
+                .inline-block;
             }
             a:link.active, a:hover {
                 text-decoration: underline;
@@ -232,7 +236,7 @@ html.boxshadow {
     }
 
     .greenButton, .buttonsWrap button {
-        display: inline-block;
+      .inline-block;
         background-color: #6DAF37;
         -moz-border-radius:3px;
         -webkit-border-radius: 3px;
@@ -365,7 +369,13 @@ pre .dataColumn {
                     h3 {
                         font-size: 16px;
                         font-weight: bold;
-                        span { font-size: 2em; display: inline-block; vertical-align: middle; margin-top: -5px; margin-right: 5px; }
+                        span {
+                            font-size: 2em;
+                            .inline-block;
+                            vertical-align: middle;
+                            margin-top: -5px;
+                            margin-right: 5px;
+                        }
                     }
                     div.detail {
                         margin-bottom: @spacing / 2;
@@ -383,6 +393,7 @@ pre .dataColumn {
         right: 20px;
         top: 60px;
         margin-left: 600px;
+        max-width: 225px;
         
         h3 {
             font-size: 1.5em;
@@ -531,7 +542,10 @@ pre .dataColumn {
         position: absolute;
         right: @spacing;
         top: @spacing;
-        a { display: inline-block; text-decoration: none; }
+        a {
+            .inline-block;
+            text-decoration: none;
+        }
         img { border: 0px none; vertical-align: middle; margin-bottom: 3px; margin-right: 5px; }
     }
 }
@@ -552,7 +566,7 @@ pre .dataColumn {
         padding: 0px;
 /*        background: url('../images/getting-started/menu.png') no-repeat scroll 0px -80px;*/
         div {
-            display: inline-block;
+            .inline-block;
             margin-right: 5px;
             height: @menu-height - 2*@padding;
             line-height: @menu-height - 2*@padding;
