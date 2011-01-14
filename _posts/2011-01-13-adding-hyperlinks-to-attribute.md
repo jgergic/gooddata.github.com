@@ -1,16 +1,16 @@
 ---
-title: Adding Hyperlink to Your Attributes
+title: Adding Hyperlinks to Your Attributes
 excerpt: A short guide to using custom MAQL DDL to add hyperlinks your report headers, which can integrate with external applications
 layout: post
 ---
 
 # {{ page.title }}
 
-When analyzing data from online applications (Salesforce, Zendesk, etc.) it makes a lot of sense to set up some attributes to be clickable hyperlinks leading back to the original data. Take this example of Susan's open support tickets in Zendesk, along with the age of the tickets:
+When analyzing data from online applications (Salesforce, Zendesk, etc.), it makes a lot of sense to set up some attributes to be clickable hyperlinks leading back to the original data. Take this *example* of Susan's open support tickets in Zendesk, along with the age of the tickets:
 
 ![Open Tickets]({{ site.root }}/images/posts/2011-01-13-open-tickets.png)
 
-Wouldn't it be nice if you could click on the ID of the individual support ticket and open it directly back in Zendesk? Well let's have a look how we can get this done.
+Wouldn't it be nice if you could click on the ID of the individual support ticket and open it directly back in the original application? Well let's have a look at how we can get this done.
 
 First, we'll need to extend our original data with a new column `URL` containing the link for each ticket:
 
@@ -61,6 +61,8 @@ ExecuteMaql(maqlFile="update.maql");
 TransferData();
 {% endhighlight %}
 
-The same report as before now shows hyperlinks on each ticket ID that can be clicked to open a new window with the original ticket in Zendesk. If the window doesn't open for you, your browser is probably blocking pop-up windows and you might need to allow `secure.gooddata.com` to open popups (below is an example from Chrome).
+The same report as before now shows hyperlinks on each ticket ID that can be clicked to open a new window with the original ticket in Zendesk. 
 
-![Allow Popups]({{ site.root }}/images/posts/2011-01-13-allow-popups.png)
+![Hyperlinked Open Tickets]({{ site.root }}/images/posts/2011-01-13-open-tickets-hyperlinked.png)
+
+(**Note**: If the window doesn't open for you, your browser is probably blocking pop-up windows and you might need to allow `secure.gooddata.com` to open popups.)
