@@ -147,7 +147,6 @@ Original MAQL pre-pygmentize:
 
 ![By All In All Other]({{ site.root }}/images/docs/maql/by-all-everywhere.png)
 
+## Further Reading
 
-##Filtering
-
-…to be continued…
+More documentation on MAQL metrics including filtering, time-based floating filters, year-to-date metrics etc. can be found in our [MAQL section](https://secure.gooddata.com/docs/html/reference.guide.maql.html) of [GoodData reference guide](https://secure.gooddata.com/docs/html/reference.guide.html).
