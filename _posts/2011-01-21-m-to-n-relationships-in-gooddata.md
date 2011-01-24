@@ -1,6 +1,6 @@
 ---
 title: Modeling M:N relationships in GoodData
-excerpt: A short guide to using custom MAQL DDL to add hyperlinks your report headers, which can integrate with external applications
+excerpt: How-to guide to constructing M:N relationships in model in GoodData and examples on how to use this in metrics using MAQL with enforced aggregations
 layout: post
 ---
 
