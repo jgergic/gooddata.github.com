@@ -35,34 +35,34 @@ As you can see the `Tags` attribute is disabled. This happens because GoodData d
 Fortunatelly, there is a way in advanced MAQL to override this default behavior via enforced aggregation rules. First, let's modify our metric like this:
 
     {% comment %}
-	SELECT SUM(ResolutionTime) BY Ticket, ALL IN ALL OTHER DIMENSIONS
+	SELECT AVG(ResolutionTime) BY Ticket, ALL IN ALL OTHER DIMENSIONS
     {% endcomment %}
 
-<div class="highlight"><pre><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="nv">ResolutionTime</span><span class="p">)</span> <span class="k">BY</span> <span class="nv">Ticket</span><span class="p">,</span> <span class="k">ALL IN ALL OTHER DIMENSIONS</span>
+<div class="highlight"><pre><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="nv">ResolutionTime</span><span class="p">)</span> <span class="k">BY</span> <span class="nv">Ticket</span><span class="p">,</span> <span class="k">ALL IN ALL OTHER DIMENSIONS</span>
 </pre></div>
 
 The `BY` section now specifies that the metric should be aggregated on a per-ticket level and should ignore any attributes from other dimensions when being computed. Now it is already possible to add the `Tag` to the report, but still the result is still not what we intended:
 
 ![Tags Metric Identical]({{ site.root }}/images/posts/2011-01-21-m-to-n-modeling-tags-identical.png)
 
-The metric behaves exactly as - it aggregates `ResolutionTime` for each `Ticket`, but as tickets are not directly connected to tags, it ignores any attributes from other dimensions (`ALL IN ALL OTHER`) - and produces a sum of **all data** in your warehouse.
+The metric behaves exactly as - it aggregates `ResolutionTime` for each `Ticket`, but as tickets are not directly connected to tags, it ignores any attributes from other dimensions (`ALL IN ALL OTHER`) - and produces a average of **all data** in your warehouse.
 
 ## Wrap In a Different Aggregation
 
-If we were to add Tickets to the report above, we would see each ticket containing all tags - since for each ticket-tag combination, the metric just computes value over the whole warehouse. Now comes **the trick** - use this as a sub-metric and add a metric computed at the TicketTags aggregation level (and multiplying it by 0 we eliminate it from influencing the result):
+If we were to add Tickets to the report above, we would see each ticket containing all tags - since for each ticket-tag combination, the metric just computes value over the whole warehouse. Now comes **the trick** - use this as a sub-metric and add a fact at the TicketTags level (and multiplying it by 0 we eliminate it from influencing the result):
 
     {% comment %}
-    SELECT SUM(
+    SELECT AVG(
     	(SELECT SUM(ResolutionTime) BY Ticket, ALL IN ALL OTHER DIMENSIONS)
     	+
-    	(0 * SELECT SUM(Dummy) BY TicketTag)
+    	(0 * Dummy)
     )
     {% endcomment %}
 
-<div class="highlight"><pre><span class="k">SELECT SUM</span><span class="p">(</span>
+<div class="highlight"><pre><span class="k">SELECT AVG</span><span class="p">(</span>
 	<span class="p">(</span><span class="k">SELECT SUM</span><span class="p">(</span><span class="nv">ResolutionTime</span><span class="p">)</span> <span class="k">BY</span> <span class="nv">Ticket</span><span class="p">,</span> <span class="k">ALL IN ALL OTHER DIMENSIONS</span><span class="p">)</span>
 	<span class="o">+</span>
-	<span class="p">(</span><span class="mi">0</span> <span class="o">*</span> <span class="k">SELECT SUM</span><span class="p">(</span><span class="nv">Dummy</span><span class="p">)</span> <span class="k">BY</span> <span class="nv">TicketTag</span><span class="p">)</span>
+	<span class="p">(</span><span class="mi">0</span> <span class="o">*</span> <span class="nv">Dummy</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -80,7 +80,7 @@ In retrospect, let's have a look how we achieved M:N modeling in GoodData:
 
 1. we split the Ticket-Tag M:N relationship into two 1:N and 1:M relationships using a "joining" `TicketTag` attribute and included a "dummy" fact with this attribute
 2. we defined an "inner" metric with enforced aggregation by the `Ticket` (and by `ALL IN ALL OTHER DIMENSIONS`)
-3. we wrapped the inner metric in an outter metric, used the `Dummy` fact to filter out just the ticket-tag pairs that exist and "repositioned" the outter aggregation to TicketTag level
+3. we wrapped the inner metric in an outter metric, used the `Dummy` fact to filter out just the ticket-tag pairs that exist and "repositioned" the aggregation to TicketTag level
 4. we constructed the final report sliced by `Tag`
 
 
