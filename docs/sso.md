@@ -8,7 +8,7 @@ stub: docs-sso
 
 ## Overview
 
-GoodData SSO is currently available on a per-request basis with individual partners. Both-sided cooperation is required in setting up the SSO. The process usually takes around 1 month. SSO is currently available for IFRAME embeds of individual reports or whole dashboards. The SSO allows 3rd-party partners to generate a unique URL asking GoodData to authorize viewer of that IFRAME as a specific user. User is then automatically logged into GoodData and able to view a specific dashboard/report without further interaction.
+GoodData SSO is currently available on a per-request basis with individual partners. Both-sided cooperation is required in setting up the SSO. The process usually takes around 2 weeks. SSO is currently available for IFRAME embeds of individual reports or whole dashboards. The SSO allows 3rd-party partners to generate a unique URL asking GoodData to authorize viewer of that IFRAME as a specific user. User is then automatically logged into GoodData and able to view a specific dashboard/report without further interaction.
 
 ## Motivation / Example
 
@@ -18,10 +18,10 @@ Acme Corp. runs an online application for their users. They would like to expose
 
 1. Partner generates an public-private PGP keypair. (You can use these setup instructions for [UNIX](http://www.gnupg.org/gph/en/manual.html#AEN26) or [Windows](http://theillustratednetwork.mvps.org/Ssh/Private-publicKey.html))
 2. Partner sends the public part of the keypair to support@gooddata.com and a couple email addresses for testing accounts (we'll setup these accounts with SSO functionality enabled)
-3. GoodData provisions a custom development server with the SSO-activated accounts and provides Partner with GoodData public key (~ 1 week)
+3. GoodData provisions a custom development server with the SSO-activated accounts and provides Partner with GoodData public key
 4. Partner tests his implementation against this development server and verifies it is functional
 5. Partner sends a list of email addresses of accounts to be enabled for SSO authentication. *Note:* these must be new account email addresses, pre-existing accounts currently cannot be converted to SSO.
-6. GoodData deploys the new SSO keys and accounts to production environment (~ 2 weeks based on current release schedule)
+6. GoodData deploys the new SSO keys and accounts to production environment
 
 ## Implementation Details
 
