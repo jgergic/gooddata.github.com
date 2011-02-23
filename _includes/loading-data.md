@@ -30,7 +30,7 @@ Follow the quick [installation readme](/gooddata-cl/install.html).
 
 Run the `gdi.sh` script, generate a XML config file describing your data. The example uses a file in your GoodData CL Framework. You might use your own data file (make sure the first row contains headers):
 
-    ./bin/gdi.sh -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'
+    ./bin/gdi.sh -e "GenerateCsvConfig(csvHeaderFile='examples/quotes/quotes.csv',configFile='config.xml');"
 
 <!--div class="platforms">
   <pre class="unix"><code>./bin/gdi.sh -e 'GenerateCsvConfig(csvHeaderFile="examples/quotes/quotes.csv",configFile="config.xml");'</code></pre>
