@@ -17,5 +17,5 @@ stub: gooddata-cl-commands
     -V, --version         Prints out the tool version
     file                  path to script file with commands to execute
 
-{% include gdcl/cli-distro/doc/CLI.md %}
+{% include gdcl-static/cli-distro/doc/CLI.md %}
 <div class="next">Next:&nbsp;<a href="{{ site.root }}/gooddata-cl/examples/">Usage Examples&nbsp;▶</a></div>

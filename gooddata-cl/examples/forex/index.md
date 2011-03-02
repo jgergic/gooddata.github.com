@@ -4,4 +4,4 @@ layout: gdcl-examples
 stub: gooddata-cl-examples-forex
 ---
 
-{% include gdcl/cli-distro/examples/forex/README.md %}
+{% include gdcl-static/cli-distro/examples/forex/README.md %}

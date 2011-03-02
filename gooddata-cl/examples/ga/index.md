@@ -4,4 +4,4 @@ layout: gdcl-examples
 stub: gooddata-cl-examples-ga
 ---
 
-{% include gdcl/cli-distro/examples/ga/README.md %}
+{% include gdcl-static/cli-distro/examples/ga/README.md %}

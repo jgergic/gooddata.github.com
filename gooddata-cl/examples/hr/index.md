@@ -4,4 +4,4 @@ layout: gdcl-examples
 stub: gooddata-cl-examples-hr
 ---
 
-{% include gdcl/cli-distro/examples/hr/README.md %}
+{% include gdcl-static/cli-distro/examples/hr/README.md %}

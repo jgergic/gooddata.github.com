@@ -4,4 +4,4 @@ layout: gdcl
 stub: gooddata-cl-architecture
 ---
 
-{% include gdcl/doc/README.md %}
+{% include gdcl-static/doc/README.md %}

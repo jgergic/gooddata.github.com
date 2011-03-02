@@ -4,4 +4,4 @@ layout: gdcl-examples
 stub: gooddata-cl-examples-sfdc
 ---
 
-{% include gdcl/cli-distro/examples/sfdc/README.md %}
+{% include gdcl-static/cli-distro/examples/sfdc/README.md %}

@@ -4,4 +4,4 @@ layout: gdcl-examples
 stub: gooddata-cl-examples-jdbc
 ---
 
-{% include gdcl/cli-distro/examples/jdbc/README.md %}
+{% include gdcl-static/cli-distro/examples/jdbc/README.md %}
