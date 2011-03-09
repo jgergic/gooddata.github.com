@@ -28,9 +28,9 @@ Acme Corp. runs an online application for their users. They would like to expose
 1. Obtain IFRAME embed code from GoodData website (by clicking on the `Embed` link)
 2. Save the original URL on the side and replace it with this URL:
 
-        <iframe src="https://secure.gooddata.com/gdc/account/customerlogin
-         sessionId=<token>&serverURL=<your-company>
-         &targetURL=<url-encoded-original-URL"/>
+        <iframe src="https://secure.gooddata.com/gdc/account/customerlogin?
+         sessionId=<token>&amp;serverURL=<your-company>
+         &amp;targetURL=<url-encoded-original-URL"/>
 
    • the `your-company` parameter is a value uniquely specifying your server (for example http://example.com)  
    • the `token` parameter needs to be dynamically generated based on user you want to authenticate via the following steps
