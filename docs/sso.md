@@ -16,7 +16,7 @@ Acme Corp. runs an online application for their users. They would like to expose
 
 ## Implementation Timeline
 
-1. Partner generates an public-private PGP keypair. (You can use these setup instructions for [UNIX](http://www.gnupg.org/gph/en/manual.html#AEN26) or [Windows](http://theillustratednetwork.mvps.org/Ssh/Private-publicKey.html))
+1. Partner generates an public-private PGP keypair. (You can use these setup instructions for [UNIX](http://www.gnupg.org/gph/en/manual.html#AEN26) or [Windows](http://www.coresecure.com/v5/gnupg.html))
 2. Partner sends the public part of the keypair to support@gooddata.com and a couple email addresses for testing accounts (we'll setup these accounts with SSO functionality enabled)
 3. GoodData provisions a custom development server with the SSO-activated accounts and provides Partner with GoodData public key
 4. Partner tests his implementation against this development server and verifies it is functional
