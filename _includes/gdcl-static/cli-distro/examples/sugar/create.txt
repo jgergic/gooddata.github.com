@@ -1,0 +1,26 @@
+# A simple example that creates a Sugar CRM data model
+# see full command documentation at http://developer.gooddata.com/gooddata-cl/cli-commands.html
+
+# CREATE A NEW PROJECT
+#CreateProject(name="Sugar CRM");
+
+# Store the project ID to file for possible other scripts
+UseProject(fileName="examples/sugar/pid");
+
+# CREATE THE ACCOUNT
+#UseSugarCrm(configFile="examples/sugar/account.xml",host="trial.sugarcrm.com/dcowhv3912", username="jim", password="jim", entity="Accounts", fields="id, id, name, website, industry, rating");
+#TransferData();
+
+# CREATE THE USER
+#UseSugarCrm(configFile="examples/sugar/user.xml",host="trial.sugarcrm.com/dcowhv3912", username="jim", password="jim", entity="Users", fields="user_name, user_name, user_name, first_name, last_name, email1, department, team_name");
+#TransferData();
+
+# CREATE THE OPPORTUNITY
+#UseSugarCrm(configFile="examples/sugar/opportunity.xml",host="trial.sugarcrm.com/dcowhv3912", username="jim", password="jim", entity="Opportunities", fields="id, id, name, url, lead_source, opportunity_type, sales_stage");
+#TransferData();
+
+# CREATE THE OPPORTUNITY
+UseSugarCrm(configFile="examples/sugar/opportunitysnapshot.xml",host="trial.sugarcrm.com/dcowhv3912", username="jim", password="jim", entity="Opportunities", fields="id, id, date_entered, date_closed, sales_stage, probability, amount, amount, date_modified, date_closed, assigned_user_name, accounts.id");
+Dump(csvFile="examples/sugar/opportunitysnapshots.csv");
+#TransferData();
+
