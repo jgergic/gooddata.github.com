@@ -8,7 +8,7 @@ stub: api-maql-ddl
 
 <p><strong>MAQL</strong> (Multidimensional Query Language) is a simple yet powerful query language that provides an underpinning of GoodData&#8217;s reporting capabilities. It&#8217;s extension <strong>MAQL DDL</strong> (MAQL Data Definition Language) is used for building and adapting a data model.</p>
 
-<h1 id="getting_started">Getting Started</h1>
+<h2 id="getting_started">Getting Started</h2>
 
 Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#8217;s core, there are three most important commands to choose from: <strong>CREATE</strong>, <strong>ALTER</strong> and <strong>DROP</strong>. These commands can be applied to objects forming the data model:
 
@@ -19,13 +19,13 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <p>You can try the MAQL commands featured here directly in the REST API interface, just go to http://secure.gooddata.com/gdc/md/&lt;project&gt;/ldm/manage (replacing project with your own project's MD5 hash). It's good to mention as well that you can enter multiple commands into the text field. They will all execute together as part of a transaction and if any of them fails none of them will be applied.</p>
 
-<h1 id="identifiers">Identifiers</h1>
+<h2 id="identifiers">Identifiers</h2>
 
 <p>Throughout the MAQL script samples below, words enclosed in {curly brackets} denote <em>identifiers</em>. Think of them as human-readable IDs that you can assign to objects and refer to them in other objects. Once an object is created, the identifier is persistent and cannot be changed. You can choose your own naming conventions for identifiers (in the examples below we often put identifiers into "namespace" by prefixing them with "folder.", "fact." etc.) Identifiers can contain alphanumeric characters, underscore and dot (ie. <code>[A-Za-z0-9_\.]</code>).</p>
 
 <p class="note"><strong>Note:</strong> The only exception, where identifier name has to follow certain structure is <em>data column identifiers</em>. These identifiers reference specific data columns in data files that you upload through the upload API. These are structured in <a href="http://en.wikipedia.org/wiki/Third_normal_form">3NF</a>. The identifiers must take form of <code>file.column</code>. The <code>file</code> part corresponds to the data file, while column corresponds to a specific column. All columns that in 3NF share a common file must also share the same prefix in their identifiers. In examples below, <em>data column identifiers</em> are <span class="dataColumn">highlighted</span>.</p>
 
-<h1 id="synchronize">Synchronize</h1>
+<h2 id="synchronize">Synchronize</h2>
 
 <p>Whatever commands you perform, they affect the &#8220;logical data model&#8221; - ie. a formal representation of your data. Underneath this abstraction layer is a &#8220;physical data model&#8221; that GoodData uses to perform computations. After you finish applying your changes through MAQL DDL, if those changes have impacted the physical data model you must call the <code>SYNCHRONIZE</code> command to reflect your changes from logical to physical model. You can think of this as &#8220;preparing&#8221; your changes and then committing them. Visual changes (names, descriptions, membership in folders etc.) don't need to be synchronized to the physical model.</p>
 
@@ -34,7 +34,7 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <p class="warning"><strong>WARNING:</strong> Calling <code>SYNCHRONIZE</code> will change the physical storage underneath the project and will empty all data and require you to reload all your data again. Without calling the <code>SYNCHRONIZE</code> command at the end of your changes, you will be left with a <strong>broken</strong> project that won&#8217;t function properly. It is essential that you <code>SYNCHRONIZE</code> whenever you make changes.</p>
 
-<h1 id="dataset">Dataset</h1>
+<h2 id="dataset">Dataset</h2>
 
 <p>Since dataset is just a named container for attributes and facts, creating and modifying it is fairly simple:</p>
 
@@ -62,7 +62,7 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 <p class="note"><strong>Note:</strong> one attribute or fact should always belong to exactly one dataset (not more, not less). Otherwise the validation of the project will fail.</p>
 
-<h1 id="attribute">Attribute</h1>
+<h2 id="attribute">Attribute</h2>
 
 <p>An attribute is the unit that allows you to specify how to aggregate (or slice) your data. Examples would include: Assignee, City, Day, ID, Group etc. Attributes can optionally have additional <strong>labels</strong>. These are alternate string representation of the <em>same semantic value</em>. For example a person John Doe is the same person, regardless if they are visualized as &quot;J. Doe&quot;, &quot;Doe, John&quot;, &quot;Johnny&quot; etc. Or &quot;Jan 10&quot;, &quot;January 2010&quot; and &quot;01/2010&quot;.</p>
 
@@ -79,7 +79,7 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 
 
 
-<h1 id="fact">Fact</h1>
+<h2 id="fact">Fact</h2>
 
 <h3 id="create_fact">CREATE FACT</h3>
 
@@ -91,7 +91,7 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 <pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">FACT</span> <span class="nv">{fact.quotes.open_price}</span> <span class="k">ADD</span> <span class="nv dataColumn">{f_quotes2.f_open_price}</span><span class="p">;</span></code></pre>
 
 
-<h1 id="folder">Folder</h1>
+<h2 id="folder">Folder</h2>
 
 <p>Folders are used to visually organize facts or attributes and metrics for the user. Folders are types - ie. they can only contain objects of one kind (hence the TYPE section).</p>
 
@@ -109,7 +109,7 @@ Similar to the core MAQL, DDL syntax is simple and reminiscent of SQL. At it&#82
 <pre class="highlight"><code class="maql"><span class="k">ALTER</span> <span class="k">FOLDER</span> <span class="nv">{folder.quotes.attr}</span> <span class="k">VISUAL</span><span class="p">(</span><span class="k">TITLE</span> <span class="s">&quot;Quotes Attributes&quot;</span><span class="p">);</span></code></pre>
 
 
-<h1 id="performance">Performance Optimization</h1>
+<h2 id="performance">Performance Optimization</h2>
 
 <p>There are several useful techniques to optimize the data model for performance. In general it is a good idea to talk to our support for data model optimizations, but here are a few techniques to get you started:</p>
 
